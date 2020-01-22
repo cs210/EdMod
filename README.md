@@ -1,12 +1,12 @@
 # EDUCO
 
-<img src="https://i.imgur.com/mX3OBNV.png" alt="Seer" width="540" height="185">
+<img src="https://www.brandcrowd.com/gallery/brands/pictures/picture13173648788619.jpg" alt="Educo" width="540" height="185">
 
-SeeR is leveraging the power of deep learning to maximize the security of cloud-connected embedded devices.
+Educo is empowering teachers with an AI assistant. 
 
-[Team Song](https://www.youtube.com/embed/a01QQZyl-_I)
+[Team Song](https://www.youtube.com/watch?v=JC82Il2cjqA)
 
-[Code Repository](https://github.com/alanefl/seer)
+[Code Repository](https://github.com/LACoderDeBH/edMod/)
 
 # Team Members
 Member | Email | Photo
@@ -21,7 +21,7 @@ Alan Flores-Lopez | alanf94@stanford.edu | <img src="https://i.imgur.com/y6WLV1M
 
 Member | Hat | Technical Skills | Non-Technical Skills | Personal Traits | Desired Growth | Weaknesses
 --- | --- | --- | --- | --- | --- | ---
-Susana | Yellow | AI/NLP, Python, C++ | Leadership skills, rapid prototyping, experimentation, interviewing people | Logical, cautious, motivated | Product management skills, embedded systems, cybersecurity | Presentation skills, time management
+Susana | Yellow | AI/NLP, Python, C++, React, ReactNative, NodeJS, MongoDB, Firebase | Presentation Skills, Time management / task timeline organizer, leadership skills, user interviews, getting everyone's input and buy in | Thoughtful, resilient, kind, hard working | Implementing lifecycle AI models  | Leveraging cloud services for AI models
 Isaiah | Black | AI/ML, Python, Backend |  | Logical, flexible, optimistic | Project management and presentation skills | UI/UX
 John | Black/Yellow | Python, AI/ML, quick prototyping | Small-team work, international work environments | Planner, group-oriented, cautious | UI/UX research and design, security, AI/ML lifecycle | Presentation, prioritization, systems
 Sarah | Blue | Systems, networking, testing | Decision making, some project management, time management | Motivated, logical, direct | Embedded systems & cybersecurity / launching attacks | AI, can be too blunt
