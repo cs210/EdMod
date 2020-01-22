@@ -13,7 +13,7 @@ Member | Email | Photo
 --- | --- | ---
 Susana Benavidez | sbenavid@stanford.edu | <img src="https://pbs.twimg.com/profile_images/1212062544715665410/aIB6LaxE_400x400.jpg" alt="Susana Benavidez" width="157.5" height="157.5">
 Isaiah Bush | itbush@stanford.edu | 
-John Kamalu | jkamalu@stanford.edu | <img src="https://i.imgur.com/pebY6bg.jpg" alt="John Kamalu" width="157.5" height="201">
+John Chuter | jchuter@stanford.edu | <img src="https://imgur.com/0MXcoi9" alt="John Chuter" width="157.5" height="201">
 Sarah Tollman  | stollman@stanford.edu | <img src="https://i.imgur.com/2RB416X.jpg" alt="Sarah Tollman" width="157.5" height="164.4">
 Alan Flores-Lopez | alanf94@stanford.edu | <img src="https://i.imgur.com/y6WLV1M.jpg" alt="Alan Flores-Lopez" width="157.5" height="210">
 
