@@ -1,4 +1,4 @@
-# SeeR
+# EDUCO
 
 <img src="https://i.imgur.com/mX3OBNV.png" alt="Seer" width="540" height="185">
 
