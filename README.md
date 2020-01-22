@@ -23,7 +23,7 @@ Member | Hat | Technical Skills | Non-Technical Skills | Personal Traits | Desir
 --- | --- | --- | --- | --- | --- | ---
 Susana | Yellow | AI/NLP, Python, C++, React, ReactNative, NodeJS, MongoDB, Firebase | Presentation Skills, Time management / task timeline organizer, leadership skills, user interviews, getting everyone's input and buy in | Thoughtful, resilient, kind, hard working | Implementing lifecycle AI models  | Leveraging cloud services for AI models, UX/UI, design
 Isaiah | Black | AI/ML, Python, Backend |  | Logical, flexible, optimistic | Project management and presentation skills | UI/UX
-John | Black/Yellow | Python, AI/ML, quick prototyping | Small-team work, international work environments | Planner, group-oriented, cautious | UI/UX research and design, security, AI/ML lifecycle | Presentation, prioritization, systems
+John | Green | AI/ML, Android+iOS+xPlatform | Talking | Persistent, Optimistic | NLP | Inefficient
 Sarah | Blue | Systems, networking, testing | Decision making, some project management, time management | Motivated, logical, direct | Embedded systems & cybersecurity / launching attacks | AI, can be too blunt
 Alan | Black | Python, systems design, systems security, some AI/deep learning | Facilitating groups, managing schedules and tasks | Precise, consistent, reliable, introverted, thinks of the larger picture | IoT security, applying deep learning, group dynamics, managing a budget | Can be fickle, sometimes hard to convince, introverted
 
