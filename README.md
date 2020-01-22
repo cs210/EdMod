@@ -1,3 +1,6 @@
+# TODO (as team):
+1. team comms; how we contact each other (iMessage, email, other?), how tteam contacts us (email, special group?)
+
 # EDUCO
 
 <img src="https://www.brandcrowd.com/gallery/brands/pictures/picture13173648788619.jpg" alt="Educo" width="300" height="185">
