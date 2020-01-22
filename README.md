@@ -1,6 +1,6 @@
 # EDUCO
 
-<img src="https://www.brandcrowd.com/gallery/brands/pictures/picture13173648788619.jpg" alt="Educo" width="540" height="185">
+<img src="https://www.brandcrowd.com/gallery/brands/pictures/picture13173648788619.jpg" alt="Educo" width="300" height="185">
 
 Educo is empowering teachers with an AI assistant. 
 
@@ -21,7 +21,7 @@ Alan Flores-Lopez | alanf94@stanford.edu | <img src="https://i.imgur.com/y6WLV1M
 
 Member | Hat | Technical Skills | Non-Technical Skills | Personal Traits | Desired Growth | Weaknesses
 --- | --- | --- | --- | --- | --- | ---
-Susana | Yellow | AI/NLP, Python, C++, React, ReactNative, NodeJS, MongoDB, Firebase | Presentation Skills, Time management / task timeline organizer, leadership skills, user interviews, getting everyone's input and buy in | Thoughtful, resilient, kind, hard working | Implementing lifecycle AI models  | Leveraging cloud services for AI models
+Susana | Yellow | AI/NLP, Python, C++, React, ReactNative, NodeJS, MongoDB, Firebase | Presentation Skills, Time management / task timeline organizer, leadership skills, user interviews, getting everyone's input and buy in | Thoughtful, resilient, kind, hard working | Implementing lifecycle AI models  | Leveraging cloud services for AI models, UX/UI, design
 Isaiah | Black | AI/ML, Python, Backend |  | Logical, flexible, optimistic | Project management and presentation skills | UI/UX
 John | Black/Yellow | Python, AI/ML, quick prototyping | Small-team work, international work environments | Planner, group-oriented, cautious | UI/UX research and design, security, AI/ML lifecycle | Presentation, prioritization, systems
 Sarah | Blue | Systems, networking, testing | Decision making, some project management, time management | Motivated, logical, direct | Embedded systems & cybersecurity / launching attacks | AI, can be too blunt
