@@ -12,7 +12,7 @@ SeeR is leveraging the power of deep learning to maximize the security of cloud-
 Member | Email | Photo
 --- | --- | ---
 Susana Benavidez | sbenavid@stanford.edu | <img src="https://pbs.twimg.com/profile_images/1212062544715665410/aIB6LaxE_400x400.jpg" alt="Susana Benavidez" width="157.5" height="157.5">
-Pratyaksh (Praty) Sharma | praty@stanford.edu | <img src="https://i.imgur.com/qpkakAD.jpg" alt="Praty Sharma" width="157.5" height="157.5">
+Isaiah Bush | itbush@stanford.edu | 
 John Kamalu | jkamalu@stanford.edu | <img src="https://i.imgur.com/pebY6bg.jpg" alt="John Kamalu" width="157.5" height="201">
 Sarah Tollman  | stollman@stanford.edu | <img src="https://i.imgur.com/2RB416X.jpg" alt="Sarah Tollman" width="157.5" height="164.4">
 Alan Flores-Lopez | alanf94@stanford.edu | <img src="https://i.imgur.com/y6WLV1M.jpg" alt="Alan Flores-Lopez" width="157.5" height="210">
@@ -22,7 +22,7 @@ Alan Flores-Lopez | alanf94@stanford.edu | <img src="https://i.imgur.com/y6WLV1M
 Member | Hat | Technical Skills | Non-Technical Skills | Personal Traits | Desired Growth | Weaknesses
 --- | --- | --- | --- | --- | --- | ---
 Susana | Yellow | AI/NLP, Python, C++ | Leadership skills, rapid prototyping, experimentation, interviewing people | Logical, cautious, motivated | Product management skills, embedded systems, cybersecurity | Presentation skills, time management
-Praty | White | Deep learning, Systems, Python, some cybersecurity | Team facilitator, leadership skills | Logical, flexible, optimistic | Project management and presentation skills | UI/UX, time management
+Isaiah | Black | AI/ML, Python, Backend |  | Logical, flexible, optimistic | Project management and presentation skills | UI/UX
 John | Black/Yellow | Python, AI/ML, quick prototyping | Small-team work, international work environments | Planner, group-oriented, cautious | UI/UX research and design, security, AI/ML lifecycle | Presentation, prioritization, systems
 Sarah | Blue | Systems, networking, testing | Decision making, some project management, time management | Motivated, logical, direct | Embedded systems & cybersecurity / launching attacks | AI, can be too blunt
 Alan | Black | Python, systems design, systems security, some AI/deep learning | Facilitating groups, managing schedules and tasks | Precise, consistent, reliable, introverted, thinks of the larger picture | IoT security, applying deep learning, group dynamics, managing a budget | Can be fickle, sometimes hard to convince, introverted
