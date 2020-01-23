@@ -18,7 +18,7 @@ Susana Benavidez | sbenavid@stanford.edu | <img src="https://pbs.twimg.com/profi
 Isaiah Bush | itbush@stanford.edu | 
 John Chuter | jchuter@stanford.edu | <img src="https://imgur.com/0MXcoi9.jpg" alt="John Chuter" width="157.5" height="157.5">
 Stephanie Brito  | sbrito@stanford.edu | <img src="https://i.imgur.com/bQ3IRME.jpg?1" alt="Stephanie Brito" width="157.5" height="157.5">
-Alan Flores-Lopez | alanf94@stanford.edu | <img src="https://i.imgur.com/y6WLV1M.jpg" alt="Alan Flores-Lopez" width="157.5" height="210">
+Austin Chow | archow@stanford.edu | <img src="https://i.imgur.com/y6WLV1M.jpg" alt="Austin Chow" width="157.5" height="210">
 
 # Team Skills Matrix:
 
@@ -28,7 +28,7 @@ Susana | Yellow | AI/NLP, Python, C++, React, ReactNative, NodeJS, MongoDB, Fire
 Isaiah | Black | AI/ML, Python, Backend |  | Logical, flexible, optimistic | Project management and presentation skills | UI/UX
 John | Green | AI/ML, Android+iOS+xPlatform | Talking | Persistent, Optimistic | NLP | Inefficient
 Sarah | Blue | Systems, networking, testing | Decision making, some project management, time management | Motivated, logical, direct | Embedded systems & cybersecurity / launching attacks | AI, can be too blunt
-Alan | Black | Python, systems design, systems security, some AI/deep learning | Facilitating groups, managing schedules and tasks | Precise, consistent, reliable, introverted, thinks of the larger picture | IoT security, applying deep learning, group dynamics, managing a budget | Can be fickle, sometimes hard to convince, introverted
+Austin | Blue | Python, Java, Javascript, React, Flask | Design Thinking, UI/UX, Leadership | Consistent, reliable, hard working | Product management, group dynamics | Self-critical
 
 
 # Team Communication:
