@@ -1,8 +1,9 @@
 <!--
 # TODO (as team):
+// testing command line push -J 
 1. team comms; how we contact each other (iMessage, email, other?), how tteam contacts us (email, special group?)
 
-Make slack channel 
+Make slack channel
 
 2. Poll for availability: let's nail down time on our calendar to get work done
 -->
@@ -10,7 +11,7 @@ Make slack channel
 
 <img src="https://i.imgur.com/oH1r8nv.jpg?1" alt="Educo" width="300" height="185">
 
-Educo is empowering teachers with an AI assistant. 
+Educo is empowering teachers with an AI assistant.
 
 [Team Song](https://www.youtube.com/watch?v=JC82Il2cjqA)
 
