@@ -36,7 +36,7 @@ John | Green | AI/ML, Android+iOS+xPlatform | Talking, listening | Persistent, O
 Stephanie | Blue | Systems/Backend, Python, AI/ML | Decision making, communication/writing skills, attention to detail  | Direct, dedicated, & dancing through life | Documentation skills, NLP | Math, imposter syndrone
 Austin | Blue | Python, Java, Javascript, React, Flask | Design Thinking, UI/UX, Leadership | Consistent, reliable, hard working | Product management, group dynamics | Self-critical
 
-
+<!--
 # Team Communication:
 1. Email us at [emails@cs210hella.mailclark.ai](emails@cs210hella.mailclark.ai)
 
@@ -45,3 +45,4 @@ Austin | Blue | Python, Java, Javascript, React, Flask | Design Thinking, UI/UX,
 3. Documentation: [Github Wiki](https://github.com/cs210/Hella/wiki).
 
 4. [Google Calendar](https://calendar.google.com/calendar/embed?src=stanford.edu_rsg43to2epthvtkim72t0des9o%40group.calendar.google.com&ctz=America%2FLos_Angeles)
+-->
