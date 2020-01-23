@@ -18,7 +18,7 @@ Susana Benavidez | sbenavid@stanford.edu | <img src="https://pbs.twimg.com/profi
 Isaiah Bush | itbush@stanford.edu | 
 John Chuter | jchuter@stanford.edu | <img src="https://imgur.com/0MXcoi9.jpg" alt="John Chuter" width="157.5" height="157.5">
 Stephanie Brito  | sbrito@stanford.edu | <img src="https://i.imgur.com/bQ3IRME.jpg?1" alt="Stephanie Brito" width="157.5" height="157.5">
-Austin Chow | archow@stanford.edu | <img src="https://i.imgur.com/y6WLV1M.jpg" alt="Austin Chow" width="157.5" height="210">
+Austin Chow | archow@stanford.edu | <img src="https://imgur.com/a/Z85EuMO" alt="Austin Chow" width="157.5" height="210">
 
 # Team Skills Matrix:
 
