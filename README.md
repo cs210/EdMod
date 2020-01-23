@@ -16,7 +16,7 @@ Member | Email | Photo
 --- | --- | ---
 Susana Benavidez | sbenavid@stanford.edu | <img src="https://pbs.twimg.com/profile_images/1212062544715665410/aIB6LaxE_400x400.jpg" alt="Susana Benavidez" width="157.5" height="157.5">
 Isaiah Bush | itbush@stanford.edu | 
-John Chuter | jchuter@stanford.edu | <img src="https://imgur.com/0MXcoi9.jpg" alt="John Chuter" width="157.5" height="157.5"><!-- cat: https://imgur.com/0MXcoi9.jpg me:https://imgur.com/SnaySFC.jpg -->
+John Chuter | jchuter@stanford.edu | <img src="https://imgur.com/Drzepet.jpg" alt="John Chuter" width="157.5" height="157.5"><!-- cat: https://imgur.com/0MXcoi9.jpg me:https://imgur.com/SnaySFC.jpg #me2:https://imgur.com/Drzepet.jpg -->
 Stephanie Brito  | sbrito@stanford.edu | <img src="https://i.imgur.com/bQ3IRME.jpg?1" alt="Stephanie Brito" width="157.5" height="157.5">
 Austin Chow | archow@stanford.edu | <img src="https://imgur.com/sxBbwGg.jpg" alt="Austin Chow" width="157.5" height="157.5">
 
