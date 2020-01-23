@@ -3,7 +3,7 @@
 
 # EDUCO
 
-<img src="https://www.brandcrowd.com/gallery/brands/pictures/picture13173648788619.jpg" alt="Educo" width="300" height="185">
+<img src="https://i.imgur.com/oH1r8nv.jpg?1" alt="Educo" width="300" height="185">
 
 Educo is empowering teachers with an AI assistant. 
 
