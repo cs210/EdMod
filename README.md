@@ -4,6 +4,8 @@
 
 Make slack channel 
 
+Weekly Meetings: Tues / Thurs class time, Fridays 2:30 - 4 PM.
+
 2. Poll for availability: let's nail down time on our calendar to get work done
 -->
 # EDUCO
