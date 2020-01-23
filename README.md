@@ -1,6 +1,10 @@
 # TODO (as team):
 1. team comms; how we contact each other (iMessage, email, other?), how tteam contacts us (email, special group?)
 
+RE Comms: I highly highly highly :) suggest Slack. We will want to use it once we start building anyway and makes it easy to search for past Q&A and the channels will be helpful when we break down to tech subteams, etc. You don't have to have it on your phone if that's not doable (you can use the web or desktop app but lets chat about expected response rate in person. 
+
+2. Poll for availability: let's nail down time on our calendar to get work done
+
 # EDUCO
 
 <img src="https://i.imgur.com/oH1r8nv.jpg?1" alt="Educo" width="300" height="185">
