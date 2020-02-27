@@ -5,16 +5,16 @@ const SignedInLinks = () => {
   return (
     <ul className="right">
       <li>
-        <NavLink to="/">Students</NavLink>
+        <NavLink to="/">Teachers</NavLink>
       </li>
       <li>
-        <NavLink to="/">Question Board</NavLink>
+        <NavLink to="/qa">Question Board</NavLink>
       </li>
       <li>
-        <NavLink to="/">Lesson Progress</NavLink>
+        <NavLink to="/progress">Lesson Progress</NavLink>
       </li>
       <li>
-        <NavLink to="/">Engineer Profiles</NavLink>
+        <NavLink to="/engineers">Engineer Profiles</NavLink>
       </li>
       <li>
         <NavLink to="/">Log Out</NavLink>

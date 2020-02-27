@@ -1,13 +1,12 @@
 import React, { Component } from "react";
-import StudentList from "./StudentList";
 
-class TeacherDashboard extends Component {
+class EngineerProfileDashboard extends Component {
   render() {
     return (
       <div className="dashboard container">
         <div classname="row">
           <div classname="col s12 m6">
-            <StudentList />
+            <h1> Hello </h1>
           </div>
           <div classname="col s12 m5 offset-m1"></div>
         </div>
@@ -16,4 +15,4 @@ class TeacherDashboard extends Component {
   }
 }
 
-export default TeacherDashboard;
+export default EngineerProfileDashboard;
