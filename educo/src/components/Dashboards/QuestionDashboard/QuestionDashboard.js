@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import SearchBar from '../../SearchBar.js';
+import QASidebar from './QA_Sidebar.js';
 
 class QuestionDashboard extends Component {
   constructor(props) {
@@ -19,7 +19,7 @@ class QuestionDashboard extends Component {
   render() {
     return (
       <div className="dashboard container">
-        <SearchBar
+        <QASidebar
           filterText={this.state.filterText}
           onFilterTextChange={this.handleFilterTextChange}
         />
