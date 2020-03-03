@@ -1,15 +1,16 @@
 import React, { Component } from "react";
-import StudentList from "./StudentList";
+import StudentSummary from "./StudentSummary";
 
 class TeacherDashboard extends Component {
   render() {
     return (
-      <div className="dashboard container">
-        <div classname="row">
-          <div classname="col s12 m6">
-            <StudentList />
-          </div>
-          <div classname="col s12 m5 offset-m1"></div>
+      <div className="container">
+        <div className="row">
+          <StudentSummary />
+          <StudentSummary />
+          <div className="w-100"></div>
+          <StudentSummary />
+          <StudentSummary />
         </div>
       </div>
     );

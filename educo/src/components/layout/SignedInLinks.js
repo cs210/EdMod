@@ -1,31 +1,35 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import "../../styling/navbar.css";
+import { Nav, NavItem } from "reactstrap";
 
 const SignedInLinks = () => {
   return (
-    <ul className="right">
-      <li>
-        <NavLink to="/">Teachers</NavLink>
-      </li>
-      <li>
-        <NavLink to="/qa">Question Board</NavLink>
-      </li>
-      <li>
-        <NavLink to="/progress">Lesson Progress</NavLink>
-      </li>
-      <li>
-        <NavLink to="/engineers">Engineer Profiles</NavLink>
-      </li>
-      <li>
-        <NavLink to="/">Log Out</NavLink>
-      </li>
-
-      <li>
-        <NavLink to="/" className="btn btn-floating pink lighten-1">
-          NN
+    <Nav className="mr-auto" navbar>
+      <NavItem>
+        <NavLink to="/teachers/" className="tag">
+          Teachers
         </NavLink>
-      </li>
-    </ul>
+      </NavItem>
+
+      <NavItem>
+        <NavLink to="/qa" className="tag">
+          Question Board
+        </NavLink>
+      </NavItem>
+
+      <NavItem>
+        <NavLink to="/progress" className="tag">
+          Lesson Progress
+        </NavLink>
+      </NavItem>
+
+      <NavItem>
+        <NavLink to="/engineers" className="tag">
+          Engineer Profiles
+        </NavLink>
+      </NavItem>
+    </Nav>
   );
 };
 

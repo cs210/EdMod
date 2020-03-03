@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import Navbar from "./components/layout/Navbar";
+import NavBar from "./components/layout/Navbar";
 import TeacherDashboard from "./components/Dashboards/TeacherDashboard/TeacherDashboard.js";
 import QuestionDashboard from "./components/Dashboards/QuestionDashboard/QuestionDashboard.js";
 import ProgressDashboard from "./components/Dashboards/ProgressDashboard/ProgressDashboard.js";
@@ -11,7 +11,7 @@ class App extends Component {
     return (
       <BrowserRouter>
         <div className="App">
-          <Navbar />
+          <NavBar />
           <Switch>
             <Route exact path="/" component={TeacherDashboard} />
             <Route path="/qa" component={QuestionDashboard} />

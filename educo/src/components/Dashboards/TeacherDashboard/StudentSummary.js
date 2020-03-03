@@ -1,11 +1,20 @@
 import React from "react";
 import StudentList from "./StudentList";
 
+const divStyle = {
+  marginTop: "30px",
+  marginLeft: "30px",
+  marginRight: "30px",
+  padding: "10px",
+  border: "2px solid lightgrey",
+  borderRadius: "10px"
+};
+
 const StudentSummary = () => {
   return (
-    <div className="card z-depth-0 student-summary">
-      <div className="card-content grey-text text-darken-3">
-        <span className="card-title">Student Name</span>
+    <div className="col" style={divStyle}>
+      <div className="col">
+        <span>Student Name</span>
         <p>School</p>
       </div>
     </div>
