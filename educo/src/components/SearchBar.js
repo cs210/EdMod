@@ -1,4 +1,12 @@
 import React, { Component } from "react";
+import 
+{ IconButton, 
+ InputAdornment,
+FormControl,
+InputLabel,
+Input} 
+from '@material-ui/core';
+import SearchIcon from '@material-ui/icons/Search';
 
 /*
 add QA threads to filter:
@@ -18,14 +26,20 @@ export default class SearchBar extends React.Component {
 
   render() {
     return (
-      <form>
-        <input
-          type="text"
-          placeholder="Search..."
-          value={this.props.filterText}
-          onChange={this.handleFilterTextChange}
-        />
-      </form>
+      <div>
+       <FormControl variant="outlined">
+          <Input
+            id="SearchBar"
+            value={this.props.filterText}
+            onChange={this.handleFilterTextChange}
+            startAdornment={<InputAdornment position="start">
+            <IconButton>
+            <SearchIcon/>
+            </IconButton>
+            </InputAdornment>}
+          />
+      </FormControl>
+      </div>
     );
   }
 }
