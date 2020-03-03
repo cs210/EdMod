@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import QASidebar from './QA_Sidebar.js';
+import QADisplay from './QA_Display.js';
 import {Paper, Grid} from '@material-ui/core';
 
 class QuestionDashboard extends Component {
@@ -20,17 +21,21 @@ class QuestionDashboard extends Component {
   render() {
     return (
       <div className="dashboard container">
-        <Grid item sm={3}>
-          <Paper  className="cs142-main-grid-item">
+        <Grid
+        container
+        direction="row"
+        justify="flex-start"
+        alignItems="stretch"
+        >
+        <Grid item sm={3}  alignItems="stretch"> 
             <QASidebar
           filterText={this.state.filterText}
           onFilterTextChange={this.handleFilterTextChange}
         />
-          </Paper>
         </Grid>
-        <Grid item sm={9}>
-          <Paper className="cs142-main-grid-item">
-        </Paper>
+        <Grid item sm={9} alignItems="stretch">
+          <QADisplay/>
+        </Grid>
         </Grid>
       </div>
 
