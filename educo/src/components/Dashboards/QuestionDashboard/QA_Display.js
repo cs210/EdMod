@@ -12,6 +12,7 @@ import {
   Grid
 }
 from '@material-ui/core';
+import './QA_Display.css'
 
 class QADisplay extends Component {
   constructor(props) {
@@ -38,6 +39,7 @@ class QADisplay extends Component {
 
 
     var display = (
+      
       <Paper elevation={2}>
       <Typography variant="h3">
         {question[0]}
@@ -47,15 +49,17 @@ class QADisplay extends Component {
       </Typography>
       <Divider />
       <Grid
-      container
-      direction="row"
-      justify="space-between"
-      alignItems="center"
-      >
+  container
+  direction="row"
+  justify="space-between"
+  alignItems="stretch"
+>
         <Grid key='question_tags' item>
           {tags.map((tag)=> {
-            return(<Button variant="outlined" color="primary">
-            {tag}
+            return(<Button variant="outlined" style={{maxWidth: 'px', maxHeight: 'px'}} color="primary">
+            <Typography variant="caption">
+        <font color="grey">{tag}</font>
+      </Typography>
             </Button>
             )
           })}
@@ -74,7 +78,7 @@ class QADisplay extends Component {
 
   render() {
     return (
-      <div className="qa container">
+      <div className="qa_container">
         {this.displayQuestion()}
       </div>
     );
