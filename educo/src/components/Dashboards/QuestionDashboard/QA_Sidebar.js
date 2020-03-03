@@ -49,7 +49,7 @@ class QASidebar extends Component {
           filterText={this.state.filterText}
           onFilterTextChange={this.handleFilterTextChange}
         />
-        <List component="nav">
+        <List component="nav"> 
           {this.makeList()}
         </List>
       </div>
@@ -58,9 +58,3 @@ class QASidebar extends Component {
 }
 
 export default QASidebar;
-
-// <div classname="row">
-// <div classname="col s12 m6">
-// </div>
-// </div>
-// <div classname="col s12 m5 offset-m1"></div>
