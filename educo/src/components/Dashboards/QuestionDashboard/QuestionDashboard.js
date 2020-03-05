@@ -8,6 +8,7 @@ class QuestionDashboard extends Component {
     super(props);
     this.state = {
       filterText: '',
+      q_Id: this.props.match.params.q_id,
     };
     this.handleFilterTextChange = this.handleFilterTextChange.bind(this);
   }
@@ -24,7 +25,7 @@ class QuestionDashboard extends Component {
         <Grid
         container
         direction="row"
-        justify="flex-start"
+        justify="space-between"
         alignItems="stretch"
         >
         <Grid item sm={3}  alignItems="stretch"> 
@@ -34,7 +35,7 @@ class QuestionDashboard extends Component {
         />
         </Grid>
         <Grid item sm={9} alignItems="stretch">
-          <QADisplay/>
+          <QADisplay q_id={this.state.q_Id}/>
         </Grid>
         </Grid>
       </div>
@@ -44,9 +45,3 @@ class QuestionDashboard extends Component {
 }
 
 export default QuestionDashboard;
-
-// <div classname="row">
-// <div classname="col s12 m6">
-// </div>
-// </div>
-// <div classname="col s12 m5 offset-m1"></div>
