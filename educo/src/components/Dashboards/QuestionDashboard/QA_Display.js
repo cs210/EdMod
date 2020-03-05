@@ -35,7 +35,7 @@ class QADisplay extends Component {
   }
 
 displayTextCard() {
-  var question = [this.state.q_id, 'how do i set up scratch - help!!!!'];
+  var question = [this.state.q_id, 'I’m working on the social impact game, and I’m having trouble setting up Scratch on my computer. I followed the tutorial but I can’t seem to get it working. It keeps freezing past the login screen. I tried resetting my computer, but that does not help me. Can someone help?'];
   return TextCard(question);
 
 }

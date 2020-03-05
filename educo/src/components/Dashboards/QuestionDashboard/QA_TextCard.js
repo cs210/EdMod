@@ -3,6 +3,14 @@ import { Link as RouterLink } from 'react-router-dom'
 import ThumbUpAltIcon from '@material-ui/icons/ThumbUpAlt';
 import NotificationImportantIcon from '@material-ui/icons/NotificationImportant';
 import ImgMediaCard from './QA_ImgCard.js'
+import InputAdornment from '@material-ui/core/InputAdornment';
+import TextField from '@material-ui/core/TextField';
+import ReplyIconOutlined from '@material-ui/icons/ReplyOutlined';
+import FormControl from '@material-ui/core/FormControl';
+import InputLabel from '@material-ui/core/InputLabel';
+import Input from '@material-ui/core/Input';
+import OutlinedInput from '@material-ui/core/OutlinedInput';
+
 import {
   List,
   ListItem,
@@ -17,27 +25,27 @@ import {
 }
 from '@material-ui/core';
 
-export default function TextCard(question) {
+export default function QuestionCard(question) {
   var tags = ['tag1', 'tag2']
   var req = ['include photo', 'include screenshot']
   var user = "Isaiah Bush"
 
   return (
+    <div >
     <Paper style={{padding: 10,
     margin: 10}}>
         <Grid container spacing={10}>
           <Grid item xs={12} sm container>
             <Grid item xs container direction="column" spacing={2}>
               <Grid item xs>
-                <Typography variant="h5">
+                <Typography variant="h4">
                 {question[0]}
                 </Typography>
+                <br/>
                 <Typography variant="body1">
-        <font color="grey">{question[1]}</font>
+        {question[1]}
       </Typography>
-                <Typography variant="body2" color="textSecondary">
-                  Attached Files:
-                </Typography>
+      <br/>
                 {ImgMediaCard()}
               </Grid>
               <Grid item>
@@ -78,7 +86,34 @@ export default function TextCard(question) {
             </Grid>
           </Grid>
         </Grid>
+        <Divider style={{margin: 30}}/>
+         <Paper style={{padding: 10,
+          margin: 10}}>
+        <FormControl fullWidth multiLine={true} rows={5} rowsMax={15} variant='outlined'>
+          <InputLabel>Comment</InputLabel>
+          <OutlinedInput
+          fullWidth multiLine={true} rows={5} rowsMax={15}
+            id="comment"
+            //value={values.password}
+            //onChange={handleChange('password')}
+            endAdornment={
+              <InputAdornment position="end">
+                <IconButton
+                  aria-label="toggle password visibility"
+                  //onClick={handleClickShowPassword}
+                  //onMouseDown={handleMouseDownPassword} 
+                  //TODO: actually capture text
+                  color="primary"
+                >
+                <ReplyIconOutlined/>
+                </IconButton>
+              </InputAdornment>
+            }
+          />
+        </FormControl>
       </Paper>
-      
+      </Paper>
+
+      </div>
     );
 }
