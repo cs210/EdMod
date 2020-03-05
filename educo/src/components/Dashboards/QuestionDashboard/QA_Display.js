@@ -3,6 +3,7 @@ import { Link as RouterLink } from 'react-router-dom';
 import TextCard from './QA_TextCard.js'
 import ThumbUpAltIcon from '@material-ui/icons/ThumbUpAlt';
 import NotificationImportantIcon from '@material-ui/icons/NotificationImportant';
+import { makeStyles, withStyles } from '@material-ui/core/styles';
 import {
   List,
   ListItem,
@@ -16,8 +17,6 @@ import {
   IconButton
 }
 from '@material-ui/core';
-
-
 
 class QADisplay extends Component {
   constructor(props) {
@@ -51,16 +50,3 @@ displayTextCard() {
 }
 
 export default QADisplay;
-
-
-
-
-
-/*
-<Paper elevation={2} spacing={5}>
-      
-      
-      
-      
-      </Paper>
-*/
