@@ -10,6 +10,7 @@ import FormControl from '@material-ui/core/FormControl';
 import InputLabel from '@material-ui/core/InputLabel';
 import Input from '@material-ui/core/Input';
 import OutlinedInput from '@material-ui/core/OutlinedInput';
+import Chip from '@material-ui/core/Chip';
 
 import {
   List,
@@ -56,13 +57,12 @@ export default function QuestionCard(question) {
       alignItems="flex-end">
         <Grid key='question_tags' item>
           {tags.map((tag)=> {
-            return(<Button variant="outlined" color="primary">
-            <Typography variant="caption">
-        <font color="grey">{tag}</font>
-      </Typography>
-            </Button>
-            )
-          })}
+            return(
+              <Chip size="small"
+            label={tag}
+          />
+        );
+      })}
         </Grid>
         <Grid key='question_user' item>
           <Typography variant="body2">
@@ -89,10 +89,10 @@ export default function QuestionCard(question) {
         <Divider style={{margin: 30}}/>
          <Paper style={{padding: 10,
           margin: 10}}>
-        <FormControl fullWidth multiLine={true} rows={5} rowsMax={15} variant='outlined'>
+        <FormControl fullWidth variant='outlined'>
           <InputLabel>Comment</InputLabel>
           <OutlinedInput
-          fullWidth multiLine={true} rows={5} rowsMax={15}
+          fullWidth multiLine={true} rows={5} rowsMax={15} //TODO: figure out mulitLine textbox
             id="comment"
             //value={values.password}
             //onChange={handleChange('password')}
