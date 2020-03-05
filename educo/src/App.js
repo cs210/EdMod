@@ -14,7 +14,7 @@ class App extends Component {
           <NavBar />
           <Switch>
             <Route exact path="/" component={TeacherDashboard} />
-            <Route path="/qa" component={QuestionDashboard} />
+            <Route path="/qa/" component={QuestionDashboard} />
             <Route path="/progress" component={ProgressDashboard} />
             <Route path="/engineers" component={EngineerProfileDashboard} />
           </Switch>
@@ -25,3 +25,6 @@ class App extends Component {
 }
 
 export default App;
+
+
+//<Route path="/qa/:q_id" render={(props) => <QuestionDashboard {...props}/>} />

@@ -1,5 +1,8 @@
 import React, { Component } from "react";
-import { Link as RouterLink } from 'react-router-dom'
+import { Link as RouterLink } from 'react-router-dom';
+import TextCard from './QA_TextCard.js'
+import ThumbUpAltIcon from '@material-ui/icons/ThumbUpAlt';
+import NotificationImportantIcon from '@material-ui/icons/NotificationImportant';
 import {
   List,
   ListItem,
@@ -9,17 +12,19 @@ import {
   Divider,
   Container,
   Button,
-  Grid
+  Grid,
+  IconButton
 }
 from '@material-ui/core';
-import './QA_Display.css'
+
+
 
 class QADisplay extends Component {
   constructor(props) {
     super(props);
     this.state = {
       answerInput: '',
-      questionId: '000113131310',
+      q_id: "Scratch setup"
     };
     this.handleFilterTextChange = this.handleFilterTextChange.bind(this);
   }
@@ -30,59 +35,32 @@ class QADisplay extends Component {
     });
   }
 
-  displayQuestion() {
-    //sample q data
-    var question = ['Help Scratch', 'how do i set up scratch - help!!!!'];
-    var tags = ['tag1', 'tag2']
-    var req = ['include photo', 'include screenshot']
-    var user = "Isaiah Bush"
+displayTextCard() {
+  var question = [this.state.q_id, 'how do i set up scratch - help!!!!'];
+  return TextCard(question);
 
-
-    var display = (
-      
-      <Paper elevation={2}>
-      <Typography variant="h3">
-        {question[0]}
-      </Typography>
-      <Typography variant="body1">
-        <font color="grey">{question[1]}</font>
-      </Typography>
-      <Divider />
-      <Grid
-  container
-  direction="row"
-  justify="space-between"
-  alignItems="stretch"
->
-        <Grid key='question_tags' item>
-          {tags.map((tag)=> {
-            return(<Button variant="outlined" style={{maxWidth: 'px', maxHeight: 'px'}} color="primary">
-            <Typography variant="caption">
-        <font color="grey">{tag}</font>
-      </Typography>
-            </Button>
-            )
-          })}
-        </Grid>
-        <Grid key='question_user' item>
-          <Typography variant="body2">
-            Asked by {user}
-          </Typography>
-        </Grid>
-      </Grid>
-      </Paper>
-    )
-    return display;
-  }
-
+}
 
   render() {
     return (
       <div className="qa_container">
-        {this.displayQuestion()}
+        {this.displayTextCard()}
       </div>
     );
   }
 }
 
 export default QADisplay;
+
+
+
+
+
+/*
+<Paper elevation={2} spacing={5}>
+      
+      
+      
+      
+      </Paper>
+*/

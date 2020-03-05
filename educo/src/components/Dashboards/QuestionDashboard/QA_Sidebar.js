@@ -29,16 +29,13 @@ class QASidebar extends Component {
     var questions = [];
     var question;
     for (var i in this.state.questionList) {
-        console.log(this.state.questionList[i])
         question = this.state.questionList[i];
         questions[i] = (
-          <ListItem divider={true} button component={RouterLink} to={"/question/"+question} key={question}>
+          <ListItem divider={true} button component={RouterLink} to={"/qa/"+question} key={question}>
           <ListItemText primary={question} secondary={"Imagine question here!"}/>
           </ListItem>
         );
     }
-    console.log("made lists")
-    console.log(this.state.questionList)
     return questions;
   }
 
