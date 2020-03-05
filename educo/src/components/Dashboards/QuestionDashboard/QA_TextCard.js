@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link as RouterLink } from 'react-router-dom'
 import ThumbUpAltIcon from '@material-ui/icons/ThumbUpAlt';
 import NotificationImportantIcon from '@material-ui/icons/NotificationImportant';
+import ImgMediaCard from './QA_ImgCard.js'
 import {
   List,
   ListItem,
@@ -35,8 +36,9 @@ export default function TextCard(question) {
         <font color="grey">{question[1]}</font>
       </Typography>
                 <Typography variant="body2" color="textSecondary">
-                  ID: 1030114
+                  Attached Files:
                 </Typography>
+                {ImgMediaCard()}
               </Grid>
               <Grid item>
                 <Grid
