@@ -11,6 +11,9 @@ import InputLabel from '@material-ui/core/InputLabel';
 import Input from '@material-ui/core/Input';
 import OutlinedInput from '@material-ui/core/OutlinedInput';
 import Chip from '@material-ui/core/Chip';
+import ListItemAvatar from '@material-ui/core/ListItemAvatar';
+import Avatar from '@material-ui/core/Avatar';
+import ChatBubbleIcon from '@material-ui/icons/ChatBubble';
 
 import {
   List,
@@ -22,13 +25,60 @@ import {
   Container,
   Button,
   Grid,
-  IconButton
+  IconButton,
+  ButtonGroup
 }
 from '@material-ui/core';
 
+//TODO: refactor to combine answer and question cards
+export function AnswerCards(answersList) {
+  var user = "Isaiah Bush";
+   var answers = [];
+    var answer;
+    for (var i in answersList) {
+        answer = answersList[i];
+        answers[i] = (
+          <Paper style={{padding: 15,
+    margin: 10}}>          
+          <Grid container direction="column" spacing={1}>
+          <Grid item container spacing={1} justify="space-between">
+            <Grid item xs={2} >
+              <Typography variant="caption">
+                  <font color="grey">by isaiah</font>
+              </Typography>
+            </Grid>
+            <Grid item xs={3}>
+              <Paper>xs=3</Paper>
+            </Grid>
+            <Grid item xs={12}>
+              <Typography variant="body1">
+                  {answer[0]}
+                </Typography>
+            </Grid>
+            <Grid item xs={12}>
+              <Chip
+              clickable
+              style={{padding: 3}}
+              size="small"
+        icon={<ChatBubbleIcon/>}
+        label="Reply"
+        variant="outlined"
+      />
+            </Grid>
+          </Grid>
+          </Grid>
+          </Paper>
+        );
+    }
+    return answers;
+  }
+
+
+
+
 export default function QuestionCard(question) {
   var tags = ['tag1', 'tag2']
-  var req = ['include photo', 'include screenshot']
+  var req = ['include photo', 'include screenshot'] // TODO: implement
   var user = "Isaiah Bush"
 
 
