@@ -41,7 +41,6 @@ export default function ImgMediaCard() {
   ];
 
   return (
-    <div>
       <ExpansionPanel>
         <ExpansionPanelSummary
           expandIcon={<ExpandMoreIcon />}
@@ -67,6 +66,5 @@ export default function ImgMediaCard() {
       </GridList>
         </ExpansionPanelDetails>
       </ExpansionPanel>
-    </div>
   );
 }

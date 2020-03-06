@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Link as RouterLink } from 'react-router-dom';
-import TextCard from './QA_TextCard.js'
+import QuestionCard, {AnswerCards} from './QA_TextCard.js'
 import ThumbUpAltIcon from '@material-ui/icons/ThumbUpAlt';
 import NotificationImportantIcon from '@material-ui/icons/NotificationImportant';
 import { makeStyles, withStyles } from '@material-ui/core/styles';
@@ -36,14 +36,20 @@ class QADisplay extends Component {
 
 displayTextCard() {
   var question = [this.state.q_id, 'I’m working on the social impact game, and I’m having trouble setting up Scratch on my computer. I followed the tutorial but I can’t seem to get it working. It keeps freezing past the login screen. I tried resetting my computer, but that does not help me. Can someone help?'];
-  return TextCard(question);
+  var answers = [["hmmmmmmmmmmmmm idk haha"], ["Have you tried looking at the FAQs?", 'yea not sure, I tried that!']] //Answers are arrays of arrays
+  return QuestionCard(question); //TODO: question id should link to answer_ids, so TextCard should only take 1 parameter
 
+}
+displayAnswerCard(){
+  var answers = [["hmmmmmmmmmmmmm idk haha"], ["Have you tried looking at the FAQs?", 'yea not sure, I tried that!']] //Answers are arrays of arrays
+  return AnswerCards(answers); 
 }
 
   render() {
     return (
       <div className="qa_container">
         {this.displayTextCard()}
+        {this.displayAnswerCard()}
       </div>
     );
   }
