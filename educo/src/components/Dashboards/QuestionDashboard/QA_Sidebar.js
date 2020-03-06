@@ -31,7 +31,7 @@ class QASidebar extends Component {
     for (var i in this.state.questionList) {
         question = this.state.questionList[i];
         questions[i] = (
-          <ListItem divider={true} button component={RouterLink} to={"/qa/"+question} key={question}>
+          <ListItem divider={true} button component={RouterLink} to={"/qa/"+question} key={"q_list_"+question}>
           <ListItemText primary={question} secondary={"Imagine question here!"}/>
           </ListItem>
         );

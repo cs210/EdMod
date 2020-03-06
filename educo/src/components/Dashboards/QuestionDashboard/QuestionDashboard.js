@@ -20,6 +20,7 @@ class QuestionDashboard extends Component {
   }
 
   render() {
+    console.log(this.props)
     return (
       <div className="dashboard container">
         <Grid
@@ -41,6 +42,15 @@ class QuestionDashboard extends Component {
       </div>
 
     );
+  }
+  componentDidMount() {
+    this.setState({q_id: this.props.match.params.q_id});
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (this.props.match.params.q_id !== prevState.q_Id) {
+      this.setState({q_Id: this.props.match.params.q_id});
+    } 
   }
 }
 
