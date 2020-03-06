@@ -41,7 +41,7 @@ displayTextCard() {
 
 }
 displayAnswerCard(){
-  var answers = [["hmmmmmmmmmmmmm idk haha"], ["Have you tried looking at the FAQs?", 'yea not sure, I tried that!']] //Answers are arrays of arrays
+  var answers = [["Have you tried looking at the FAQs?", 'yea not sure, I tried that!'], ["hmmmmmmmmmmmmm idk haha"]] //Answers are arrays of arrays
   return AnswerCards(answers); 
 }
 

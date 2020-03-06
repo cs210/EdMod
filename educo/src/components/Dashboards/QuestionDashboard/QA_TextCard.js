@@ -14,6 +14,8 @@ import Chip from '@material-ui/core/Chip';
 import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import Avatar from '@material-ui/core/Avatar';
 import ChatBubbleIcon from '@material-ui/icons/ChatBubble';
+import CropOriginalIcon from '@material-ui/icons/CropOriginal';
+
 
 import {
   List,
@@ -31,12 +33,14 @@ import {
 from '@material-ui/core';
 
 //TODO: refactor to combine answer and question cards
+
 export function AnswerCards(answersList) {
   var user = "Isaiah Bush";
    var answers = [];
     var answer;
     for (var i in answersList) {
         answer = answersList[i];
+        console.log(i)
         answers[i] = (
           <Paper style={{padding: 15,
     margin: 10}}>          
@@ -44,11 +48,11 @@ export function AnswerCards(answersList) {
           <Grid item container spacing={1} justify="space-between">
             <Grid item xs={2} >
               <Typography variant="caption">
-                  <font color="grey">by isaiah</font>
+                  <font color="grey">by stephanie</font>
               </Typography>
             </Grid>
             <Grid item xs={3}>
-              <Paper>xs=3</Paper>
+              
             </Grid>
             <Grid item xs={12}>
               <Typography variant="body1">
@@ -62,7 +66,7 @@ export function AnswerCards(answersList) {
               size="small"
         icon={<ChatBubbleIcon/>}
         label="Reply"
-        variant="outlined"
+        variant="outlined" 
       />
             </Grid>
           </Grid>
@@ -155,7 +159,7 @@ export default function QuestionCard(question) {
             endAdornment={
               <InputAdornment position="end">
                 <IconButton
-                  aria-label="toggle password visibility"
+                  aria-label="submit comment"
                   //onClick={handleClickShowPassword}
                   //onMouseDown={handleMouseDownPassword} 
                   //TODO: actually capture text
@@ -170,8 +174,8 @@ export default function QuestionCard(question) {
         </FormControl>
         </Grid>
         <Grid item xs={1}>
-        <IconButton aria-label="upvote" size="small">
-          <ThumbUpAltIcon fontSize="inherit" />
+        <IconButton aria-label="img_submit">
+          <CropOriginalIcon fontSize="inherit" />
         </IconButton>
         </Grid>
         </Grid>
