@@ -23,7 +23,7 @@ class QADisplay extends Component {
     super(props);
     this.state = {
       answerInput: '',
-      q_id: "Scratch setup"
+      q_id: this.props.q_id
     };
     this.handleFilterTextChange = this.handleFilterTextChange.bind(this);
   }
@@ -47,6 +47,18 @@ displayTextCard() {
       </div>
     );
   }
+
+  componentDidMount() {
+    this.setState({q_id: this.props.q_id});
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (this.props.q_id !== prevState.q_id) {
+    this.setState({q_id: this.props.q_id});
+    }
+  } 
 }
+
+  
 
 export default QADisplay;

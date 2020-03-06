@@ -1,11 +1,11 @@
-import React, { Component } from "react";
+import React, { Component, useEffect, useMemo, useState }from "react";
 import { Link as RouterLink } from 'react-router-dom'
 import ThumbUpAltIcon from '@material-ui/icons/ThumbUpAlt';
 import NotificationImportantIcon from '@material-ui/icons/NotificationImportant';
 import ImgMediaCard from './QA_ImgCard.js'
 import InputAdornment from '@material-ui/core/InputAdornment';
 import TextField from '@material-ui/core/TextField';
-import ReplyIconOutlined from '@material-ui/icons/ReplyOutlined';
+import ReplyOutlinedIcon from '@material-ui/icons/ReplyOutlined';
 import FormControl from '@material-ui/core/FormControl';
 import InputLabel from '@material-ui/core/InputLabel';
 import Input from '@material-ui/core/Input';
@@ -31,17 +31,32 @@ export default function QuestionCard(question) {
   var req = ['include photo', 'include screenshot']
   var user = "Isaiah Bush"
 
+
   return (
     <div >
-    <Paper style={{padding: 10,
+    <Paper style={{padding: 25,
     margin: 10}}>
         <Grid container spacing={10}>
           <Grid item xs={12} sm container>
             <Grid item xs container direction="column" spacing={2}>
-              <Grid item xs>
-                <Typography variant="h4">
-                {question[0]}
-                </Typography>
+              <Grid item xs container direction="row" spacing={2}>
+                <Grid item xs>
+                  <Typography variant="h4">
+                  {question[0]}
+                  </Typography>
+                </Grid>
+                <Grid item>
+              <IconButton aria-label="notif" size="small">
+          <NotificationImportantIcon fontSize="inherit" />
+        </IconButton>
+              
+            </Grid>
+            <Grid item>
+              <IconButton aria-label="upvote" size="small">
+          <ThumbUpAltIcon fontSize="inherit" />
+        </IconButton>
+              
+            </Grid>
                 <br/>
                 <Typography variant="body1">
         {question[1]}
@@ -66,29 +81,20 @@ export default function QuestionCard(question) {
         </Grid>
         <Grid key='question_user' item>
           <Typography variant="body2">
-            Asked by {user}
+            <font color="grey">Asked by {user}</font>
           </Typography>
         </Grid>
       </Grid>
               </Grid>
             </Grid>
-            <Grid item>
-              <IconButton aria-label="notif" size="small">
-          <NotificationImportantIcon fontSize="inherit" />
-        </IconButton>
-              
-            </Grid>
-            <Grid item>
-              <IconButton aria-label="upvote" size="small">
-          <ThumbUpAltIcon fontSize="inherit" />
-        </IconButton>
-              
-            </Grid>
+            
           </Grid>
         </Grid>
-        <Divider style={{margin: 30}}/>
+        <Divider style={{margin: 15}}/>
          <Paper style={{padding: 10,
           margin: 10}}>
+        <Grid container direction="row" spacing={2} alignItems="center">
+        <Grid item xs>
         <FormControl fullWidth variant='outlined'>
           <InputLabel>Comment</InputLabel>
           <OutlinedInput
@@ -103,17 +109,24 @@ export default function QuestionCard(question) {
                   //onClick={handleClickShowPassword}
                   //onMouseDown={handleMouseDownPassword} 
                   //TODO: actually capture text
+                  //TODO: More complex text editor
                   color="primary"
                 >
-                <ReplyIconOutlined/>
+                <ReplyOutlinedIcon/>
                 </IconButton>
               </InputAdornment>
             }
           />
         </FormControl>
+        </Grid>
+        <Grid item xs={1}>
+        <IconButton aria-label="upvote" size="small">
+          <ThumbUpAltIcon fontSize="inherit" />
+        </IconButton>
+        </Grid>
+        </Grid>
       </Paper>
       </Paper>
-
       </div>
     );
 }
