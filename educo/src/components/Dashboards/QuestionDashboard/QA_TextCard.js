@@ -28,34 +28,71 @@ import {
   Button,
   Grid,
   IconButton,
-  ButtonGroup
+  ButtonGroup,
+  Box
 }
 from '@material-ui/core';
 
 //TODO: refactor to combine answer and question cards
 
+function SubAnswers(answersList){
+  var answers = [];
+  var answer;
+    for (var i=1; i < answersList.length; i++) {
+        answer = answersList[i];
+        answers[i] = (
+          <div>
+          <Divider style={{margin:5}}/>
+          <Grid container direction="column" spacing={0}>
+          <Grid item container spacing={0} justify="space-between">
+            <Grid item xs={1} >
+              
+            </Grid>
+            <Grid item xs={1} >
+              <Typography variant="caption">
+                  <font color="grey">author</font>
+              </Typography>
+            </Grid>
+            <Grid item xs={10}>
+              
+            </Grid>
+            <Grid item xs={1}>
+              
+            </Grid>
+            <Grid item xs={11}>
+              <Typography variant="body2">
+                  {answer}
+                </Typography>
+            </Grid>
+          </Grid>
+          </Grid>
+          </div>
+        )
+    } 
+    return answers;
+}
+
 export function AnswerCards(answersList) {
-  var user = "Isaiah Bush";
+  var user = "Stephanie B.";
    var answers = [];
     var answer;
     for (var i in answersList) {
         answer = answersList[i];
-        console.log(i)
         answers[i] = (
           <Paper style={{padding: 15,
     margin: 10}}>          
           <Grid container direction="column" spacing={1}>
           <Grid item container spacing={1} justify="space-between">
-            <Grid item xs={2} >
+            <Grid item xs={5} >
               <Typography variant="caption">
-                  <font color="grey">by stephanie</font>
+                  <font color="grey">{user}</font>
               </Typography>
             </Grid>
             <Grid item xs={3}>
               
             </Grid>
             <Grid item xs={12}>
-              <Typography variant="body1">
+              <Typography variant="body2">
                   {answer[0]}
                 </Typography>
             </Grid>
@@ -71,6 +108,7 @@ export function AnswerCards(answersList) {
             </Grid>
           </Grid>
           </Grid>
+          {SubAnswers(answer)}
           </Paper>
         );
     }
@@ -147,7 +185,7 @@ export default function QuestionCard(question) {
         <Divider style={{margin: 15}}/>
          <Paper style={{padding: 10,
           margin: 10}}>
-        <Grid container direction="row" spacing={2} alignItems="center">
+        <Grid container direction="row" spacing={0} alignItems="center">
         <Grid item xs>
         <FormControl fullWidth variant='outlined'>
           <InputLabel>Comment</InputLabel>
