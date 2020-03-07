@@ -29,31 +29,81 @@ import {
   Grid,
   IconButton,
   ButtonGroup,
-  Box
+  Box,
+  Tooltip
 }
 from '@material-ui/core';
 
-//TODO: refactor to combine answer and question cards
 
+function AuthorPanel(author){
+  //TODO: get author info
+
+  //sample badge rendering
+  var BadgeSample5 = 'https://www.starbreeder.org/images/5start-img.png'
+  var EFTWBadgeSample = 'https://engineerfortheweek.fb.com/wp-content/uploads/2017/12/cropped-eftw-favicon.png'
+  var sprintingBadge = 'https://static.thenounproject.com/png/168818-200.png'
+  var badge;
+  if(author === 'austin'){
+    badge = (
+    <Tooltip title="EFTW Top Contributor" placement="right" arrow>
+        <img src={EFTWBadgeSample} width='15'/>
+    </Tooltip>
+    )
+  }
+  else if (author==='Isaiah B.'){
+    badge = (
+      <Tooltip title={"Currently sprinting! Spring 2020"} placement="right" arrow>
+        <img src={sprintingBadge} width='20'/>
+     </Tooltip>
+    )
+  }
+  else{
+    badge = (
+      <Tooltip title="Taught 5 EFTW sprints!" placement="right" arrow>
+        <img src={BadgeSample5} width='20'/>
+     </Tooltip>
+    )
+  }
+  
+
+
+  return(
+    <div>
+    <Typography variant="caption" style={{marginRight:5}}>
+        <font color="grey">{author}</font>
+    </Typography>
+    {badge}
+   
+    </div>
+  );
+}
+
+//TODO: refactor to combine answer and question cards
 function SubAnswers(answersList){
+
+
+  const handleClickShowComment = () => {
+  };
+
+  const handleMouseDownComment = event => {
+    
+  };
+
   var answers = [];
   var answer;
     for (var i=1; i < answersList.length; i++) {
         answer = answersList[i];
         answers[i] = (
-          <div>
-          <Divider style={{margin:5}}/>
-          <Grid container direction="column" spacing={0}>
+          <Grid container direction="column" spacing={0} >
+          <Divider style={{margin:10}}/>
           <Grid item container spacing={0} justify="space-between">
             <Grid item xs={1} >
               
             </Grid>
-            <Grid item xs={1} >
-              <Typography variant="caption">
-                  <font color="grey">author</font>
-              </Typography>
+            <Grid item xs={3} >
+              {AuthorPanel("stephanie")}
             </Grid>
-            <Grid item xs={10}>
+            <Grid item xs={8}>
               
             </Grid>
             <Grid item xs={1}>
@@ -62,34 +112,37 @@ function SubAnswers(answersList){
             <Grid item xs={11}>
               <Typography variant="body2">
                   {answer}
-                </Typography>
+              </Typography>
+              <IconButton aria-label="comment" onClick={handleClickShowComment}
+                  onMouseDown={handleMouseDownComment}>
+              <ChatBubbleIcon fontSize="small" style={{width:15, height:15}} color='primary'/>
+            </IconButton>
             </Grid>
           </Grid>
           </Grid>
-          </div>
         )
     } 
     return answers;
 }
 
 export function AnswerCards(answersList) {
-  var user = "Stephanie B.";
+  var user = "austin";
    var answers = [];
     var answer;
     for (var i in answersList) {
         answer = answersList[i];
         answers[i] = (
           <Paper style={{padding: 15,
-    margin: 10}}>          
+    margin: 10, overflow: "scroll"}}>          
           <Grid container direction="column" spacing={1}>
           <Grid item container spacing={1} justify="space-between">
-            <Grid item xs={5} >
-              <Typography variant="caption">
-                  <font color="grey">{user}</font>
-              </Typography>
+            <Grid item xs={2}>
+              {AuthorPanel(user)}
             </Grid>
             <Grid item xs={3}>
-              
+            </Grid>
+            
+            <Grid item xs={7}>
             </Grid>
             <Grid item xs={12}>
               <Typography variant="body2">
@@ -97,14 +150,7 @@ export function AnswerCards(answersList) {
                 </Typography>
             </Grid>
             <Grid item xs={12}>
-              <Chip
-              clickable
-              style={{padding: 3}}
-              size="small"
-        icon={<ChatBubbleIcon/>}
-        label="Reply"
-        variant="outlined" 
-      />
+            <Button color="primary"  startIcon={<ChatBubbleIcon/>}  size="small">Reply</Button>
             </Grid>
           </Grid>
           </Grid>
@@ -172,9 +218,7 @@ export default function QuestionCard(question) {
       })}
         </Grid>
         <Grid key='question_user' item>
-          <Typography variant="body2">
-            <font color="grey">Asked by {user}</font>
-          </Typography>
+          {AuthorPanel("Isaiah B.")}
         </Grid>
       </Grid>
               </Grid>
