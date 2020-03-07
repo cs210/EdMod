@@ -36,12 +36,12 @@ class QADisplay extends Component {
 
 displayTextCard() {
   var question = [this.state.q_id, 'I’m working on the social impact game, and I’m having trouble setting up Scratch on my computer. I followed the tutorial but I can’t seem to get it working. It keeps freezing past the login screen. I tried resetting my computer, but that does not help me. Can someone help?'];
-  var answers = [["hmmmmmmmmmmmmm idk haha"], ["Have you tried looking at the FAQs?", 'yea not sure, I tried that!']] //Answers are arrays of arrays
   return QuestionCard(question); //TODO: question id should link to answer_ids, so TextCard should only take 1 parameter
 
 }
 displayAnswerCard(){
-  var answers = [["Have you tried looking at the FAQs?", 'yea not sure, I tried that!'], ["hmmmmmmmmmmmmm idk haha"]] //Answers are arrays of arrays
+  //TODO: figure out Typography tag overflow 
+  var answers = [["Have you tried looking at the FAQs?", 'yea not sure, I tried that!'], ["hmmmmmmmmmmmmmmmmmmmmmmmmmmm mmmmmmmmmmmmmmmmmmm mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm mmmmmmmmmmmmmmm idk haha [overflow answer ex]"]] //Answers are arrays of arrays
   return AnswerCards(answers); 
 }
 
