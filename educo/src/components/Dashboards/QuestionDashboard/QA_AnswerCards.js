@@ -17,6 +17,8 @@ import ChatBubbleIcon from '@material-ui/icons/ChatBubble';
 import CropOriginalIcon from '@material-ui/icons/CropOriginal';
 import AuthorPanel from './AuthorPanel.js'
 import HighlightOffIcon from '@material-ui/icons/HighlightOff';
+import DoneOutlineIcon from '@material-ui/icons/DoneOutline';
+import BeenhereIcon from '@material-ui/icons/Beenhere';
 
 import {
   List,
@@ -82,7 +84,7 @@ class QA_AnswerCards extends Component {
         </Grid>
         <Grid item xs={1}>
         <IconButton aria-label="img_submit" size="small"> 
-          <CropOriginalIcon fontSize="inherit" />
+          <CropOriginalIcon fontSize="inherit"/>
         </IconButton>
         </Grid>
       </Grid>
@@ -96,17 +98,15 @@ class QA_AnswerCards extends Component {
         answer = answersList[i];
         answers[i] = (
           <Grid container direction="column" spacing={0} >
-          <Divider style={{margin:10}}/>
           <Grid item container spacing={0} justify="space-between">
             <Grid item xs={1} >
               
             </Grid>
-            <Grid item xs={3} >
+            <Grid item xs={11} >
+              <Divider style={{marginTop:10, marginBottom:10}}/>
               {AuthorPanel("stephanie")}
             </Grid>
-            <Grid item xs={8}>
-              
-            </Grid>
+            
             <Grid item xs={1}>
               
             </Grid>
@@ -114,8 +114,11 @@ class QA_AnswerCards extends Component {
               <Typography variant="body2">
                   {answer}
               </Typography>
-              <IconButton aria-label={"comment_"+i} id={"comment_"+i} onClick={()=> {this.handleShowSubAnswerText(a_id)}}>
-              <ChatBubbleIcon fontSize="small" style={{width:15, height:15}} color='primary'/>
+            <IconButton aria-label={"comment_"+i} id={"comment_"+i} onClick={()=> {this.handleShowSubAnswerText(a_id)}}>
+              <ChatBubbleIcon fontSize="small" style={{width:15, height:15}}/>
+            </IconButton>
+            <IconButton aria-label="upvote" size="small">
+              <ThumbUpAltIcon fontSize="inherit" />
             </IconButton>
             </Grid>
           </Grid>
@@ -142,11 +145,19 @@ AnswerCard(answersList) {
             <Grid item xs={2}>
               {AuthorPanel(user)}
             </Grid>
-            <Grid item xs={3}>
+            <Grid item xs={9}>
             </Grid>
             
-            <Grid item xs={7}>
-            </Grid>
+
+            
+            <Grid item xs={1} align="left" >
+              <Tooltip title="Accepted answer" placement="right" arrow>
+        <BeenhereIcon style={{color:'green'}} fontSize='small'/>
+     </Tooltip>
+
+
+              
+           </Grid>
             <Grid item xs={12}>
               <Typography variant="body2">
                   {answer[0]}
