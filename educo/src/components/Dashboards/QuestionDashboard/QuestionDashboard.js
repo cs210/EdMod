@@ -22,7 +22,6 @@ class QuestionDashboard extends Component {
   render() {
     console.log(this.props)
     return (
-      <div className="dashboard container">
         <Grid
         container
         direction="row"
@@ -38,8 +37,7 @@ class QuestionDashboard extends Component {
         <Grid item sm={9} alignItems="stretch">
           <QADisplay q_id={this.state.q_Id}/>
         </Grid>
-        </Grid>
-      </div>
+      </Grid>
 
     );
   }

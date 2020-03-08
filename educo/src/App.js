@@ -25,6 +25,3 @@ class App extends Component {
 }
 
 export default App;
-
-
-//<Route path="/qa/:q_id" render={(props) => <QuestionDashboard {...props}/>} />

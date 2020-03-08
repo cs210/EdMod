@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import { Link as RouterLink } from 'react-router-dom';
-import QuestionCard, {AnswerCards} from './QA_TextCard.js'
+import QuestionCard from './QA_TextCard.js'
 import ThumbUpAltIcon from '@material-ui/icons/ThumbUpAlt';
 import NotificationImportantIcon from '@material-ui/icons/NotificationImportant';
-import { makeStyles, withStyles } from '@material-ui/core/styles';
+import QA_AnswerCards from './QA_AnswerCards.js'
 import {
   List,
   ListItem,
@@ -39,17 +39,19 @@ displayTextCard() {
   return QuestionCard(question); //TODO: question id should link to answer_ids, so TextCard should only take 1 parameter
 
 }
+/*
 displayAnswerCard(){
   //TODO: figure out Typography tag overflow 
   var answers = [["Have you tried looking at the FAQs?", 'yea not sure, I tried that!'], ["hmmmmmmmmmmmmmmmmmmmmmmmmmmm mmmmmmmmmmmmmmmmmmm mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm mmmmmmmmmmmmmmm idk haha [overflow answer ex]"]] //Answers are arrays of arrays
   return AnswerCards(answers); 
 }
-
+*/
   render() {
+    var answers = [["Have you tried looking at the FAQs?", 'yea not sure, I tried that!', 'hmmm, i wonder whats wrong', 'me too'], ["hmmmmmmmmmmmmmmmmmmmmmmmmmmm mmmmmmmmmmmmmmmmmmm mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm mmmmmmmmmmmmmmm idk haha [overflow answer ex]", "woah thats long!", ":))"]] //Answers are arrays of arrays
     return (
       <div className="qa_container">
         {this.displayTextCard()}
-        {this.displayAnswerCard()}
+        <QA_AnswerCards  q_id={this.state.q_id} answers={answers}/>
       </div>
     );
   }
