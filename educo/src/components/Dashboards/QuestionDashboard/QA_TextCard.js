@@ -57,14 +57,12 @@ export default function QuestionCard(question) {
               <IconButton aria-label="notif" size="small">
           <NotificationImportantIcon fontSize="inherit" />
         </IconButton>
-              
-            </Grid>
-            <Grid item>
-              <IconButton aria-label="upvote" size="small">
+        <IconButton aria-label="upvote" size="small">
           <ThumbUpAltIcon fontSize="inherit" />
         </IconButton>
               
             </Grid>
+            
                 <br/>
                 <Typography variant="body1">
         {question[1]}
