@@ -14,7 +14,7 @@ class QASidebar extends Component {
     super(props);
     this.state = {
       filterText: '',
-      questionList: ['awef?', 'barg?', 'csdf?', 'dabf?'],
+      questionList: ['0', '1', '2', '3'],
     };
     this.handleFilterTextChange = this.handleFilterTextChange.bind(this);
   }

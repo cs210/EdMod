@@ -35,10 +35,9 @@ import {
 from '@material-ui/core';
 
 export default function QuestionCard(question) {
-  var tags = ['tag1', 'tag2']
-  var req = ['include photo', 'include screenshot'] // TODO: implement
-  var user = "Isaiah Bush"
-
+  var title = question.title;
+  var q_body = question.text;
+  var tags = question.tags;
 
   return (
     <div >
@@ -50,7 +49,7 @@ export default function QuestionCard(question) {
               <Grid item xs container direction="row" spacing={2}>
                 <Grid item xs>
                   <Typography variant="h4">
-                  {question[0]}
+                  {title}
                   </Typography>
                 </Grid>
                 <Grid item>
@@ -65,7 +64,7 @@ export default function QuestionCard(question) {
             
                 <br/>
                 <Typography variant="body1">
-        {question[1]}
+        {q_body}
       </Typography>
       <br/>
                 {ImgMediaCard()}
