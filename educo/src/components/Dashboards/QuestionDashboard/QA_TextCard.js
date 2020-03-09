@@ -38,6 +38,7 @@ export default function QuestionCard(question) {
   var title = question.title;
   var q_body = question.text;
   var tags = question.tags;
+  var attachements = question.attachements
 
   return (
     <div >
@@ -67,7 +68,7 @@ export default function QuestionCard(question) {
         {q_body}
       </Typography>
       <br/>
-                {ImgMediaCard()}
+                {ImgMediaCard(attachements)}
               </Grid>
               <Grid item>
                 <Grid

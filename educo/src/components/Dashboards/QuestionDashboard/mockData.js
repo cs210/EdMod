@@ -2,7 +2,7 @@ export default function mockData(id){
   var questionsData = `{
   "0": {
     "author": "Isaiah B.",
-    "title": "Scratch Help",
+    "title": "Scratch Set Up Help",
     "text": "I’m working on the social impact game, and I’m having trouble setting up Scratch on my computer. I followed the tutorial but I can’t seem to get it working. It keeps freezing past the login screen. I tried resetting my computer, but that does not help me. Can someone help?",
     "tags":[
       "scratch",
@@ -46,7 +46,7 @@ export default function mockData(id){
   },
   "1": {
     "author": "stephanie",
-    "title": "Ideas to prototype",
+    "title": "Ideas to prototype timeline",
     "text": "I was wondering how much time it would take to make my chatbot from a paper idea to a working chatbot? My student are wondering what to expect, and I thought to ask online to get some advice.",
     "solved": false,
     "tags":[
@@ -71,6 +71,20 @@ export default function mockData(id){
         "accepted":true
         }
       ]
+  },
+  "2": {
+    "author": "Isaiah B.",
+    "title": "Breakable loop in Scratch?",
+    "text": "How do you make a breakable loop in Scratch? I'm using Scratch 2.0 and can't find any good way to make a loop breakable, from inside of the loop itself.",
+    "tags":[
+      "scratch",
+      "spring 2020",
+      "coding"
+    ],
+    "solved": true,
+    "upvotes": 0,
+    "attachements":[],
+    "threads": []
   }
 }`;
   
