@@ -149,7 +149,7 @@ AnswerCard(answersList) {
             </Grid>
             
 
-            
+
             <Grid item xs={1} align="left" >
               <Tooltip title="Accepted answer" placement="right" arrow>
         <BeenhereIcon style={{color:'green'}} fontSize='small'/>
@@ -164,7 +164,7 @@ AnswerCard(answersList) {
                 </Typography>
             </Grid>
             <Grid item xs={12}>
-            <Button color="primary"  startIcon={<ChatBubbleIcon/>}  size="small">Reply</Button>
+            <Button color="primary"  startIcon={<ChatBubbleIcon/>}  size="small" onClick={()=> {this.handleShowSubAnswerText(i)}}>Reply</Button>
             </Grid>
           </Grid>
           </Grid>

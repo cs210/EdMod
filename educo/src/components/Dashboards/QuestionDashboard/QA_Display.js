@@ -4,6 +4,8 @@ import QuestionCard from './QA_TextCard.js'
 import ThumbUpAltIcon from '@material-ui/icons/ThumbUpAlt';
 import NotificationImportantIcon from '@material-ui/icons/NotificationImportant';
 import QA_AnswerCards from './QA_AnswerCards.js'
+
+import mockData from './mockData.js'
 import {
   List,
   ListItem,
@@ -23,7 +25,8 @@ class QADisplay extends Component {
     super(props);
     this.state = {
       answerInput: '',
-      q_id: this.props.q_id
+      q_id: this.props.q_id,
+      q_info: mockData(this.props.q_id)
     };
     this.handleFilterTextChange = this.handleFilterTextChange.bind(this);
   }
@@ -34,9 +37,13 @@ class QADisplay extends Component {
     });
   }
 
+getQuestionInfo(){
+  return mockData(this.state.q_id);
+}
+
 displayTextCard() {
-  var question = [this.state.q_id, 'I’m working on the social impact game, and I’m having trouble setting up Scratch on my computer. I followed the tutorial but I can’t seem to get it working. It keeps freezing past the login screen. I tried resetting my computer, but that does not help me. Can someone help?'];
-  return QuestionCard(question); //TODO: question id should link to answer_ids, so TextCard should only take 1 parameter
+  //var questionInfo = this.getQuestionInfo()
+  return QuestionCard(this.state.q_info); //TODO: question id should link to answer_ids, so TextCard should only take 1 parameter
 
 }
 /*
