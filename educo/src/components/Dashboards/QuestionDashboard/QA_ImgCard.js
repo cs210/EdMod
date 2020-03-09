@@ -13,35 +13,9 @@ import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import AttachFileIcon from '@material-ui/icons/AttachFile';
 
-export default function ImgMediaCard() {
-  const tileData = [
-    {
-     img: 'https://u.cubeupload.com/XxShazammxX/forumsamended.jpg',
-     title: 'Image',
-    },
-    {
-       img: 'https://zdnet1.cbsistatic.com/hub/i/r/2019/08/20/b3fbfed9-ec64-4efc-a7af-f0360ba90a08/resize/1200x900/755e999f592b0e0d7a21f93536a81d35/scratch3-on-raspbian-cropped1.png',
-      title: 'Image',
-    },
-    {
-     img: 'https://u.cubeupload.com/XxShazammxX/forumsamended.jpg',
-     title: 'Image',
-    },
-    {
-       img: 'https://zdnet1.cbsistatic.com/hub/i/r/2019/08/20/b3fbfed9-ec64-4efc-a7af-f0360ba90a08/resize/1200x900/755e999f592b0e0d7a21f93536a81d35/scratch3-on-raspbian-cropped1.png',
-      title: 'Image',
-    },
-    {
-     img: 'https://u.cubeupload.com/XxShazammxX/forumsamended.jpg',
-     title: 'Image',
-    },
-    {
-       img: 'https://zdnet1.cbsistatic.com/hub/i/r/2019/08/20/b3fbfed9-ec64-4efc-a7af-f0360ba90a08/resize/1200x900/755e999f592b0e0d7a21f93536a81d35/scratch3-on-raspbian-cropped1.png',
-      title: 'Image',
-    },
-  ];
-
-  return (
+export default function ImgMediaCard(tileData) {
+  if(Array.isArray(tileData) && tileData.length){
+      return (
       <ExpansionPanel>
         <ExpansionPanelSummary
           expandIcon={<ExpandMoreIcon />}
@@ -68,5 +42,9 @@ export default function ImgMediaCard() {
       </GridList>
         </ExpansionPanelDetails>
       </ExpansionPanel>
+    );
+  }
+  return(
+    <div/>
   );
 }

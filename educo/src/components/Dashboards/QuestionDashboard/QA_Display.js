@@ -26,7 +26,6 @@ class QADisplay extends Component {
     this.state = {
       answerInput: '',
       q_id: this.props.q_id,
-      q_info: mockData(this.props.q_id)
     };
     this.handleFilterTextChange = this.handleFilterTextChange.bind(this);
   }
@@ -38,12 +37,17 @@ class QADisplay extends Component {
   }
 
 getQuestionInfo(){
-  return mockData(this.state.q_id);
+  var info = mockData(this.state.q_id)
+  return info;
+}
+getAnswerInfo(){
+  var info = mockData(this.state.q_id).threads
+  return info;
 }
 
 displayTextCard() {
-  //var questionInfo = this.getQuestionInfo()
-  return QuestionCard(this.state.q_info); //TODO: question id should link to answer_ids, so TextCard should only take 1 parameter
+  var questionInfo = this.getQuestionInfo()
+  return QuestionCard(questionInfo); //TODO: question id should link to answer_ids, so TextCard should only take 1 parameter
 
 }
 /*
@@ -54,7 +58,7 @@ displayAnswerCard(){
 }
 */
   render() {
-    var answers = [["Have you tried looking at the FAQs?", 'yea not sure, I tried that!', 'hmmm, i wonder whats wrong', 'me too'], ["hmmmmmmmmmmmmmmmmmmmmmmmmmmm mmmmmmmmmmmmmmmmmmm mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm mmmmmmmmmmmmmmm idk haha [overflow answer ex]", "woah thats long!", ":))"]] //Answers are arrays of arrays
+    var answers = this.getAnswerInfo();
     return (
       <div className="qa_container">
         {this.displayTextCard()}
@@ -69,7 +73,7 @@ displayAnswerCard(){
 
   componentDidUpdate(prevProps, prevState) {
     if (this.props.q_id !== prevState.q_id) {
-    this.setState({q_id: this.props.q_id});
+      this.setState({q_id: this.props.q_id});
     }
   } 
 }

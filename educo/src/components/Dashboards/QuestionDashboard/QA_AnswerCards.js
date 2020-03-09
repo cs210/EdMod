@@ -129,21 +129,19 @@ class QA_AnswerCards extends Component {
 }
 
 AnswerCard(answersList) {
-  var user = "austin";
    var answers = [];
     var answer;
-    console.log(this.state)
     
     for (let i=0; i < answersList.length; i++) {
-        console.log(i)
         answer = answersList[i];
+        console.log(answer.text[0])
         answers[i] = (
           <Paper style={{padding: 15,
     margin: 10, overflow: "scroll"}}>          
           <Grid container direction="column" spacing={1}>
           <Grid item container spacing={1} justify="space-between">
             <Grid item xs={2}>
-              {AuthorPanel(user)}
+              {AuthorPanel(answer.text[0].author)}
             </Grid>
             <Grid item xs={9}>
             </Grid>
@@ -160,7 +158,7 @@ AnswerCard(answersList) {
            </Grid>
             <Grid item xs={12}>
               <Typography variant="body2">
-                  {answer[0]}
+                  {answer.text[0].comment}
                 </Typography>
             </Grid>
             <Grid item xs={12}>
@@ -179,6 +177,12 @@ AnswerCard(answersList) {
   render(){
     return (this.AnswerCard(this.state.answers));
   }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (this.props.answers !== prevState.answers) {
+      this.setState({answers: this.props.answers});
+    }
+  } 
 }
 
 export default QA_AnswerCards
