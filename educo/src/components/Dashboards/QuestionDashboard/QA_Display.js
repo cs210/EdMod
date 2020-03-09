@@ -37,26 +37,22 @@ class QADisplay extends Component {
   }
 
 getQuestionInfo(){
-  var info = mockData(this.state.q_id)
+  var info = mockData(parseInt(this.state.q_id))
   return info;
 }
+
 getAnswerInfo(){
-  var info = mockData(this.state.q_id).threads
+  var info = mockData(parseInt(this.state.q_id)).threads
   return info;
 }
+
 
 displayTextCard() {
   var questionInfo = this.getQuestionInfo()
   return QuestionCard(questionInfo); //TODO: question id should link to answer_ids, so TextCard should only take 1 parameter
 
 }
-/*
-displayAnswerCard(){
-  //TODO: figure out Typography tag overflow 
-  var answers = [["Have you tried looking at the FAQs?", 'yea not sure, I tried that!'], ["hmmmmmmmmmmmmmmmmmmmmmmmmmmm mmmmmmmmmmmmmmmmmmm mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm mmmmmmmmmmmmmmm idk haha [overflow answer ex]"]] //Answers are arrays of arrays
-  return AnswerCards(answers); 
-}
-*/
+
   render() {
     var answers = this.getAnswerInfo();
     return (
@@ -79,5 +75,7 @@ displayAnswerCard(){
 }
 
   
-
+ 
 export default QADisplay;
+
+//

@@ -14,7 +14,7 @@ class QASidebar extends Component {
     super(props);
     this.state = {
       filterText: '',
-      questionList: ['0', '1', '2'],
+      questionList: this.props.questionList,
     };
     this.handleFilterTextChange = this.handleFilterTextChange.bind(this);
   }
@@ -25,14 +25,16 @@ class QASidebar extends Component {
     });
   }
 
+
+
   makeList() {
     var questions = [];
     var question;
     for (var i in this.state.questionList) {
         question = this.state.questionList[i];
         questions[i] = (
-          <ListItem divider={true} button component={RouterLink} to={"/qa/"+question} key={"q_list_"+question}>
-          <ListItemText primary={question} secondary={"Imagine question details"}/>
+          <ListItem divider={true} button component={RouterLink} to={"/qa/"+question[0]} key={"q_list_"+question[0]} style={{overflow:'hidden'}}>
+          <ListItemText primary={question[1]} secondary={question[2]}/>
           </ListItem>
         );
     }
