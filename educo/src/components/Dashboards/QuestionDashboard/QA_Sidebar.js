@@ -14,7 +14,7 @@ class QASidebar extends Component {
     super(props);
     this.state = {
       filterText: '',
-      questionList: ['awef?', 'barg?', 'csdf?', 'dabf?'],
+      questionList: this.props.questionList,
     };
     this.handleFilterTextChange = this.handleFilterTextChange.bind(this);
   }
@@ -25,20 +25,19 @@ class QASidebar extends Component {
     });
   }
 
+
+
   makeList() {
     var questions = [];
     var question;
     for (var i in this.state.questionList) {
-        console.log(this.state.questionList[i])
         question = this.state.questionList[i];
         questions[i] = (
-          <ListItem divider={true} button component={RouterLink} to={"/question/"+question} key={question}>
-          <ListItemText primary={question} secondary={"Imagine question here!"}/>
+          <ListItem divider={true} button component={RouterLink} to={"/qa/"+question[0]} key={"q_list_"+question[0]} style={{overflow:'hidden'}}>
+          <ListItemText primary={question[1]} secondary={question[2]}/>
           </ListItem>
         );
     }
-    console.log("made lists")
-    console.log(this.state.questionList)
     return questions;
   }
 

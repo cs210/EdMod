@@ -1,5 +1,11 @@
 import React, { Component } from "react";
-import { Link as RouterLink } from 'react-router-dom'
+import { Link as RouterLink } from 'react-router-dom';
+import QuestionCard from './QA_TextCard.js'
+import ThumbUpAltIcon from '@material-ui/icons/ThumbUpAlt';
+import NotificationImportantIcon from '@material-ui/icons/NotificationImportant';
+import QA_AnswerCards from './QA_AnswerCards.js'
+
+import mockData from './mockData.js'
 import {
   List,
   ListItem,
@@ -9,17 +15,17 @@ import {
   Divider,
   Container,
   Button,
-  Grid
+  Grid,
+  IconButton
 }
 from '@material-ui/core';
-import './QA_Display.css'
 
 class QADisplay extends Component {
   constructor(props) {
     super(props);
     this.state = {
       answerInput: '',
-      questionId: '000113131310',
+      q_id: this.props.q_id,
     };
     this.handleFilterTextChange = this.handleFilterTextChange.bind(this);
   }
@@ -30,59 +36,46 @@ class QADisplay extends Component {
     });
   }
 
-  displayQuestion() {
-    //sample q data
-    var question = ['Help Scratch', 'how do i set up scratch - help!!!!'];
-    var tags = ['tag1', 'tag2']
-    var req = ['include photo', 'include screenshot']
-    var user = "Isaiah Bush"
+getQuestionInfo(){
+  var info = mockData(parseInt(this.state.q_id))
+  return info;
+}
+
+getAnswerInfo(){
+  var info = mockData(parseInt(this.state.q_id)).threads
+  return info;
+}
 
 
-    var display = (
-      
-      <Paper elevation={2}>
-      <Typography variant="h3">
-        {question[0]}
-      </Typography>
-      <Typography variant="body1">
-        <font color="grey">{question[1]}</font>
-      </Typography>
-      <Divider />
-      <Grid
-  container
-  direction="row"
-  justify="space-between"
-  alignItems="stretch"
->
-        <Grid key='question_tags' item>
-          {tags.map((tag)=> {
-            return(<Button variant="outlined" style={{maxWidth: 'px', maxHeight: 'px'}} color="primary">
-            <Typography variant="caption">
-        <font color="grey">{tag}</font>
-      </Typography>
-            </Button>
-            )
-          })}
-        </Grid>
-        <Grid key='question_user' item>
-          <Typography variant="body2">
-            Asked by {user}
-          </Typography>
-        </Grid>
-      </Grid>
-      </Paper>
-    )
-    return display;
-  }
+displayTextCard() {
+  var questionInfo = this.getQuestionInfo()
+  return QuestionCard(questionInfo); //TODO: question id should link to answer_ids, so TextCard should only take 1 parameter
 
+}
 
   render() {
+    var answers = this.getAnswerInfo();
     return (
       <div className="qa_container">
-        {this.displayQuestion()}
+        {this.displayTextCard()}
+        <QA_AnswerCards  q_id={this.state.q_id} answers={answers}/>
       </div>
     );
   }
+
+  componentDidMount() {
+    this.setState({q_id: this.props.q_id});
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (this.props.q_id !== prevState.q_id) {
+      this.setState({q_id: this.props.q_id});
+    }
+  } 
 }
 
+  
+ 
 export default QADisplay;
+
+//
