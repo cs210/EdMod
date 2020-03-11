@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 import NavBar from "./components/layout/Navbar";
 import TeacherDashboard from "./components/Dashboards/TeacherDashboard/TeacherDashboard.js";
 import QuestionDashboard from "./components/Dashboards/QuestionDashboard/QuestionDashboard.js";
@@ -15,6 +15,7 @@ class App extends Component {
           <Switch>
             <Route exact path="/" component={TeacherDashboard} />
             <Route path="/qa/:q_id" render={(props) => <QuestionDashboard {...props}/>} />
+            <Redirect path="/qa" to="/qa/0" />
             <Route path="/progress" component={ProgressDashboard} />
             <Route path="/engineers" component={EngineerProfileDashboard} />
           </Switch>

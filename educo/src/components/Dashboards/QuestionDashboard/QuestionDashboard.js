@@ -36,8 +36,8 @@ getMockList(){
 
   
   render() {
-    console.log(this.props)
     var list = this.getMockList();
+    console.log(this.state)
     return (
         <Grid
         container
