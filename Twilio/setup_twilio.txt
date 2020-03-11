@@ -1,0 +1,35 @@
+Twilio
+
+Personal gmail
+Bella-iza-vale
+
+LOYXVHY3g5Wxl2YbKbahAp4ghuKuHzVoeNaJ9ht1
+
+Master api key
+
+FRIENDLY NAME.  lacoder
+SID    SKe1b618415022246bf91278d9385216c5
+KEY TYPE Master
+SECRET. jcyHW3lATCQPGE2WaUCfhAGprPFzwj0Y
+
+STEPS TO TAKE: https://www.twilio.com/docs/sms/quickstart/python#install-python-and-the-twilio-helper-library
+
+curl -G https://api.twilio.com/2010-04-01/Accounts \
+    -u 'AC27350a5ed520996ec64f7da9265631cf: 2c79bf5842612fcc3a286dbd3a9f9503’
+
+
+Activate Twilio: 
+twilio phone-numbers:update "+16502490797" --sms-url="http://localhost:5000/sms”.
+
+NGrok Acct
+Personal gmail
+bella-iza-vale
+Tunnel Authtoken 1YxES5zCaOdmQkpRxz1tOraPv7B_7L5JShyhKCjRYFGSHdEQE
+
+cd Twilio/
+Only need to run the below once in the terminal:
+./ngrok authtoken 1YxES5zCaOdmQkpRxz1tOraPv7B_7L5JShyhKCjRYFGSHdEQE
+Python run.py
+
+
+
