@@ -16,6 +16,8 @@ import AttachFileIcon from '@material-ui/icons/AttachFile';
 export default function ImgMediaCard(tileData) {
   if(Array.isArray(tileData) && tileData.length){
       return (
+      <div>
+      <br/>
       <ExpansionPanel>
         <ExpansionPanelSummary
           expandIcon={<ExpandMoreIcon />}
@@ -42,6 +44,7 @@ export default function ImgMediaCard(tileData) {
       </GridList>
         </ExpansionPanelDetails>
       </ExpansionPanel>
+      </div>
     );
   }
   return(
