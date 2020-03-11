@@ -1,16 +1,25 @@
 import React, { Component } from "react";
+import DefaultProgressDisplay from "./defaultDashboard.js";
 
 class ProgressDashboard extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      filterText: '',
+    };
+    this.handleFilterTextChange = this.handleFilterTextChange.bind(this);
+  }
+
+  handleFilterTextChange(filterText) {
+    this.setState({
+      filterText: filterText
+    });
+  }
+
   render() {
-    return (
-      <div className="dashboard container">
-        <div classname="row">
-          <div classname="col s12 m6">
-            <h1> Hello </h1>
-          </div>
-          <div classname="col s12 m5 offset-m1"></div>
-        </div>
-      </div>
+    console.log("ProgressDashboard")
+     return (
+      <DefaultProgressDisplay/>
     );
   }
 }

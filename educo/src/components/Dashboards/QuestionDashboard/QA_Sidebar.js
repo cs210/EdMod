@@ -25,6 +25,17 @@ class QASidebar extends Component {
     });
   }
 
+  handleTagClick(tag){
+    //TODO
+    return 0
+  }
+
+  fetchFilteredPosts(filterText, tags){
+    //currently just store all tokens and keep if token inside 
+    //TODO 
+    return 0
+  }
+
 
 
   makeList() {
