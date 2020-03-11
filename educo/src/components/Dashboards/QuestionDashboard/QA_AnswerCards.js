@@ -94,8 +94,8 @@ class QA_AnswerCards extends Component {
   SubAnswers(answersList, a_id){
     var answers = [];
     var answer;
-    for (var i=1; i < answersList.length; i++) {
-        answer = answersList[i];
+    for (var i=1; i < answersList.text.length; i++) {
+        answer = answersList.text[i];
         answers[i] = (
           <Grid container direction="column" spacing={0} >
           <Grid item container spacing={0} justify="space-between">
@@ -104,7 +104,7 @@ class QA_AnswerCards extends Component {
             </Grid>
             <Grid item xs={11} >
               <Divider style={{marginTop:10, marginBottom:10}}/>
-              {AuthorPanel("stephanie")}
+              {AuthorPanel(answer.author)}
             </Grid>
             
             <Grid item xs={1}>
@@ -112,7 +112,7 @@ class QA_AnswerCards extends Component {
             </Grid>
             <Grid item xs={11}>
               <Typography variant="body2">
-                  {answer}
+                  {answer.comment}
               </Typography>
             <IconButton aria-label={"comment_"+i} id={"comment_"+i} onClick={()=> {this.handleShowSubAnswerText(a_id)}}>
               <ChatBubbleIcon fontSize="small" style={{width:15, height:15}}/>
@@ -134,7 +134,6 @@ AnswerCard(answersList) {
     
     for (let i=0; i < answersList.length; i++) {
         answer = answersList[i];
-        console.log(answer.text[0])
         answers[i] = (
           <Paper style={{padding: 15,
     margin: 10, overflow: "scroll"}}>          
@@ -149,11 +148,10 @@ AnswerCard(answersList) {
 
 
             <Grid item xs={1} align="left" >
-              <Tooltip title="Accepted answer" placement="right" arrow>
-        <BeenhereIcon style={{color:'green'}} fontSize='small'/>
-     </Tooltip>
-
-
+            {answer.accepted === true ? <Tooltip title="Accepted answer" placement="right" arrow>
+        <BeenhereIcon style={{color:'green'}}/>
+     </Tooltip> : <div/> }
+              
               
            </Grid>
             <Grid item xs={12}>

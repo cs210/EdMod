@@ -39,6 +39,8 @@ export default function QuestionCard(question) {
   var q_body = question.text;
   var tags = question.tags;
   var attachements = question.attachements
+  var author = question.author
+  var answers = question.threads
 
   return (
     <div >
@@ -62,12 +64,10 @@ export default function QuestionCard(question) {
         </IconButton>
               
             </Grid>
-            
                 <br/>
                 <Typography variant="body1">
-        {q_body}
-      </Typography>
-      <br/>
+                  {q_body}
+                </Typography>
                 {ImgMediaCard(attachements)}
               </Grid>
               <Grid item>
@@ -86,7 +86,7 @@ export default function QuestionCard(question) {
       })}
         </Grid>
         <Grid key='question_user' item>
-          {AuthorPanel("Isaiah B.")}
+          {AuthorPanel(author)}
         </Grid>
       </Grid>
               </Grid>
@@ -130,6 +130,7 @@ export default function QuestionCard(question) {
         </Grid>
         </Grid>
       </Paper>
+      {Array.isArray(answers) && answers.length ? <div/> : <Typography variant='subtitle2' style={{color: 'blue'}}> Be the first to answer! </Typography>}
       </Paper>
       </div>
     );
