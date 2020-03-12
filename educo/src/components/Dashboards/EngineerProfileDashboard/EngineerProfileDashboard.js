@@ -16,7 +16,6 @@ class EngineerProfileDashboard extends Component {
         container
         direction="row"
         justify="center"
-        alignItems="center"
       >
         <EngineerProfileCard/>
         <EngineerProfileCard/>
