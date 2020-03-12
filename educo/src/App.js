@@ -1,10 +1,12 @@
 import React, { Component } from "react";
 import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
+import Routes from './components/Routing/Routes.js';
 import NavBar from "./components/layout/Navbar";
 import TeacherDashboard from "./components/Dashboards/TeacherDashboard/TeacherDashboard.js";
 import QuestionDashboard from "./components/Dashboards/QuestionDashboard/QuestionDashboard.js";
 import ProgressDashboard from "./components/Dashboards/ProgressDashboard/ProgressDashboard.js";
 import EngineerProfileDashboard from "./components/Dashboards/EngineerProfileDashboard/EngineerProfileDashboard.js";
+import EngineerProfileDerpy from './components/Profiles/EngineerProfileDerpy.js';
 
 class App extends Component {
   render() {
@@ -12,17 +14,10 @@ class App extends Component {
       <BrowserRouter>
         <div className="App">
           <NavBar />
-          <Switch>
-            <Route exact path="/" component={TeacherDashboard} />
-            <Route path="/qa/:q_id" render={(props) => <QuestionDashboard {...props}/>} />
-            <Redirect path="/qa" to="/qa/0" />
-            <Route path="/progress" component={ProgressDashboard} />
-            <Route path="/engineers" component={EngineerProfileDashboard} />
-          </Switch>
+          <Routes/>
         </div>
       </BrowserRouter>
     );
   }
 }
-
 export default App;
