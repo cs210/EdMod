@@ -14,6 +14,7 @@ import {
 } from '@material-ui/core';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Derpy from "../../../images/derpcat.jpg";
+import RouteDerpyButton from './RouteDerpyButton.js';
 
 class EngineerProfileCard extends Component {
   constructor(props) {
@@ -33,7 +34,7 @@ class EngineerProfileCard extends Component {
 
   // TODO pass profile object thru props; grab avatar image, data
   // const { classes } = this.props; // or something like this; figure out;
-  // make class into function?
+  // make class into function; "stateless"?
   render() {
     // const classes = useStyles();
     return (
@@ -75,3 +76,8 @@ class EngineerProfileCard extends Component {
 }
 
 export default EngineerProfileCard;
+
+
+// <CardActions>
+//   <RouteDerpyButton/>
+// </CardActions>
