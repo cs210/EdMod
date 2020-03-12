@@ -5,14 +5,17 @@ import TeacherDashboard from "../Dashboards/TeacherDashboard/TeacherDashboard.js
 import QuestionDashboard from "../Dashboards/QuestionDashboard/QuestionDashboard.js";
 import ProgressDashboard from "../Dashboards/ProgressDashboard/ProgressDashboard.js";
 import EngineerProfileDashboard from "../Dashboards/EngineerProfileDashboard/EngineerProfileDashboard.js";
-import EngineerProfileDerpy from '../Profiles/EngineerProfileDerpy.js';
+import EngineerProfileDerpy from "../Profiles/EngineerProfileDerpy.js";
 
 class Routes extends Component {
   render() {
     return (
       <Switch>
-        <Route exact path="/" component={TeacherDashboard} />
-        <Route path="/qa/:q_id" render={(props) => <QuestionDashboard {...props}/>} />
+        <Route exact path="/teachers" component={TeacherDashboard} />
+        <Route
+          path="/qa/:q_id"
+          render={props => <QuestionDashboard {...props} />}
+        />
         <Redirect path="/qa" to="/qa/0" />
         <Route path="/progress" component={ProgressDashboard} />
         <Route path="/engineers" component={EngineerProfileDashboard} />
