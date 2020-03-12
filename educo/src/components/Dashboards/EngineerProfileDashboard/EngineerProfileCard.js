@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import {
   Box,
+  Grid,
   Card,
   CardContent,
   CardActions,
@@ -32,36 +33,41 @@ class EngineerProfileCard extends Component {
   }
 
   // TODO pass profile object thru props; grab avatar image, data
+  // const { classes } = this.props; // or something like this; figure out;
+  // make no longer class? function, imitate example?
   render() {
     return (
-      <Box width={1/4}>
+      <Box width={1/4} m={1}>
+
         <Card>
-          <Avatar src={Derpy} />
+          <Grid container alignItems="center" justify="center">
+            <Avatar src={Derpy} />
 
-          <Typography h1>
-            Derpy McDerpface
-          </Typography>
+            <Typography h1>
+              Derpy McDerpface
+            </Typography>
 
 
-          <CardActions disableSpacing>
-            <IconButton onClick={this.handleExpandClick}>
-              <ExpandMoreIcon />
-            </IconButton>
-          </CardActions>
+            <CardActions disableSpacing>
+              <IconButton onClick={this.handleExpandClick}>
+                <ExpandMoreIcon />
+              </IconButton>
+            </CardActions>
 
-          <Collapse in={this.state.isExpanded} timeout="auto" unmountOnExit>
-            <CardContent>
-                <Typography subtitle1> Hometown: </Typography>
-                <Typography paragraph> Mexico City, MX </Typography>
+            <Collapse in={this.state.isExpanded} timeout="auto" unmountOnExit>
+              <CardContent>
+                  <Typography subtitle1> Hometown: </Typography>
+                  <Typography paragraph> Mexico City, MX </Typography>
 
-                <Typography subtitle1> Education: </Typography>
-                <Typography paragraph> Universidad Nacional Autónoma de Mexico </Typography>
+                  <Typography subtitle1> Education: </Typography>
+                  <Typography paragraph> Universidad Nacional Autónoma de Mexico </Typography>
 
-                <Typography subtitle1> About Me: </Typography>
-                <Typography paragraph> I was born and raised in el DF and I moved to the US six years ago for better oportunities and I’ve been happily living in Oakland since. I am acively involved in Techqueria, an org for Latinx in Tech where I help organize and run events. </Typography>
-            </CardContent>
-          </Collapse>
-        </Card>
+                  <Typography subtitle1> About Me: </Typography>
+                  <Typography paragraph> I was born and raised in el DF and I moved to the US six years ago for better oportunities and I’ve been happily living in Oakland since. I am acively involved in Techqueria, an org for Latinx in Tech where I help organize and run events. </Typography>
+              </CardContent>
+            </Collapse>
+            </Grid>
+          </Card>
       </Box>
     );
   }
