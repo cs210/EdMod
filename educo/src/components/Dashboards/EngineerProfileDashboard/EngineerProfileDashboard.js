@@ -2,14 +2,15 @@ import React, { Component } from "react";
 import EngineerProfileCard from './EngineerProfileCard';
 
 import {
-  Container,
-  Button,
   Grid,
 }
 from '@material-ui/core';
 
 class EngineerProfileDashboard extends Component {
   render() {
+    // UI controls on TOP: (<prev) <CURR_MONTH> (next>)
+    // proper item spacing
+
     return (
       <Grid
         container
@@ -17,6 +18,7 @@ class EngineerProfileDashboard extends Component {
         justify="center"
         alignItems="center"
       >
+        <EngineerProfileCard/>
         <EngineerProfileCard/>
         <EngineerProfileCard/>
       </Grid>
