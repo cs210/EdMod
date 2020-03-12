@@ -7,10 +7,13 @@ class TeacherDashboard extends Component {
       <div className="container">
         <div className="row">
           <StudentSummary />
-          <StudentSummary />
+          {/* <StudentSummary />
           <div className="w-100"></div>
           <StudentSummary />
           <StudentSummary />
+          <div className="w-100"></div>
+          <StudentSummary />
+          <StudentSummary /> */}
         </div>
       </div>
     );
