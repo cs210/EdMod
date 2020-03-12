@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import EngineerProfileCard from './EngineerProfileCard';
+import EngineerDashboardControls from './EngineerDashboardControls';
 
 import {
   Grid,
@@ -12,15 +13,19 @@ class EngineerProfileDashboard extends Component {
     // proper item spacing
 
     return (
-      <Grid
-        container
-        direction="row"
-        justify="center"
-      >
-        <EngineerProfileCard/>
-        <EngineerProfileCard/>
-        <EngineerProfileCard/>
-      </Grid>
+        <>
+        <EngineerDashboardControls/>
+
+        <Grid
+          container
+          direction="row"
+          justify="center"
+        >
+          <EngineerProfileCard/>
+          <EngineerProfileCard/>
+
+        </Grid>
+        </>
     );
   }
 }

@@ -10,8 +10,7 @@ import {
   // ExpandMoreIcon, // this fails unless imported as below
   Avatar,
   Typography
-}
-from '@material-ui/core';
+} from '@material-ui/core';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 import Derpy from "../../../images/derpcat.jpg";
@@ -42,6 +41,7 @@ class EngineerProfileCard extends Component {
         <Card>
           <Grid container alignItems="center" justify="center">
             <Avatar src={Derpy} />
+            <Box width={1}/>
 
             <Typography h1>
               Derpy McDerpface
