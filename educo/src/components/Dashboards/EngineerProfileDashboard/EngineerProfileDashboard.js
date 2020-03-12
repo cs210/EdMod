@@ -4,17 +4,17 @@ import EngineerDashboardControls from './EngineerDashboardControls';
 
 import {
   Grid,
+  Box,
 }
 from '@material-ui/core';
 
 class EngineerProfileDashboard extends Component {
   render() {
-    // UI controls on TOP: (<prev) <CURR_MONTH> (next>)
-    // proper item spacing
-
     return (
         <>
         <EngineerDashboardControls/>
+
+        <Box height={10}/>
 
         <Grid
           container

@@ -3,6 +3,7 @@ import {
   Box,
   Grid,
   Card,
+  CardMedia,
   CardContent,
   CardActions,
   Collapse,
@@ -12,7 +13,6 @@ import {
   Typography
 } from '@material-ui/core';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-
 import Derpy from "../../../images/derpcat.jpg";
 
 class EngineerProfileCard extends Component {
@@ -33,20 +33,24 @@ class EngineerProfileCard extends Component {
 
   // TODO pass profile object thru props; grab avatar image, data
   // const { classes } = this.props; // or something like this; figure out;
-  // make no longer class? function, imitate example?
+  // make class into function?
   render() {
     return (
       <Box width={1/4} m={1}>
 
         <Card>
           <Grid container alignItems="center" justify="center">
-            <Avatar src={Derpy} />
-            <Box width={1}/>
+            <CardMedia>
+              <Box width = {1} height={10} />
+              <Avatar src={Derpy} />
+              <Box width={1}/>
+            </CardMedia>
 
-            <Typography h1>
-              Derpy McDerpface
-            </Typography>
-
+            <CardContent>
+              <Typography h1>
+                Derpy McDerpface
+              </Typography>
+            </CardContent>
 
             <CardActions disableSpacing>
               <IconButton onClick={this.handleExpandClick}>
