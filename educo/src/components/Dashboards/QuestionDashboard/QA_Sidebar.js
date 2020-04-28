@@ -17,7 +17,7 @@ const MakeList = (props) => {
      question = props.questionList[i];
      console.log(question)
      questions[i] = (
-       <ListItem divider={true} button component={RouterLink} to={"/qa/"+question[0]} key={"q_list_"+question.id} style={{overflow:'hidden'}}>
+       <ListItem divider={true} button component={RouterLink} to={"/qa/"+question.id} key={"q_list_"+question.id} style={{overflow:'hidden'}}>
        <ListItemText primary={question.data.title} secondary={question.data.text}/>
        </ListItem>
      );
