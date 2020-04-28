@@ -24,27 +24,27 @@ from '@material-ui/core';
 
 const QADisplay = (props) => {
   const [answerInput, setAnswerInput] = useState('')
-  const [q_id, setq_id] = useState(props.q_id)
+  const [q_id, setq_id] = useState('')
   const [question, setQuestion] = useState([])
   useEffect(() => {
     if (q_id != props.q_id) {
       setq_id(props.q_id)
-    };
-  });
-
-  // need to search through questionList here with the current selected q_id
-  console.log("q_id here", q_id)
-
-  firebase
+      firebase
     .firestore()
     .collection("questions")
-    .doc(q_id)
+    .doc(props.q_id)
     .get()
     .then((docRef) => {
       console.log("here", docRef.data())
       setQuestion(docRef.data())
     })
     .catch((error) => { })
+    };
+  });
+
+  // need to search through questionList here with the current selected q_id
+  console.log("q_id here", q_id)
+
 
   // const question = firebase.firestore.collection("question").doc(q_id).get()
   console.log("question updated ", question)
