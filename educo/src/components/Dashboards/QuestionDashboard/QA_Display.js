@@ -23,23 +23,27 @@ from '@material-ui/core';
 
 
 const QADisplay = (props) => {
+  const default_question = {data:{title:"", author:"", text:"", tags:[], attachments:[], solved: false}}
   const [answerInput, setAnswerInput] = useState('')
   const [q_id, setq_id] = useState('')
-  const [question, setQuestion] = useState([])
+  const [question, setQuestion] = useState(default_question)
   useEffect(() => {
     if (q_id != props.q_id) {
       setq_id(props.q_id)
-      firebase
-    .firestore()
-    .collection("questions")
-    .doc(props.q_id)
-    .get()
-    .then((docRef) => {
-      console.log("here", docRef.data())
-      setQuestion(docRef.data())
-    })
-    .catch((error) => { })
-    };
+
+      if (question != default_question) {
+        firebase
+          .firestore()
+          .collection("questions")
+          .doc(props.q_id)
+          .get()
+          .then((docRef) => {
+            console.log("here", docRef.data())
+            setQuestion(docRef.data())
+          })
+          .catch((error) => { })
+          };
+      }
   });
 
   // need to search through questionList here with the current selected q_id
@@ -53,8 +57,7 @@ const QADisplay = (props) => {
   return (
       <div className="qa_container">
 
-        <QuestionCard question = {question} />
-        <QA_AnswerCards  q_id={q_id} answers={answers}/>
+        <QuestionCard question = {question.data} />
       </div>
     );
   };
