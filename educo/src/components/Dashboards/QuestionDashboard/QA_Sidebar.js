@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import SearchBar from '../../SearchBar.js';
 import { Link as RouterLink } from 'react-router-dom'
 import {
@@ -15,7 +15,8 @@ const MakeList = (props) => {
   var question;
   for (var i in props.questionList) {
      question = props.questionList[i];
-     console.log(question)
+     console.log(question);
+
      questions[i] = (
        <ListItem divider={true} button component={RouterLink} to={"/qa/"+question.id} key={"q_list_"+question.id} style={{overflow:'hidden'}}>
        <ListItemText primary={question.data.title} secondary={question.data.text}/>

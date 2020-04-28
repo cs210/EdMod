@@ -20,6 +20,7 @@ function GetQuestions() {
         setQuestions(newQuestions)
       })
   }, [])
+  console.log("questions", questions)
 
   return questions
 }
@@ -28,9 +29,10 @@ const QuestionDashboard = (props) => {
   const [filterText, setFilterText] = useState('')
   const [q_id, setq_id] = useState(props.match.params.q_id)
 
+
   useEffect(() => {
     if (q_id != props.match.params.q_id) {
-      setq_id(props.match.param.q_id)
+      setq_id(props.match.params.q_id)
     };
   });
 
