@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import SearchBar from '../../SearchBar.js';
 import { Link as RouterLink } from 'react-router-dom'
 import {
@@ -9,62 +9,56 @@ import {
 }
 from '@material-ui/core';
 
-class QASidebar extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      filterText: '',
-      questionList: this.props.questionList,
-    };
-    this.handleFilterTextChange = this.handleFilterTextChange.bind(this);
-  }
-
-  handleFilterTextChange(filterText) {
-    this.setState({
-      filterText: filterText
-    });
-  }
-
-  handleTagClick(tag){
-    //TODO
-    return 0
-  }
-
-  fetchFilteredPosts(filterText, tags){
-    //currently just store all tokens and keep if token inside 
-    //TODO 
-    return 0
-  }
+const MakeList = (props) => {
+  console.log("In makeList, ", props);
+  var questions = [];
+  var question;
+  for (var i in props.questionList) {
+     question = props.questionList[i];
+     console.log(question)
+     questions[i] = (
+       <ListItem divider={true} button component={RouterLink} to={"/qa/"+question[0]} key={"q_list_"+question.id} style={{overflow:'hidden'}}>
+       <ListItemText primary={question.data.title} secondary={question.data.text}/>
+       </ListItem>
+     );
+   }
+  return questions
+};
 
 
+// change onFilterTextChange to setFilterText in Searchbar
+const QASidebar = (props) => {
+  const [filterText, setFilterText] = useState(props.filterText)
 
-  makeList() {
-    var questions = [];
-    var question;
-    for (var i in this.state.questionList) {
-        question = this.state.questionList[i];
-        questions[i] = (
-          <ListItem divider={true} button component={RouterLink} to={"/qa/"+question[0]} key={"q_list_"+question[0]} style={{overflow:'hidden'}}>
-          <ListItemText primary={question[1]} secondary={question[2]}/>
-          </ListItem>
-        );
-    }
-    return questions;
-  }
-
-  render() {
-    return (
-      <div className="dashboard container">
-        <SearchBar
-          filterText={this.state.filterText}
-          onFilterTextChange={this.handleFilterTextChange}
-        />
-        <List component="nav"> 
-          {this.makeList()}
-        </List>
-      </div>
-    );
-  }
-}
+  console.log("props", props)
+  return (
+    <div className="dashboard container">
+      <SearchBar
+        filterText={filterText}
+        onFilterTextChange={setFilterText}
+      />
+      <List component="nav">
+        <MakeList questionList = {props.questionList} />
+      </List>
+    </div>
+  );
+  };
 
 export default QASidebar;
+
+  // handleFilterTextChange(filterText) {
+  //   this.setState({
+  //     filterText: filterText
+  //   });
+  // }
+  //
+  // handleTagClick(tag){
+  //   //TODO
+  //   return 0
+  // }
+  //
+  // fetchFilteredPosts(filterText, tags){
+  //   //currently just store all tokens and keep if token inside
+  //   //TODO
+  //   return 0
+  // }
