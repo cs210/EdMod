@@ -13,11 +13,9 @@ Weekly Meetings: Tues / Thurs class time, Fridays 2:30 - 4 PM.
 
 <img src="https://i.imgur.com/oH1r8nv.jpg?1" alt="Educo" width="300" height="185">
 
-Educo is empowering teachers with an AI assistant.
+Educo is building a community to support the EFTW program.
 
 [Team Song](https://www.youtube.com/watch?v=JC82Il2cjqA)
-
-[Code Repository](https://github.com/LACoderDeBH/edMod/)
 
 # Team Members
 Member | Email | Photo
