@@ -38,9 +38,10 @@ from '@material-ui/core';
 const QuestionCard = (props) => {
   var title = props.question.title;
   var q_body = props.question.text;
-  var tags = [] // question.tags;
-  var attachements = [] // question.attachements
+  var tags = props.question.tags;
+  var attachments = props.question.attachments
   var author = props.question.author
+  debugger
   // TODO: fix this right here
   var answers = [] // props.question.threads
 
@@ -70,7 +71,7 @@ const QuestionCard = (props) => {
                 <Typography variant="body1">
                   {q_body}
                 </Typography>
-                {ImgMediaCard(attachements)}
+                {ImgMediaCard(attachments)}
               </Grid>
               <Grid item>
                 <Grid
