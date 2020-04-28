@@ -30,10 +30,8 @@ Austin Chow | archow@stanford.edu | <img src="https://imgur.com/sxBbwGg.jpg" alt
 
 Member | Hat | Technical Skills | Non-Technical Skills | Personal Traits | Desired Growth | Weaknesses
 --- | --- | --- | --- | --- | --- | ---
-Susana | Yellow | AI/NLP, Python, C++, React, ReactNative, NodeJS, MongoDB, Firebase | Presentation Skills, Time management / task timeline organizer, leadership skills, user interviews, getting everyone's input and buy in | Thoughtful, resilient, kind, hard working | Implementing lifecycle AI models  | Leveraging cloud services for AI models, UX/UI, design
 Isaiah | Black | AI/ML, Python, Backend | Attention to detail, listening | Logical, flexible, optimistic | Project management | UI/UX
 John | Green | AI/ML, Android+iOS+xPlatform | Talking, listening | Persistent, Optimistic | NLP | Inefficient
-Stephanie | Blue | Systems/Backend, Python, AI/ML | Decision making, communication/writing skills, attention to detail  | Direct, dedicated, & dancing through life | Documentation skills, NLP | Math, imposter syndrone
 Austin | Blue | Python, Java, Javascript, React, Flask | Design Thinking, UI/UX, Leadership | Consistent, reliable, hard working | Product management, group dynamics | Self-critical
 
 <!--
