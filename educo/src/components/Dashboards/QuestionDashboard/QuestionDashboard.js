@@ -21,7 +21,6 @@ function GetQuestions() {
       })
   }, [])
 
-
   return questions
 }
 
