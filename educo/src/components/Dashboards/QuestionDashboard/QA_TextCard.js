@@ -16,6 +16,7 @@ import Avatar from '@material-ui/core/Avatar';
 import ChatBubbleIcon from '@material-ui/icons/ChatBubble';
 import CropOriginalIcon from '@material-ui/icons/CropOriginal';
 import AuthorPanel from './AuthorPanel.js'
+import firebase from '../../../config/firebase.js';
 
 import {
   List,
@@ -34,13 +35,14 @@ import {
 }
 from '@material-ui/core';
 
-export default function QuestionCard(question) {
-  var title = question.title;
-  var q_body = question.text;
-  var tags = question.tags;
-  var attachements = question.attachements
-  var author = question.author
-  var answers = question.threads
+const QuestionCard = (props) => {
+  var title = props.question.title;
+  var q_body = props.question.text;
+  var tags = [] // question.tags;
+  var attachements = [] // question.attachements
+  var author = props.question.author
+  // TODO: fix this right here
+  var answers = [] // props.question.threads
 
   return (
     <div >
@@ -62,7 +64,7 @@ export default function QuestionCard(question) {
         <IconButton aria-label="upvote" size="small">
           <ThumbUpAltIcon fontSize="inherit" />
         </IconButton>
-              
+
             </Grid>
                 <br/>
                 <Typography variant="body1">
@@ -91,7 +93,7 @@ export default function QuestionCard(question) {
       </Grid>
               </Grid>
             </Grid>
-            
+
           </Grid>
         </Grid>
         <Divider style={{margin: 15}}/>
@@ -111,7 +113,7 @@ export default function QuestionCard(question) {
                 <IconButton
                   aria-label="submit comment"
                   //onClick={handleClickShowPassword}
-                  //onMouseDown={handleMouseDownPassword} 
+                  //onMouseDown={handleMouseDownPassword}
                   //TODO: actually capture text
                   //TODO: More complex text editor
                   color="primary"
@@ -135,3 +137,5 @@ export default function QuestionCard(question) {
       </div>
     );
 }
+
+export default QuestionCard;

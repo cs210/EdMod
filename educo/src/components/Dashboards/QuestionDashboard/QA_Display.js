@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link as RouterLink } from 'react-router-dom';
 import QuestionCard from './QA_TextCard.js'
 import ThumbUpAltIcon from '@material-ui/icons/ThumbUpAlt';
 import NotificationImportantIcon from '@material-ui/icons/NotificationImportant';
 import QA_AnswerCards from './QA_AnswerCards.js'
+import firebase from '../../../config/firebase.js'
 
 import mockData from './mockData.js'
 import {
@@ -20,24 +21,42 @@ import {
 }
 from '@material-ui/core';
 
+
 const QADisplay = (props) => {
   const [answerInput, setAnswerInput] = useState('')
   const [q_id, setq_id] = useState(props.q_id)
+  const [question, setQuestion] = useState([])
+  useEffect(() => {
+    if (q_id != props.q_id) {
+      setq_id(props.q_id)
+    };
+  });
 
   // need to search through questionList here with the current selected q_id
-  var answers = props.questionList;
+  console.log("q_id here", q_id)
+
+  firebase
+    .firestore()
+    .collection("questions")
+    .doc(q_id)
+    .get()
+    .then((docRef) => {
+      console.log("here", docRef.data())
+      setQuestion(docRef.data())
+    })
+    .catch((error) => { })
+
+  // const question = firebase.firestore.collection("question").doc(q_id).get()
+  console.log("question updated ", question)
+  const answers = []
+
   return (
-    <div className="qa_container">
-    Hello
-    </div>
-  )
-  // return (
-  //     <div className="qa_container">
-  //     Hello
-  //       {this.displayTextCard()}
-  //       <QA_AnswerCards  q_id={this.state.q_id} answers={answers}/>
-  //     </div>
-  //   );
+      <div className="qa_container">
+
+        <QuestionCard question = {question} />
+        <QA_AnswerCards  q_id={q_id} answers={answers}/>
+      </div>
+    );
   };
 
 
