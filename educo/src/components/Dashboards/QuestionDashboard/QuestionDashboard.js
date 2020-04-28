@@ -8,10 +8,6 @@ import firebase from '../../../config/firebase.js'
 function GetQuestions() {
   const [questions, setQuestions] = useState([]);
 
-  // firebase.firestore().collection('questions').add({
-  //   data: {author: "John Chuter"},
-  //   threads: {}
-  // })
   useEffect(() => {
     firebase
       .firestore()
@@ -21,7 +17,6 @@ function GetQuestions() {
           id: doc.id,
           ...doc.data()
         }))
-        console.log(newQuestions)
         setQuestions(newQuestions)
       })
   }, [])
@@ -34,8 +29,13 @@ const QuestionDashboard = (props) => {
   const [filterText, setFilterText] = useState('')
   const [q_id, setq_id] = useState(props.match.params.q_id)
 
-  const list = GetQuestions();
-  console.log("list", list)
+  useEffect(() => {
+    if (q_id != props.match.params.q_id) {
+      setq_id(props.match.param.q_id)
+    };
+  });
+
+  const questionList = GetQuestions();
 
   return (
       <Grid
@@ -47,12 +47,12 @@ const QuestionDashboard = (props) => {
       <Grid item sm={3}  alignItems="stretch">
           <QASidebar
             filterText={filterText}
-            onFilterTextChange={setFilterText}
-            questionList={list}
+            setFilterChange={setFilterText}
+            questionList={questionList}
           />
       </Grid>
       <Grid item sm={9} alignItems="stretch">
-        <QADisplay q_id={q_id}/>
+        <QADisplay q_id={q_id} questionList={questionList}/>
       </Grid>
     </Grid>
 
