@@ -1,0 +1,29 @@
+.qa-search-add  {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding-top: 10px;
+}
+
+
+.sidebar_elem {
+  height: 120px;
+  max-height: 120px;
+  width: 100%;
+  max-width: 100%;
+  min-width: 100%;
+  overflow: hidden ;
+}
+
+.sidebar_elem_text {
+  height: 100px;
+  max-height: 100px;
+  overflow: hidden ;
+}
+
+/* .dashboard {
+  width: 250px;
+  max-width: 250px;
+  min-width: 250px;
+} */

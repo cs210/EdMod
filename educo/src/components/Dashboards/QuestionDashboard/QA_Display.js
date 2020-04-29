@@ -43,10 +43,6 @@ const QADisplay = (props) => {
       }
   });
 
-  // need to search through questionList here with the current selected q_id
-  console.log("q_id here", q_id)
-
-
   // const question = firebase.firestore.collection("question").doc(q_id).get()
 
   return (
@@ -57,53 +53,6 @@ const QADisplay = (props) => {
       </div>
     );
   };
-
-
-
-  // constructor(props) {
-  //   super(props);
-  //   this.state = {
-  //     answerInput: '',
-  //     q_id: this.props.q_id,
-  //   };
-  //   this.handleFilterTextChange = this.handleFilterTextChange.bind(this);
-  // }
-  //
-  // handleFilterTextChange(inputText) {
-  //   this.setState({
-  //     answerInput: inputText
-  //   });
-  // }
-//
-// getQuestionInfo(){
-//   var info = mockData(parseInt(this.state.q_id))
-//   return info;
-// }
-//
-// getAnswerInfo(){
-//   var info = mockData(parseInt(this.state.q_id)).threads
-//   return info;
-// }
-//
-//
-// displayTextCard() {
-//   var questionInfo = this.getQuestionInfo()
-//   return QuestionCard(questionInfo); //TODO: question id should link to answer_ids, so TextCard should only take 1 parameter
-//
-// }
-
-  // componentDidMount() {
-  //   this.setState({q_id: this.props.q_id});
-  // }
-  //
-  // componentDidUpdate(prevProps, prevState) {
-  //   if (this.props.q_id !== prevState.q_id) {
-  //     this.setState({q_id: this.props.q_id});
-  //   }
-  // }
-// }
-
-
 
 export default QADisplay;
 
