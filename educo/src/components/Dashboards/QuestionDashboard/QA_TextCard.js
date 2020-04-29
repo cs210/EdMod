@@ -36,14 +36,13 @@ import {
 from '@material-ui/core';
 
 const QuestionCard = (props) => {
-  var title = props.question.title;
-  var q_body = props.question.text;
-  var tags = props.question.tags;
-  var attachments = props.question.attachments
-  var author = props.question.author
-  debugger
+  var title = props.question.data.title;
+  var q_body = props.question.data.text;
+  var tags = props.question.data.tags;
+  var attachments = props.question.data.attachments
+  var author = props.question.data.author
   // TODO: fix this right here
-  var answers = [] // props.question.threads
+  var answers = props.question.threads
 
   return (
     <div >

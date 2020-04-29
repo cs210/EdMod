@@ -23,15 +23,13 @@ from '@material-ui/core';
 
 
 const QADisplay = (props) => {
-  const default_question = {data:{title:"", author:"", text:"", tags:[], attachments:[], solved: false}}
+  const default_question = {data:{title:"", author:"", text:"", tags:[], attachments:[], solved: false}, threads: []}
   const [answerInput, setAnswerInput] = useState('')
   const [q_id, setq_id] = useState('')
   const [question, setQuestion] = useState(default_question)
   useEffect(() => {
     if (q_id != props.q_id) {
       setq_id(props.q_id)
-
-      if (question != default_question) {
         firebase
           .firestore()
           .collection("questions")
@@ -42,7 +40,6 @@ const QADisplay = (props) => {
             setQuestion(docRef.data())
           })
           .catch((error) => { })
-          };
       }
   });
 
@@ -51,13 +48,12 @@ const QADisplay = (props) => {
 
 
   // const question = firebase.firestore.collection("question").doc(q_id).get()
-  console.log("question updated ", question)
-  const answers = []
 
   return (
       <div className="qa_container">
 
-        <QuestionCard question = {question.data} />
+        <QuestionCard question={question} />
+        <QA_AnswerCards answers={question.threads}/>
       </div>
     );
   };
