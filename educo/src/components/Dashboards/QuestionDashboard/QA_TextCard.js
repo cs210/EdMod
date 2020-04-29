@@ -35,13 +35,27 @@ import {
 }
 from '@material-ui/core';
 
+const submitComment = (props, new_comment) => {
+  console.log(props)
+  console.log(new_comment)
+  firebase
+    .firestore()
+    .collection("questions")
+    .doc(props.q_id)
+    .update({
+      threads: firebase.firestore.FieldValue.arrayUnion({accepted:false, text:[{author: "jennifer", comment: new_comment}]})
+    });
+    // TODO: make comment reset
+}
+
+
 const QuestionCard = (props) => {
+  const [comment, setComment] = useState("Comment")
   var title = props.question.data.title;
   var q_body = props.question.data.text;
   var tags = props.question.data.tags;
   var attachments = props.question.data.attachments
   var author = props.question.data.author
-  // TODO: fix this right here
   var answers = props.question.threads
 
   return (
@@ -101,8 +115,12 @@ const QuestionCard = (props) => {
           margin: 10}}>
         <Grid container direction="row" spacing={0} alignItems="center">
         <Grid item xs>
-        <FormControl fullWidth variant='outlined'>
-          <InputLabel>Comment</InputLabel>
+        <FormControl fullWidth variant='outlined'  onChange = {(event) => setComment(event.target.value)}>
+          <InputLabel>
+            Comment
+          </InputLabel>
+          <div>
+          </div>
           <OutlinedInput
           fullWidth multiLine={true} rows={5} rowsMax={15} //TODO: figure out mulitLine textbox
             id="comment"
@@ -112,7 +130,7 @@ const QuestionCard = (props) => {
               <InputAdornment position="end">
                 <IconButton
                   aria-label="submit comment"
-                  //onClick={handleClickShowPassword}
+                  onClick={() => submitComment(props, comment)}
                   //onMouseDown={handleMouseDownPassword}
                   //TODO: actually capture text
                   //TODO: More complex text editor

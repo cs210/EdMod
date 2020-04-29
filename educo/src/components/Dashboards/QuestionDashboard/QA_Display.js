@@ -52,8 +52,8 @@ const QADisplay = (props) => {
   return (
       <div className="qa_container">
 
-        <QuestionCard question={question} />
-        <QA_AnswerCards answers={question.threads}/>
+        <QuestionCard question={question} q_id={q_id}/>
+        <QA_AnswerCards answers={question.threads} q_id={q_id}/>
       </div>
     );
   };
