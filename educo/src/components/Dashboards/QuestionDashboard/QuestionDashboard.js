@@ -28,7 +28,7 @@ function GetQuestions() {
 const QuestionDashboard = (props) => {
   const [filterText, setFilterText] = useState('')
   const [q_id, setq_id] = useState(props.match.params.q_id)
-
+  const [newPost, setNewPost] = useState(false)
 
   useEffect(() => {
     if (q_id != props.match.params.q_id) {
