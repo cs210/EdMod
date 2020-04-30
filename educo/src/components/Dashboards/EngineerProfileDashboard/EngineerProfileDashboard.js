@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import YouTube from '@u-wave/react-youtube';
 import EngineerProfileCard from './EngineerProfileCard';
 import EngineerDashboardControls from './EngineerDashboardControls';
+import SpotlightSimple from './SpotlightSimple';
 
 import {
   Grid,
@@ -13,27 +14,22 @@ class EngineerProfileDashboard extends Component {
   render() {
     return (
         <>
-        <EngineerDashboardControls/>
-
-        <Box height={10}/>
-
         <Grid
           container
+          alignContent="center"
           direction="column"
-          justify="center"
         >
+          <Box height={10}/>
+          <SpotlightSimple/>
+          <Box height={10}/>
           <YouTube
             video="NxSDNogkKX0"
             autoplay
+            width={640}
+            height={480}
           />
-          <Grid
-            container
-            direction="row"
-            justify="center"
-          >
-            <EngineerProfileCard/>
-            <EngineerProfileCard/>
-          </Grid>
+          <Box height={10}/>
+          <EngineerProfileCard/>
         </Grid>
         </>
     );
