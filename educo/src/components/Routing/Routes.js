@@ -7,20 +7,20 @@ import ProgressDashboard from "../Dashboards/ProgressDashboard/ProgressDashboard
 import EngineerProfileDashboard from "../Dashboards/EngineerProfileDashboard/EngineerProfileDashboard.js";
 import EngineerProfileDerpy from "../Profiles/EngineerProfileDerpy.js";
 
-const Routes = props => {
-    return (
-      <Switch>
-        // <Route exact path="/teachers" component={TeacherDashboard} />
-        <Route
-          path="/qa/:q_id"
-          render={props => <QuestionDashboard {...props} />}
-        />
-        <Redirect path="/qa" to="/qa/KZgPCyLfIQagMBGlIcWw" />
-        // <Route path="/progress" component={ProgressDashboard} />
-        // <Route path="/engineers" component={EngineerProfileDashboard} />
-        // <Route path="/engineers/derpy" component={EngineerProfileDerpy} />
-      </Switch>
-    );
-}
+const Routes = (props) => {
+  return (
+    <Switch>
+      {/* // <Route exact path="/teachers" component={TeacherDashboard} /> */}
+      <Route
+        path="/qa/:q_id"
+        render={(props) => <QuestionDashboard {...props} />}
+      />
+      <Redirect path="/qa" to="/qa/KZgPCyLfIQagMBGlIcWw" />
+      {/* // <Route path="/progress" component={ProgressDashboard} /> */}
+      <Route path="/engineers" component={EngineerProfileDashboard} />
+      <Route path="/engineers/derpy" component={EngineerProfileDerpy} />
+    </Switch>
+  );
+};
 
 export default Routes;
