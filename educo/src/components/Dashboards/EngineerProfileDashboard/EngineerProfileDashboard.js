@@ -10,6 +10,8 @@ import {
 }
 from '@material-ui/core';
 
+// TODO: pull thumbnail for Avatar, video title for name, and description for body
+
 class EngineerProfileDashboard extends Component {
   render() {
     return (
