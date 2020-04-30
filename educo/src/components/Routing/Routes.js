@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 import NavBar from "../layout/Navbar";
 import TeacherDashboard from "../Dashboards/TeacherDashboard/TeacherDashboard.js";
@@ -7,21 +7,20 @@ import ProgressDashboard from "../Dashboards/ProgressDashboard/ProgressDashboard
 import EngineerProfileDashboard from "../Dashboards/EngineerProfileDashboard/EngineerProfileDashboard.js";
 import EngineerProfileDerpy from "../Profiles/EngineerProfileDerpy.js";
 
-class Routes extends Component {
-  render() {
+const Routes = props => {
     return (
       <Switch>
-        <Route exact path="/teachers" component={TeacherDashboard} />
+        // <Route exact path="/teachers" component={TeacherDashboard} />
         <Route
           path="/qa/:q_id"
           render={props => <QuestionDashboard {...props} />}
         />
-        <Redirect path="/qa" to="/qa/0" />
-        <Route path="/progress" component={ProgressDashboard} />
-        <Route path="/engineers" component={EngineerProfileDashboard} />
-        <Route path="/engineers/derpy" component={EngineerProfileDerpy} />
+        <Redirect path="/qa" to="/qa/KZgPCyLfIQagMBGlIcWw" />
+        // <Route path="/progress" component={ProgressDashboard} />
+        // <Route path="/engineers" component={EngineerProfileDashboard} />
+        // <Route path="/engineers/derpy" component={EngineerProfileDerpy} />
       </Switch>
     );
-  }
 }
+
 export default Routes;
