@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import YouTube from '@u-wave/react-youtube';
 import EngineerProfileCard from './EngineerProfileCard';
 import EngineerDashboardControls from './EngineerDashboardControls';
 
@@ -18,12 +19,21 @@ class EngineerProfileDashboard extends Component {
 
         <Grid
           container
-          direction="row"
+          direction="column"
           justify="center"
         >
-          <EngineerProfileCard/>
-          <EngineerProfileCard/>
-
+          <YouTube
+            video="NxSDNogkKX0"
+            autoplay
+          />
+          <Grid
+            container
+            direction="row"
+            justify="center"
+          >
+            <EngineerProfileCard/>
+            <EngineerProfileCard/>
+          </Grid>
         </Grid>
         </>
     );
