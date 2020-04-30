@@ -15,7 +15,7 @@ const Routes = props => {
           path="/qa/:q_id"
           render={props => <QuestionDashboard {...props} />}
         />
-        <Redirect path="/qa" to="/qa/0" />
+        <Redirect path="/qa" to="/qa/oVNNEOGWek6lyWen2tAC" />
         // <Route path="/progress" component={ProgressDashboard} />
         // <Route path="/engineers" component={EngineerProfileDashboard} />
         // <Route path="/engineers/derpy" component={EngineerProfileDerpy} />
