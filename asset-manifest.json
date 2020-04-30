@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/EdMod/static/css/main.ccc962bb.chunk.css",
+    "main.js": "/EdMod/static/js/main.bcbd23dc.chunk.js",
+    "main.js.map": "/EdMod/static/js/main.bcbd23dc.chunk.js.map",
+    "runtime-main.js": "/EdMod/static/js/runtime-main.626b5627.js",
+    "runtime-main.js.map": "/EdMod/static/js/runtime-main.626b5627.js.map",
+    "static/js/2.f8d29250.chunk.js": "/EdMod/static/js/2.f8d29250.chunk.js",
+    "static/js/2.f8d29250.chunk.js.map": "/EdMod/static/js/2.f8d29250.chunk.js.map",
+    "index.html": "/EdMod/index.html",
+    "precache-manifest.c063f2ce74842a0d900a602e112fb705.js": "/EdMod/precache-manifest.c063f2ce74842a0d900a602e112fb705.js",
+    "service-worker.js": "/EdMod/service-worker.js",
+    "static/css/main.ccc962bb.chunk.css.map": "/EdMod/static/css/main.ccc962bb.chunk.css.map",
+    "static/js/2.f8d29250.chunk.js.LICENSE.txt": "/EdMod/static/js/2.f8d29250.chunk.js.LICENSE.txt",
+    "static/media/derpcat.jpg": "/EdMod/static/media/derpcat.a4100d25.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.626b5627.js",
+    "static/js/2.f8d29250.chunk.js",
+    "static/css/main.ccc962bb.chunk.css",
+    "static/js/main.bcbd23dc.chunk.js"
+  ]
+}
