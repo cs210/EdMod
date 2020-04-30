@@ -23,7 +23,7 @@ const MakeList = (props) => {
 
      questions[i] = (
        <ListItem divider={true} button component={RouterLink} to={"/qa/"+question.id}
-       key={"q_list_"+question.id} className="sidebar_elem">
+       key={"q_list_"+question.id} className="sidebar_elem"  onClick={() => stopAddPost(props.prevProps)}>
 
        <ListItemText primary={question.data.title} secondary={question.data.text} className="sidebar_elem_text"/>
        </ListItem>
@@ -32,6 +32,10 @@ const MakeList = (props) => {
   return questions
 };
 
+const stopAddPost = (props) => {
+  props.setNewPost(false);
+  console.log(props.newPost)
+}
 
 const addPost = (props) => {
   props.setNewPost(true);
@@ -64,7 +68,7 @@ const QASidebar = (props) => {
      </Button>
       </div>
       <List component="nav">
-        <MakeList questionList = {props.questionList} />
+        <MakeList questionList = {props.questionList} prevProps={props}/>
       </List>
     </div>
   );
