@@ -20,7 +20,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function SpotlightCard() {
+export default function SpotlightSimple() {
   const classes = useStyles();
 
   return (

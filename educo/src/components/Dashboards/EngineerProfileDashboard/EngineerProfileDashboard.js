@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import YouTube from '@u-wave/react-youtube';
-import EngineerProfileCard from './EngineerProfileCard';
-import EngineerDashboardControls from './EngineerDashboardControls';
+import EngAvaTitleCard from './EngAvaTitleCard';
 import SpotlightSimple from './SpotlightSimple';
 
 import {
@@ -29,7 +28,7 @@ class EngineerProfileDashboard extends Component {
             height={480}
           />
           <Box height={10}/>
-          <EngineerProfileCard/>
+          <EngAvaTitleCard/>
         </Grid>
         </>
     );
