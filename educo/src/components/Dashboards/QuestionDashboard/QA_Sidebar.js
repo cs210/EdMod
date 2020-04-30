@@ -33,11 +33,11 @@ const MakeList = (props) => {
 };
 
 
-const addPost = () => {
-  console.log("hello")
-  
-
+const addPost = (props) => {
+  props.setNewPost(true);
+  console.log(props.newPost)
 }
+
 // change onFilterTextChange to setFilterText in Searchbar
 const QASidebar = (props) => {
   const [filterText, setFilterText] = useState(props.filterText)
@@ -58,7 +58,7 @@ const QASidebar = (props) => {
            className="add-post"
            startIcon={<AddIcon />}
            style={{maxWidth: '120px', maxHeight: '30px', minWidth: '120px', minHeight: '30px', margin: "0px 0px 0px 10px"}}
-           onClick={addPost}
+           onClick={() => addPost(props)}
          >
        Add Post
      </Button>
