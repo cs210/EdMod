@@ -13,10 +13,10 @@ from '@material-ui/core';
 class EngineerProfileDashboard extends Component {
   render() {
     return (
-      <Box alignItems="center">
+      <Box >
         <Grid
           container
-          alignContent="center"
+          alignItems="center"
           direction="column"
         >
           <Box height={10}/>
@@ -29,8 +29,9 @@ class EngineerProfileDashboard extends Component {
             height={480}
           />
           <Box height={50}/>
-          <Grid
+          <Grid width={2/3}
             container
+            justify="center"
             alignContent="center"
             direction="row"
           >
