@@ -13,7 +13,7 @@ from '@material-ui/core';
 class EngineerProfileDashboard extends Component {
   render() {
     return (
-        <>
+      <Box alignItems="center">
         <Grid
           container
           alignContent="center"
@@ -38,7 +38,7 @@ class EngineerProfileDashboard extends Component {
             <EngProfText/>
           </Grid>
         </Grid>
-        </>
+      </Box>
     );
   }
 }
