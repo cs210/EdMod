@@ -25,7 +25,22 @@ import {
 from '@material-ui/core';
 
 const addPost = (props) => {
+  console.log("I AM HERERERERER")
+  console.log("updated title: ", props.title)
+  console.log("updated text: ", props.text)
   props.setNewPost(false)
+  firebase.firestore().collection("questions").add({
+    data:{
+      author: "John Chuter",
+      title: props.title,
+      text: props.text,
+      tags: props.tags,
+      solved: false,
+      attachments: []
+    },
+    threads:{}
+  });
+
 }
 
 
@@ -37,23 +52,50 @@ const useStyles = makeStyles((theme) => ({
   },
   paper: {
     padding: theme.spacing(1),
+    textAlign: 'center',
     color: theme.palette.text.secondary,
     whiteSpace: 'nowrap',
     marginBottom: theme.spacing(1),
   },
   divider: {
     margin: theme.spacing(2, 0),
-  },
-  input: {
-    height: 400,
-    width: 600
   }
 }));
 
+const handleChange = (props, event) => {
+  let curr_id = event.target.id;
+  switch(curr_id) {
+    case "outlined-secondary":
+      props.setTitle(event.target.value);
+      break;
+    case "standard-multiline-flexible":
+      props.setText(event.target.value);
+      break;
+    case "entry3":
+      props.setTags(event.target.value);
+      break;
+  }
+
+}
+
+const SubmitButton = (props) => {
+  return (
+  <Button
+     variant="contained"
+     color="primary"
+     size="small"
+     className="add-post"
+     style={{maxWidth: '300px', maxHeight: '30px', minWidth: '300px', minHeight: '30px', margin: "0px 0px 0px 10px"}}
+     onClick={() => addPost(props)}
+   >
+  Post my question!
+  </Button>
+);
+}
 
 const QANewPost = (props) => {
   const [title, setTitle] = useState('Enter a one line summary.');
-  const [text, settext] = useState('');
+  const [text, setText] = useState('');
   const [attachments, setAttachments] = useState([])
   const [tags, setTags] = useState([])
 
@@ -62,7 +104,6 @@ const QANewPost = (props) => {
   return (
 
     <div className = "new-post">
-      <form>
         <Grid container spacing={3}>
           <Grid item xs={1}/>
           <Grid container item xs={3} justify="center"><span>Summary:</span></Grid>
@@ -74,6 +115,7 @@ const QANewPost = (props) => {
               variant="outlined"
               color="secondary"
               style = {{width: 600}}
+              onChange = {(event) => setTitle(event.target.value)}
             />
           </Grid>
 
@@ -91,35 +133,17 @@ const QANewPost = (props) => {
               rows={10}
               style = {{width: 600}}
               fullHeight
+              onChange = {(event) => setText(event.target.value)}
             />
           </Grid>
 
           <Grid item xs={1}/>
           <Grid container item xs={3} justify="center"><span>Tags:</span></Grid>
           <Grid item xs={8}>
-          <TextField
-              id="outlined-secondary"
-              className="new-post-text"
-              label="Details"
-              variant="outlined"
-              color="secondary"
-              style = {{width: 600}}
-            />
           </Grid>
 
-
         </Grid>
-        </form>
-        <Button
-           variant="contained"
-           color="primary"
-           size="small"
-           className="add-post"
-           style={{maxWidth: '300px', maxHeight: '30px', minWidth: '300px', minHeight: '30px', margin: "0px 0px 0px 10px"}}
-           onClick={() => addPost(props)}
-         >
-        Post my question!
-        </Button>
+        <SubmitButton title={title} text={text} tags={tags} setNewPost={props.setNewPost}/>
       </div>
 
     // <div className = "new-post">
