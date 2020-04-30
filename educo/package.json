@@ -2,6 +2,7 @@
   "name": "educo",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://cs210.github.io/EdMod/",
   "dependencies": {
     "@material-ui/core": "^4.9.5",
     "@material-ui/icons": "^4.9.1",
@@ -11,16 +12,19 @@
     "@testing-library/user-event": "^7.2.1",
     "@u-wave/react-youtube": "^0.7.1",
     "firebase": "^7.14.0",
+    "gh-pages": "^2.2.0",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
     "react-minimal-pie-chart": "^6.0.1",
     "react-router-dom": "^5.1.2",
-    "react-scripts": "3.4.0",
+    "react-scripts": "^3.4.0",
     "react-youtube": "^7.11.2",
     "reactstrap": "^8.4.1",
     "slate-react": "^0.57.1"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
