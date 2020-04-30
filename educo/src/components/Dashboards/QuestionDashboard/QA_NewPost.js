@@ -26,9 +26,6 @@ import {
 from '@material-ui/core';
 
 const addPost = (props) => {
-  console.log("I AM HERERERERER")
-  console.log("updated title: ", props.title)
-  console.log("updated text: ", props.text)
   props.setNewPost(false)
   firebase.firestore().collection("questions").add({
     data:{
@@ -72,9 +69,6 @@ const handleChange = (props, event) => {
     case "standard-multiline-flexible":
       props.setText(event.target.value);
       break;
-    case "entry3":
-      props.setTags(event.target.value);
-      break;
   }
 
 }
@@ -86,7 +80,7 @@ const SubmitButton = (props) => {
      color="primary"
      size="small"
      className="add-post"
-     style={{maxWidth: '300px', maxHeight: '30px', minWidth: '300px', minHeight: '30px', margin: "0px 0px 0px 10px"}}
+     style={{maxWidth: '300px', maxHeight: '30px', minWidth: '300px', minHeight: '30px', margin: "10px 0px 0px 10px"}}
      onClick={() => addPost(props)}
    >
   Post my question!
@@ -108,10 +102,10 @@ const Tags = (props) => {
 }
 
 const handleClickTag = (props, tag, event) => {
-  if (event.target.classList.contains("active")) {
-    document.getElementById(tag).classList.remove("active");
+  if (event.target.classList.contains("active_tag")) {
+    document.getElementById(tag).classList.remove("active_tag");
   } else {
-    event.target.classList.add("active");
+    event.target.classList.add("active_tag");
   }
 
   var tag_list = props.tags;
@@ -130,6 +124,7 @@ const QANewPost = (props) => {
   return (
 
     <div className = "new-post">
+      <form autoComplete="off">
         <Grid container spacing={3}>
           <Grid item xs={1}/>
           <Grid container item xs={3} justify="center"><span>Summary:</span></Grid>
@@ -142,6 +137,7 @@ const QANewPost = (props) => {
               color="secondary"
               style = {{width: 600}}
               onChange = {(event) => setTitle(event.target.value)}
+              autoComplete="off"
             />
           </Grid>
 
@@ -166,19 +162,31 @@ const QANewPost = (props) => {
           <Grid item xs={1}/>
           <Grid container item xs={3} justify="center"><span>Tags:</span></Grid>
           <Grid item xs={8}>
-          <Grid
-              container
-              direction="row"
-              justify="space-between"
-              alignItems="flex-end">
-              <Grid key='question_tags' item>
-                <Tags tags = {tags} setTags={setTags}/>
-                </Grid>
-              </Grid>
+            <Grid
+                container
+                direction="row"
+                justify="space-between"
+                alignItems="flex-end">
+                  <Grid key='question_tags' item>
+                    <Tags tags = {tags} setTags={setTags}/>
+                  </Grid>
             </Grid>
+
+            </Grid>
+
+            <Grid item xs={4}/>
+            <Grid item xs={8}>
+            <SubmitButton title={title} text={text} tags={tags} setNewPost={props.setNewPost}/>
+            </Grid>
+
           </Grid>
-        <SubmitButton title={title} text={text} tags={tags} setNewPost={props.setNewPost}/>
-      </div>
+
+
+
+
+
+      </form>
+    </div>
 
     // <div className = "new-post">
     // <Grid container direction="column" alignItems="center">

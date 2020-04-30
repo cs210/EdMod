@@ -3,7 +3,7 @@
   flex-direction: row;
   align-items: flex-start;
   justify-content: space-between;
-  padding-top: 10px;
+  padding-top: 20px;
 }
 
 .tags {
@@ -15,7 +15,7 @@
 
 }
 
-.active {
+.active_tag {
   background-color: #273654!important;
   color: #fff!important;
 }
