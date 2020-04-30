@@ -97,9 +97,15 @@ const QANewPost = (props) => {
   const [title, setTitle] = useState('Enter a one line summary.');
   const [text, setText] = useState('');
   const [attachments, setAttachments] = useState([])
-  const [tags, setTags] = useState([])
+  const [tags, setTags] = useState({"spring 2020": 0, "scratch":0 })
 
   const classes = useStyles();
+
+  function handleClickTag(event, tag) {
+   var tag_list = tags;
+   tag_list[tag] = !tag_list[tag];
+   setTags(tag_list);
+  }
 
   return (
 
@@ -140,7 +146,37 @@ const QANewPost = (props) => {
           <Grid item xs={1}/>
           <Grid container item xs={3} justify="center"><span>Tags:</span></Grid>
           <Grid item xs={8}>
-          </Grid>
+          <Grid
+              container
+              direction="row"
+              justify="space-between"
+              alignItems="flex-end">
+              <Grid key='question_tags' item>
+              {Object.keys(tags).map((tag)=> {
+            if(tags[tag]==1){
+              return(
+              <Chip size="small"
+              clickable
+              onClick={(e) => handleClickTag(e, tag)}
+              color="primary"
+            label={tag}
+          />);
+            }
+            else{
+              return(
+              <Chip size="small"
+              clickable
+              onClick={(e) => handleClickTag(e, tag)}
+              color="secondary"
+            label={tag}
+          />);
+            }
+            })   
+      }
+        </Grid>
+        </Grid>
+
+        </Grid>
 
         </Grid>
         <SubmitButton title={title} text={text} tags={tags} setNewPost={props.setNewPost}/>
