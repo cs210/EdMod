@@ -75,20 +75,3 @@ const QASidebar = (props) => {
   };
 
 export default QASidebar;
-
-  // handleFilterTextChange(filterText) {
-  //   this.setState({
-  //     filterText: filterText
-  //   });
-  // }
-  //
-  // handleTagClick(tag){
-  //   //TODO
-  //   return 0
-  // }
-  //
-  // fetchFilteredPosts(filterText, tags){
-  //   //currently just store all tokens and keep if token inside
-  //   //TODO
-  //   return 0
-  // }
