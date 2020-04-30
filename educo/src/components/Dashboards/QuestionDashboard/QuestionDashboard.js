@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import QASidebar from './QA_Sidebar.js';
 import QADisplay from './QA_Display.js';
+import QANewPost from './QA_NewPost.js'
 import {Paper, Grid} from '@material-ui/core';
 import mockData from './mockData.js'
 import firebase from '../../../config/firebase.js'
@@ -38,6 +39,7 @@ const QuestionDashboard = (props) => {
 
   const questionList = GetQuestions();
 
+  if (!newPost) {
   return (
       <Grid
       container
@@ -50,14 +52,40 @@ const QuestionDashboard = (props) => {
             filterText={filterText}
             setFilterChange={setFilterText}
             questionList={questionList}
+            newPost={newPost}
+            setNewPost={setNewPost}
           />
       </Grid>
       <Grid item sm={9} alignItems="stretch">
-        <QADisplay q_id={q_id} questionList={questionList}/>
+        <QADisplay q_id={q_id} questionList={questionList} newPost={newPost}/>
       </Grid>
     </Grid>
 
   );
+} else {
+  return (
+      <Grid
+      container
+      direction="row"
+      justify="space-between"
+      alignItems="stretch"
+      >
+      <Grid item sm={3}  alignItems="stretch">
+          <QASidebar
+            filterText={filterText}
+            setFilterChange={setFilterText}
+            questionList={questionList}
+            newPost={newPost}
+            setNewPost={setNewPost}
+          />
+      </Grid>
+      <Grid item sm={9} alignItems="stretch">
+        <QANewPost setNewPost={setNewPost}/>
+      </Grid>
+    </Grid>
+
+  );
+}
 }
 
 export default QuestionDashboard;
