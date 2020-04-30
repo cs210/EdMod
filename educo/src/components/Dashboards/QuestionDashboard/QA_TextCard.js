@@ -16,6 +16,7 @@ import Avatar from '@material-ui/core/Avatar';
 import ChatBubbleIcon from '@material-ui/icons/ChatBubble';
 import CropOriginalIcon from '@material-ui/icons/CropOriginal';
 import AuthorPanel from './AuthorPanel.js'
+import firebase from '../../../config/firebase.js';
 
 import {
   List,
@@ -34,13 +35,28 @@ import {
 }
 from '@material-ui/core';
 
-export default function QuestionCard(question) {
-  var title = question.title;
-  var q_body = question.text;
-  var tags = question.tags;
-  var attachements = question.attachements
-  var author = question.author
-  var answers = question.threads
+const submitComment = (props, new_comment) => {
+  console.log(props)
+  console.log(new_comment)
+  firebase
+    .firestore()
+    .collection("questions")
+    .doc(props.q_id)
+    .update({
+      threads: firebase.firestore.FieldValue.arrayUnion({accepted:false, text:[{author: "jennifer", comment: new_comment}]})
+    });
+    // TODO: make comment reset
+}
+
+
+const QuestionCard = (props) => {
+  const [comment, setComment] = useState("Comment")
+  var title = props.question.data.title;
+  var q_body = props.question.data.text;
+  var tags = props.question.data.tags;
+  var attachments = props.question.data.attachments
+  var author = props.question.data.author
+  var answers = props.question.threads
 
   return (
     <div >
@@ -62,13 +78,13 @@ export default function QuestionCard(question) {
         <IconButton aria-label="upvote" size="small">
           <ThumbUpAltIcon fontSize="inherit" />
         </IconButton>
-              
+
             </Grid>
                 <br/>
                 <Typography variant="body1">
                   {q_body}
                 </Typography>
-                {ImgMediaCard(attachements)}
+                {ImgMediaCard(attachments)}
               </Grid>
               <Grid item>
                 <Grid
@@ -91,7 +107,7 @@ export default function QuestionCard(question) {
       </Grid>
               </Grid>
             </Grid>
-            
+
           </Grid>
         </Grid>
         <Divider style={{margin: 15}}/>
@@ -99,8 +115,12 @@ export default function QuestionCard(question) {
           margin: 10}}>
         <Grid container direction="row" spacing={0} alignItems="center">
         <Grid item xs>
-        <FormControl fullWidth variant='outlined'>
-          <InputLabel>Comment</InputLabel>
+        <FormControl fullWidth variant='outlined'  onChange = {(event) => setComment(event.target.value)}>
+          <InputLabel>
+            Comment
+          </InputLabel>
+          <div>
+          </div>
           <OutlinedInput
           fullWidth multiLine={true} rows={5} rowsMax={15} //TODO: figure out mulitLine textbox
             id="comment"
@@ -110,8 +130,8 @@ export default function QuestionCard(question) {
               <InputAdornment position="end">
                 <IconButton
                   aria-label="submit comment"
-                  //onClick={handleClickShowPassword}
-                  //onMouseDown={handleMouseDownPassword} 
+                  onClick={() => submitComment(props, comment)}
+                  //onMouseDown={handleMouseDownPassword}
                   //TODO: actually capture text
                   //TODO: More complex text editor
                   color="primary"
@@ -135,3 +155,5 @@ export default function QuestionCard(question) {
       </div>
     );
 }
+
+export default QuestionCard;

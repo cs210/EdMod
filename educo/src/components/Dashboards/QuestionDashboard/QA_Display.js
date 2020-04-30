@@ -1,9 +1,10 @@
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
 import { Link as RouterLink } from 'react-router-dom';
 import QuestionCard from './QA_TextCard.js'
 import ThumbUpAltIcon from '@material-ui/icons/ThumbUpAlt';
 import NotificationImportantIcon from '@material-ui/icons/NotificationImportant';
 import QA_AnswerCards from './QA_AnswerCards.js'
+import firebase from '../../../config/firebase.js'
 
 import mockData from './mockData.js'
 import {
@@ -20,62 +21,39 @@ import {
 }
 from '@material-ui/core';
 
-class QADisplay extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      answerInput: '',
-      q_id: this.props.q_id,
-    };
-    this.handleFilterTextChange = this.handleFilterTextChange.bind(this);
-  }
 
-  handleFilterTextChange(inputText) {
-    this.setState({
-      answerInput: inputText
-    });
-  }
+const QADisplay = (props) => {
+  const default_question = {data:{title:"", author:"", text:"", tags:[], attachments:[], solved: false}, threads: []}
+  const [answerInput, setAnswerInput] = useState('')
+  const [q_id, setq_id] = useState('')
+  const [question, setQuestion] = useState(default_question)
+  useEffect(() => {
+    if (q_id != props.q_id) {
+      setq_id(props.q_id)
+        firebase
+          .firestore()
+          .collection("questions")
+          .doc(props.q_id)
+          .get()
+          .then((docRef) => {
+            console.log("here", docRef.data())
+            setQuestion(docRef.data())
+          })
+          .catch((error) => { })
+      }
+  });
 
-getQuestionInfo(){
-  var info = mockData(parseInt(this.state.q_id))
-  return info;
-}
+  // const question = firebase.firestore.collection("question").doc(q_id).get()
 
-getAnswerInfo(){
-  var info = mockData(parseInt(this.state.q_id)).threads
-  return info;
-}
-
-
-displayTextCard() {
-  var questionInfo = this.getQuestionInfo()
-  return QuestionCard(questionInfo); //TODO: question id should link to answer_ids, so TextCard should only take 1 parameter
-
-}
-
-  render() {
-    var answers = this.getAnswerInfo();
-    return (
+  return (
       <div className="qa_container">
-        {this.displayTextCard()}
-        <QA_AnswerCards  q_id={this.state.q_id} answers={answers}/>
+
+        <QuestionCard question={question} q_id={q_id}/>
+        <QA_AnswerCards answers={question.threads} q_id={q_id}/>
       </div>
     );
-  }
+  };
 
-  componentDidMount() {
-    this.setState({q_id: this.props.q_id});
-  }
-
-  componentDidUpdate(prevProps, prevState) {
-    if (this.props.q_id !== prevState.q_id) {
-      this.setState({q_id: this.props.q_id});
-    }
-  } 
-}
-
-  
- 
 export default QADisplay;
 
 //

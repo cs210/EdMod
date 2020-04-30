@@ -19,6 +19,7 @@ import AuthorPanel from './AuthorPanel.js'
 import HighlightOffIcon from '@material-ui/icons/HighlightOff';
 import DoneOutlineIcon from '@material-ui/icons/DoneOutline';
 import BeenhereIcon from '@material-ui/icons/Beenhere';
+import firebase from '../../../config/firebase.js';
 
 import {
   List,
@@ -42,11 +43,32 @@ class QA_AnswerCards extends Component {
     super(props);
     this.state = {
       answers:this.props.answers,
-      answerInput: [],
+      answerInput: Array(this.props.answers.length).fill(''),
       q_id: this.props.q_id,
       answer_visible:Array(this.props.answers.length).fill(0)
     };
   }
+
+  handleChange(event, i) {
+    var answerInput = this.state.answerInput
+    answerInput[i] = event.target.value
+    this.setState({answerInput:answerInput})
+  }
+
+  handleSubmit(event, i){
+    var answer_array = {author: "jennifer", comment: this.state.answerInput[i]}
+    var current_answers = this.state.answers
+    current_answers[i].text.push(answer_array)
+    console.log(this.state.q_id)
+    if (answer_array.comment != ''){
+      var firebaseRef = firebase
+          .firestore()
+          .collection("questions")
+          .doc(this.props.q_id)
+          .update({"threads": firebase.firestore.FieldValue.arrayUnion(current_answers)
+        });
+      }
+    }
 
   handleShowSubAnswerText(i){
     var answer_visible = this.state.answer_visible
@@ -64,12 +86,12 @@ class QA_AnswerCards extends Component {
           fullWidth multiLine={true} rows={5} rowsMax={15} //TODO: figure out mulitLine textbox
             id="comment"
             //value={values.password}
-            //onChange={handleChange('password')}
+            onChange={(e) => this.handleChange(e, i)}
             endAdornment={
               <InputAdornment position="end">
                 <IconButton
                   aria-label="submit comment"
-                  //onClick={handleClickShowPassword}
+                  onClick={(e) => this.handleSubmit(e, i)}
                   //onMouseDown={handleMouseDownPassword} 
                   //TODO: actually capture text
                   //TODO: More complex text editor
@@ -180,6 +202,7 @@ AnswerCard(answersList) {
     if (this.props.answers !== prevState.answers) {
       this.setState({answers: this.props.answers});
     }
+    console.log(this.state.answerInput)
   } 
 }
 
