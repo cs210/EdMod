@@ -26,19 +26,22 @@ import {
 from '@material-ui/core';
 
 const addPost = (props) => {
-  props.setNewPost(false)
-  firebase.firestore().collection("questions").add({
-    data:{
-      author: "John Chuter",
-      title: props.title,
-      text: props.text,
-      tags: props.tags,
-      solved: false,
-      attachments: []
-    },
-    threads:{}
-  });
-
+  if (props.title === '' || props.text === '')  {
+    props.setErr("Please enter a brief summary of your question.")
+  } else {
+    props.setNewPost(false)
+    firebase.firestore().collection("questions").add({
+      data:{
+        author: "John Chuter",
+        title: props.title,
+        text: props.text,
+        tags: Object.keys(props.tags),
+        solved: false,
+        attachments: []
+      },
+      threads:{}
+    });
+  }
 }
 
 
@@ -110,8 +113,7 @@ const handleClickTag = (props, tag, event) => {
 
   var tag_list = props.tags;
   tag_list[tag] = !tag_list[tag];
-  console.log(tag);
-  //props.setTags(Object.keys(tag_list));
+  props.setTags(tag_list);
 }
 
 const QANewPost = (props) => {
@@ -119,6 +121,7 @@ const QANewPost = (props) => {
   const [text, setText] = useState('');
   const [attachments, setAttachments] = useState([])
   const [tags, setTags] = useState({"spring 2020": 0, "scratch":0 })
+  const [err, setErr] = useState('')
   const classes = useStyles();
 
   return (
@@ -139,6 +142,7 @@ const QANewPost = (props) => {
               onChange = {(event) => setTitle(event.target.value)}
               autoComplete="off"
             />
+            <div className="err">{err}</div>
           </Grid>
 
 
@@ -176,65 +180,12 @@ const QANewPost = (props) => {
 
             <Grid item xs={4}/>
             <Grid item xs={8}>
-            <SubmitButton title={title} text={text} tags={tags} setNewPost={props.setNewPost}/>
+            <SubmitButton title={title} text={text} tags={tags} setNewPost={props.setNewPost} setErr={setErr}/>
             </Grid>
 
           </Grid>
-
-
-
-
-
       </form>
     </div>
-
-    // <div className = "new-post">
-    // <Grid container direction="column" alignItems="center">
-    //     <Grid item xs={12}>
-    //       <form>
-    //
-    //       <Grid item xs={8}>
-    //     <Paper className={classes.paper}>xs=8</Paper>
-    //   </Grid>
-    //   <Grid item xs={4}>
-    //     <Paper className={classes.paper}>xs=4</Paper>
-    //   </Grid>
-    //
-    //         </form>
-    //       </Grid>
-    //     </Grid>
-    // </div>
-
-      // <Button
-      //    variant="contained"
-      //    color="primary"
-      //    size="small"
-      //    className="add-post"
-      //    style={{maxWidth: '300px', maxHeight: '30px', minWidth: '300px', minHeight: '30px', margin: "0px 0px 0px 10px"}}
-      //    onClick={() => addPost(props)}
-      //  >
-      // Post my question!
-      // </Button>
-
-      //
-      // <div className = "new-post-entry">
-      //   <span> Summary: </span>
-      //   <TextField
-      //     id="outlined-secondary"
-      //     label="Outlined secondary"
-      //     variant="outlined"
-      //     color="secondary"
-      //   />
-      // </div>
-      // <div>
-      //   <span> Details: </span>
-      //   <TextField
-      //     id="outlined-secondary"
-      //     label="Outlined secondary"
-      //     variant="outlined"
-      //     color="secondary"
-      //   />
-      // </div>
   );
 };
 
