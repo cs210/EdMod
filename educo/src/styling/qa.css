@@ -6,7 +6,19 @@
   padding-top: 10px;
 }
 
+.tags {
+  border-radius: 10px;
+  background-color: lightgray;
+  color: black;
+  padding: 5px;
+  margin-right: 5px;
 
+}
+
+.active {
+  background-color: #273654!important;
+  color: #fff!important;
+}
 .sidebar_elem {
   height: 120px;
   max-height: 120px;

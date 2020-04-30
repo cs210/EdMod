@@ -6,6 +6,7 @@ import NotificationImportantIcon from '@material-ui/icons/NotificationImportant'
 import QA_AnswerCards from './QA_AnswerCards.js'
 import firebase from '../../../config/firebase.js'
 import AddIcon from '@material-ui/icons/Add';
+import Chip from '@material-ui/core/Chip';
 import { makeStyles } from '@material-ui/core/styles';
 
 import mockData from './mockData.js'
@@ -93,19 +94,38 @@ const SubmitButton = (props) => {
 );
 }
 
+const Tags = (props) => {
+  return (
+    <div>
+      {
+        Object.keys(props.tags).map((key, index) => (
+          <span className="tags" id={key} onClick={(event) => handleClickTag(props, key, event)}>{key}</span>
+        ))
+      }
+    </div>
+
+  );
+}
+
+const handleClickTag = (props, tag, event) => {
+  if (event.target.classList.contains("active")) {
+    document.getElementById(tag).classList.remove("active");
+  } else {
+    event.target.classList.add("active");
+  }
+
+  var tag_list = props.tags;
+  tag_list[tag] = !tag_list[tag];
+  console.log(tag);
+  //props.setTags(Object.keys(tag_list));
+}
+
 const QANewPost = (props) => {
   const [title, setTitle] = useState('Enter a one line summary.');
   const [text, setText] = useState('');
   const [attachments, setAttachments] = useState([])
   const [tags, setTags] = useState({"spring 2020": 0, "scratch":0 })
-
   const classes = useStyles();
-
-  function handleClickTag(event, tag) {
-   var tag_list = tags;
-   tag_list[tag] = !tag_list[tag];
-   setTags(tag_list);
-  }
 
   return (
 
@@ -152,33 +172,11 @@ const QANewPost = (props) => {
               justify="space-between"
               alignItems="flex-end">
               <Grid key='question_tags' item>
-              {Object.keys(tags).map((tag)=> {
-            if(tags[tag]==1){
-              return(
-              <Chip size="small"
-              clickable
-              onClick={(e) => handleClickTag(e, tag)}
-              color="primary"
-            label={tag}
-          />);
-            }
-            else{
-              return(
-              <Chip size="small"
-              clickable
-              onClick={(e) => handleClickTag(e, tag)}
-              color="secondary"
-            label={tag}
-          />);
-            }
-            })   
-      }
-        </Grid>
-        </Grid>
-
-        </Grid>
-
-        </Grid>
+                <Tags tags = {tags} setTags={setTags}/>
+                </Grid>
+              </Grid>
+            </Grid>
+          </Grid>
         <SubmitButton title={title} text={text} tags={tags} setNewPost={props.setNewPost}/>
       </div>
 
