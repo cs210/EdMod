@@ -8,7 +8,7 @@ import {
   Avatar,
   Typography
 } from '@material-ui/core';
-import Derpy from "../../../images/derpcat.jpg";
+import Nikola from "../../../images/tesla_profile.jpg";
 
 class EngineerProfileCard extends Component {
   render() {
@@ -17,11 +17,11 @@ class EngineerProfileCard extends Component {
 
         <Card>
           <Grid container >
-            <CardMedia src={Derpy} component="img"/>
+            <CardMedia src={Nikola} component="img"/>
 
             <CardContent>
             <Typography variant="h6">
-              Derpy McDerpface
+              Nikola Tesla
             </Typography>
             </CardContent>
 
