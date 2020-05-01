@@ -13,7 +13,7 @@ const SignedInLinks = () => {
       </NavItem> */}
 
       <NavItem>
-        <NavLink to="/EdMod/qa" className="tag">
+        <NavLink to="/qa" className="tag">
           Question Board
         </NavLink>
       </NavItem>
@@ -25,7 +25,7 @@ const SignedInLinks = () => {
       </NavItem> */}
 
       <NavItem>
-        <NavLink to="/EdMod/engineers" className="tag">
+        <NavLink to="/engineers" className="tag">
           Spotlight
         </NavLink>
       </NavItem>

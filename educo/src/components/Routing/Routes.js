@@ -15,10 +15,10 @@ const Routes = (props) => {
         path="/qa/:q_id"
         render={(props) => <QuestionDashboard {...props} />}
       />
-      <Redirect path="/EdMod/qa" to="/qa/KZgPCyLfIQagMBGlIcWw" />
+      <Redirect path="/qa" to="/qa/KZgPCyLfIQagMBGlIcWw" />
       {/* // <Route path="/progress" component={ProgressDashboard} /> */}
-      <Route path="/EdMod/engineers" component={EngineerProfileDashboard} />
-      <Route path="/EdMod/engineers/derpy" component={EngineerProfileDerpy} />
+      <Route path="/engineers" component={EngineerProfileDashboard} />
+      <Route path="/engineers/derpy" component={EngineerProfileDerpy} />
     </Switch>
   );
 };

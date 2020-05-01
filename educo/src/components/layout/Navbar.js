@@ -5,7 +5,7 @@ import Educo from "../../images/educo.png";
 import "../../styling/navbar.css";
 import { Collapse, Navbar, NavbarToggler, NavbarBrand } from "reactstrap";
 
-const NavBar = props => {
+const NavBar = (props) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggle = () => setIsOpen(!isOpen);
@@ -13,7 +13,7 @@ const NavBar = props => {
   return (
     <div>
       <Navbar color="light" light expand="md">
-        <NavbarBrand href="/">
+        <NavbarBrand href="/EdMod">
           <img src={Educo} alt="logo" className="logo" />
         </NavbarBrand>
 
