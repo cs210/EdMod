@@ -24,20 +24,23 @@ class EngineerProfileDashboard extends Component {
           <Box height={10}/>
           <SpotlightSimple/>
           <Box height={10}/>
-          <YouTube
-            video="NxSDNogkKX0"
-            autoplay
-            width={640}
-            height={480}
-          />
+          <Box width={2/3} height={480}>
+            <YouTube
+              video="NxSDNogkKX0"
+              autoplay
+              width="100%"
+              height="100%"
+            />
+          </Box>
+
           <Box height={50}/>
           <Grid width={2/3}
             container
             justify="center"
-            alignContent="center"
             direction="row"
           >
             <EngAvaTitleCard/>
+            <Box width={2/3 - 1/4 - 7/18}></Box>
             <EngProfText/>
           </Grid>
         </Grid>

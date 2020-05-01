@@ -12,7 +12,7 @@ import RouteDerpyButton from './RouteDerpyButton.js';
 class EngProfText extends Component {
   render() {
     return (
-      <Box width={2/4}>
+      <Box width={7/18}>
         <Card>
           <CardContent>
             <Typography variant="paragraph">
