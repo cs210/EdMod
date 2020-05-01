@@ -26,7 +26,7 @@ const SignedInLinks = () => {
 
       <NavItem>
         <NavLink to="/engineers" className="tag">
-          Engineer Profiles
+          Spotlight
         </NavLink>
       </NavItem>
     </Nav>
