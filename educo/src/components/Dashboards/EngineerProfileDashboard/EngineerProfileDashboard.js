@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import YouTube from '@u-wave/react-youtube';
+import Vimeo from '@u-wave/react-vimeo';
 import EngAvaTitleCard from './EngAvaTitleCard';
 import EngProfText from './EngProfText';
 import SpotlightSimple from './SpotlightSimple';
@@ -26,7 +27,7 @@ class EngineerProfileDashboard extends Component {
           <Box height={10}/>
           <Box width={2/3} height={480}>
             <YouTube
-              video="NxSDNogkKX0"
+              video="xP76q3quHb0"
               autoplay
               width="100%"
               height="100%"
