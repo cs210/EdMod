@@ -45,7 +45,7 @@ class QA_AnswerCards extends Component {
       answers: [], // this.getComments(this.props.q_id),
       // answerInput: Array(this.props.answers.length).fill(''),
       q_id: this.props.q_id,
-      // answer_visible:Array(this.props.answers.length).fill(0)
+      answer_visible: []
     };
   }
 
@@ -57,10 +57,12 @@ class QA_AnswerCards extends Component {
       .doc(q_id)
       .collection("comments")
       .get()
-      .then((docRef) => {
-        console.log("all comments", docRef.data())
-      })
-      .catch((error) => { })
+      .then((querySnapshot) => {
+      const tempDoc = []
+      querySnapshot.forEach((doc) => {
+         tempDoc.push({ id: doc.id, ...doc.data() })
+      })
+      this.setState({answers: tempDoc, answer_visible: Array(tempDoc.length).fill(0)})})
   }
 
   handleChange(event, i) {
@@ -130,8 +132,8 @@ class QA_AnswerCards extends Component {
   SubAnswers(answersList, a_id){
     var answers = [];
     var answer;
-    for (var i=1; i < answersList.text.length; i++) {
-        answer = answersList.text[i];
+    for (var i=1; i < answersList.comments.length; i++) {
+        answer = answersList.comments[i];
         answers[i] = (
           <Grid container direction="column" spacing={0} >
           <Grid item container spacing={0} justify="space-between">
@@ -148,7 +150,7 @@ class QA_AnswerCards extends Component {
             </Grid>
             <Grid item xs={11}>
               <Typography variant="body2">
-                  {answer.comment}
+                  {answer.text}
               </Typography>
             <IconButton aria-label={"comment_"+i} id={"comment_"+i} onClick={()=> {this.handleShowSubAnswerText(a_id)}}>
               <ChatBubbleIcon fontSize="small" style={{width:15, height:15}}/>
@@ -165,6 +167,7 @@ class QA_AnswerCards extends Component {
 }
 
 AnswerCard(answersList) {
+    console.log("ANSWERLIST", answersList)
    var answers = [];
     var answer;
 
@@ -176,7 +179,7 @@ AnswerCard(answersList) {
           <Grid container direction="column" spacing={1}>
           <Grid item container spacing={1} justify="space-between">
             <Grid item xs={2}>
-              {AuthorPanel(answer.text[0].author)}
+              {AuthorPanel(answer.comments[0].author)}
             </Grid>
             <Grid item xs={9}>
             </Grid>
@@ -192,7 +195,7 @@ AnswerCard(answersList) {
            </Grid>
             <Grid item xs={12}>
               <Typography variant="body2">
-                  {answer.text[0].comment}
+                  {answer.comments[0].text}
                 </Typography>
             </Grid>
             <Grid item xs={12}>
@@ -213,16 +216,13 @@ AnswerCard(answersList) {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    if (this.props.answers !== prevState.answers) {
-      this.setState({answers: this.props.answers});
-    }
-    // console.log(this.state.answerInput)
-
     console.log("previous properties id:", prevProps.q_id)
-    if (this.props.q_id !== prevProps.q_id) {
+    if (this.props.q_id !== prevState.q_id) {
       this.setState({q_id: this.props.q_id})
+      console.log("getting answers")
       this.getAnswers(this.props.q_id)
-      this.setState({answersInput: Array(this.state.answers.length).fill('') });
+
+      //this.setState({answersInput: Array(this.state.answers.length).fill('') });
 
     }
   }
