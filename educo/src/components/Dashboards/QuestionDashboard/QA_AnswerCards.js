@@ -42,11 +42,25 @@ class QA_AnswerCards extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      answers:this.props.answers,
-      answerInput: Array(this.props.answers.length).fill(''),
+      answers: [], // this.getComments(this.props.q_id),
+      // answerInput: Array(this.props.answers.length).fill(''),
       q_id: this.props.q_id,
-      answer_visible:Array(this.props.answers.length).fill(0)
+      // answer_visible:Array(this.props.answers.length).fill(0)
     };
+  }
+
+  getAnswers(q_id) {
+    console.log("QID,", q_id)
+    firebase
+      .firestore()
+      .collection("questions")
+      .doc(q_id)
+      .collection("comments")
+      .get()
+      .then((docRef) => {
+        console.log("all comments", docRef.data())
+      })
+      .catch((error) => { })
   }
 
   handleChange(event, i) {
@@ -92,7 +106,7 @@ class QA_AnswerCards extends Component {
                 <IconButton
                   aria-label="submit comment"
                   onClick={(e) => this.handleSubmit(e, i)}
-                  //onMouseDown={handleMouseDownPassword} 
+                  //onMouseDown={handleMouseDownPassword}
                   //TODO: actually capture text
                   //TODO: More complex text editor
                   color="primary"
@@ -105,7 +119,7 @@ class QA_AnswerCards extends Component {
         </FormControl>
         </Grid>
         <Grid item xs={1}>
-        <IconButton aria-label="img_submit" size="small"> 
+        <IconButton aria-label="img_submit" size="small">
           <CropOriginalIcon fontSize="inherit"/>
         </IconButton>
         </Grid>
@@ -122,15 +136,15 @@ class QA_AnswerCards extends Component {
           <Grid container direction="column" spacing={0} >
           <Grid item container spacing={0} justify="space-between">
             <Grid item xs={1} >
-              
+
             </Grid>
             <Grid item xs={11} >
               <Divider style={{marginTop:10, marginBottom:10}}/>
               {AuthorPanel(answer.author)}
             </Grid>
-            
+
             <Grid item xs={1}>
-              
+
             </Grid>
             <Grid item xs={11}>
               <Typography variant="body2">
@@ -146,19 +160,19 @@ class QA_AnswerCards extends Component {
           </Grid>
           </Grid>
         )
-    } 
+    }
     return answers;
 }
 
 AnswerCard(answersList) {
    var answers = [];
     var answer;
-    
+
     for (let i=0; i < answersList.length; i++) {
         answer = answersList[i];
         answers[i] = (
           <Paper style={{padding: 15,
-    margin: 10, overflow: "scroll"}}>          
+    margin: 10, overflow: "scroll"}}>
           <Grid container direction="column" spacing={1}>
           <Grid item container spacing={1} justify="space-between">
             <Grid item xs={2}>
@@ -166,15 +180,15 @@ AnswerCard(answersList) {
             </Grid>
             <Grid item xs={9}>
             </Grid>
-            
+
 
 
             <Grid item xs={1} align="left" >
             {answer.accepted === true ? <Tooltip title="Accepted answer" placement="right" arrow>
         <BeenhereIcon style={{color:'green'}}/>
      </Tooltip> : <div/> }
-              
-              
+
+
            </Grid>
             <Grid item xs={12}>
               <Typography variant="body2">
@@ -202,8 +216,16 @@ AnswerCard(answersList) {
     if (this.props.answers !== prevState.answers) {
       this.setState({answers: this.props.answers});
     }
-    console.log(this.state.answerInput)
-  } 
+    // console.log(this.state.answerInput)
+
+    console.log("previous properties id:", prevProps.q_id)
+    if (this.props.q_id !== prevProps.q_id) {
+      this.setState({q_id: this.props.q_id})
+      this.getAnswers(this.props.q_id)
+      this.setState({answersInput: Array(this.state.answers.length).fill('') });
+
+    }
+  }
 }
 
 export default QA_AnswerCards

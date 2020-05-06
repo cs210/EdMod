@@ -57,7 +57,7 @@ const QuestionDashboard = (props) => {
           />
       </Grid>
       <Grid item sm={9} alignItems="stretch">
-        <QADisplay q_id={q_id} questionList={questionList} newPost={newPost}/>
+        <QADisplay q_id={q_id} newPost={newPost}/>
       </Grid>
     </Grid>
 
