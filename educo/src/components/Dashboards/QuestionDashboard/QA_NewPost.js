@@ -5,6 +5,8 @@ import ThumbUpAltIcon from '@material-ui/icons/ThumbUpAlt';
 import NotificationImportantIcon from '@material-ui/icons/NotificationImportant';
 import QA_AnswerCards from './QA_AnswerCards.js'
 import firebase from '../../../config/firebase.js'
+import storage from '../../../config/firebase.js'
+
 import AddIcon from '@material-ui/icons/Add';
 import Chip from '@material-ui/core/Chip';
 import { makeStyles } from '@material-ui/core/styles';
@@ -24,6 +26,21 @@ import {
   IconButton
 }
 from '@material-ui/core';
+
+const handleAttachmentChange = (props, event) => {
+  if (event.target.files[0]) {
+    const image = event.target.files[0]
+    props.setAttachments(prevArr => [...prevArr, image])
+  }
+}
+
+const UploadAttachmentButton = (props) => {
+  return (
+    <div>
+      <input type="file" onChange={(event) => handleAttachmentChange(props, event)}/>
+    </div>
+  );
+}
 
 const addPost = (props) => {
   if (props.title === '' || props.text === '')  {
@@ -164,6 +181,12 @@ const QANewPost = (props) => {
           </Grid>
 
           <Grid item xs={1}/>
+          <Grid container item xs={3} justify="center"><span>Attachments:</span></Grid>
+          <Grid item xs={8}>
+          <UploadAttachmentButton attachments = {attachments} setAttachments = {setAttachments} />
+          </Grid>
+
+          <Grid item xs={1}/>
           <Grid container item xs={3} justify="center"><span>Tags:</span></Grid>
           <Grid item xs={8}>
             <Grid
@@ -175,8 +198,8 @@ const QANewPost = (props) => {
                     <Tags tags = {tags} setTags={setTags}/>
                   </Grid>
             </Grid>
-
             </Grid>
+
 
             <Grid item xs={4}/>
             <Grid item xs={8}>
