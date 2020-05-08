@@ -15,8 +15,6 @@ Weekly Meetings: Tues / Thurs class time, Fridays 2:30 - 4 PM.
 
 Educo is building a community to support the EFTW program.
 
-[Team Song](https://www.youtube.com/watch?v=JC82Il2cjqA)
-
 # Team Members
 Member | Email | Photo
 --- | --- | ---
@@ -42,3 +40,4 @@ Austin | Blue | Python, Java, Javascript, React, Flask | Design Thinking, UI/UX,
 
 4. [Google Calendar](https://calendar.google.com/calendar/embed?src=stanford.edu_rsg43to2epthvtkim72t0des9o%40group.calendar.google.com&ctz=America%2FLos_Angeles)
 -->
+Documentation: [Google Drive](https://drive.google.com/drive/u/0/folders/0ADwxWZU7n15IUk9PVA)
