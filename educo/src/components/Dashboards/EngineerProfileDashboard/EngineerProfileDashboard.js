@@ -5,6 +5,8 @@ import EngAvaTitleCard from './EngAvaTitleCard';
 import EngProfText from './EngProfText';
 import SpotlightSimple from './SpotlightSimple';
 
+import ReactGA from 'react-ga';
+
 import {
   Grid,
   Box,
@@ -15,6 +17,7 @@ from '@material-ui/core';
 
 class EngineerProfileDashboard extends Component {
   render() {
+    ReactGA.pageview("spotlight pageview");
     return (
       <Box >
         <Grid
