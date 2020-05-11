@@ -4,7 +4,6 @@ import Vimeo from '@u-wave/react-vimeo';
 import EngAvaTitleCard from './EngAvaTitleCard';
 import EngProfText from './EngProfText';
 import SpotlightSimple from './SpotlightSimple';
-
 import ReactGA from 'react-ga';
 
 import {
