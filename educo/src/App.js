@@ -14,6 +14,7 @@ import ReactGA from 'react-ga';
 //class App extends Component {
 const App = (props) => {
   ReactGA.initialize('UA-165948384-1'); // Google Analytics
+  ReactGA.pageview("app startup pageview");
   return (
     // <SignIn />
     <BrowserRouter basename={process.env.PUBLIC_URL}>

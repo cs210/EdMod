@@ -5,6 +5,7 @@ import QANewPost from './QA_NewPost.js'
 import {Paper, Grid} from '@material-ui/core';
 import mockData from './mockData.js'
 import firebase from '../../../config/firebase.js'
+import ReactGA from 'react-ga';
 
 function GetQuestions() {
   const [questions, setQuestions] = useState([]);
@@ -30,6 +31,8 @@ const QuestionDashboard = (props) => {
   const [filterText, setFilterText] = useState('')
   const [q_id, setq_id] = useState(props.match.params.q_id)
   const [newPost, setNewPost] = useState(false)
+
+  ReactGA.pageview("QA pageview");
 
   useEffect(() => {
     if (q_id != props.match.params.q_id) {
