@@ -37,7 +37,7 @@ const handleAttachmentChange = (props, event) => {
 const UploadAttachmentButton = (props) => {
   return (
     <div>
-      <input type="file" onChange={(event) => handleAttachmentChange(props, event)}/>
+      <input type="file" multiple onChange={(event) => handleAttachmentChange(props, event)}/>
     </div>
   );
 }
