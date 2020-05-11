@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
+import { HashRouter, BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 import Routes from "./components/Routing/Routes.js";
 import NavBar from "./components/layout/Navbar";
 import firebase from "./config/firebase.js";
@@ -17,12 +17,12 @@ const App = (props) => {
   ReactGA.pageview("app startup pageview");
   return (
     // <SignIn />
-    <BrowserRouter basename={process.env.PUBLIC_URL}>
+    <HashRouter basename={process.env.PUBLIC_URL}>
       <div className="App">
         <NavBar />
         <Routes />
       </div>
-    </BrowserRouter>
+    </HashRouter>
   );
 };
 export default App;
