@@ -58,7 +58,7 @@ const QuestionCard = (props) => {
   var title = props.question.data.title;
   var q_body = props.question.data.text;
   var tags = props.question.data.tags;
-  var attachments = props.question.data.attachments;
+  var attachments = props.question.attachments;
   var author = props.question.data.author;
   var answers = props.question.threads;
 

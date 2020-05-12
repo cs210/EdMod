@@ -55,6 +55,7 @@ const addPost = (props) => {
   } else {
     props.setNewPost(false)
 
+
     firebase.firestore().collection("questions").add({
       data:{
         author: "John Chuter",
@@ -64,34 +65,39 @@ const addPost = (props) => {
         solved: false,
       },
       attachments: [],
-    });
 
-    var arrayLength = props.attachments.length;
-    var attachmentUrls = [];
-    for (var i = 0; i < arrayLength; i++) {
-      const image = props.attachments[i];
-      if (hasExtension(image.name, ['.jpg', '.gif', '.png'])) {
-        const uploadTask = storage.ref(`images/${image.name}`).put(image);
-        uploadTask.on('state_changed',
-        (snapshot) => {
-          // progress function ...
-        }, (error) => {
-          // error function ...
-          console.log(error);
-        },
-        () => {
-          // complete function ...
-          storage.ref('images').child(image.name).getDownloadURL().then(url => {
-            console.log(url);
-
-            firebase.firestore().collection("questions").doc(props.q_id)
-                .update({"attachments": firebase.firestore.FieldValue.arrayUnion(url)
-              });
-          })
-        });
+    }).then(data => {
+        console.log("currentData----------", data);
+        // start
+        var arrayLength = props.attachments.length;
+        // var attachmentUrls = [];
+        for (var i = 0; i < arrayLength; i++) {
+          const image = props.attachments[i];
+          if (hasExtension(image.name, ['.jpg', '.gif', '.png'])) {
+            const uploadTask = storage.ref(`images/${image.name}`).put(image);
+            uploadTask.on('state_changed',
+            (snapshot) => {
+              // progress function ...
+            }, (error) => {
+              // error function ...
+              console.log(error);
+            },
+            () => {
+              // complete function ...
+              storage.ref('images').child(image.name).getDownloadURL().then(url => {
+                console.log("URLL---------------", url);
+                // attachmentUrls.push(url);
+                console.log("qid-------", props.q_id)
+                firebase.firestore().collection("questions").doc(data.id)
+                    .update({"attachments": firebase.firestore.FieldValue.arrayUnion(url)
+                  });
+              })
+            });
+          }
+        }
+        // end
       }
-    }
-    // submit(props, attachmentUrls)
+    );
   }
 }
 
