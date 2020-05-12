@@ -83,7 +83,7 @@ const QuestionDashboard = (props) => {
           />
       </Grid>
       <Grid item sm={9} alignItems="stretch">
-        <QANewPost setNewPost={setNewPost}/>
+        <QANewPost setNewPost={setNewPost} q_id={q_id} />
       </Grid>
     </Grid>
 

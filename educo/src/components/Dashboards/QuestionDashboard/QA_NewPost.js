@@ -45,11 +45,16 @@ const UploadAttachmentButton = (props) => {
   );
 }
 
+function hasExtension(fileName, exts) {
+    return (new RegExp('(' + exts.join('|').replace(/\./g, '\\.') + ')$')).test(fileName);
+}
+
 const addPost = (props) => {
   if (props.title === '' || props.text === '')  {
     props.setErr("Please enter a brief summary of your question.")
   } else {
     props.setNewPost(false)
+
     firebase.firestore().collection("questions").add({
       data:{
         author: "John Chuter",
@@ -58,16 +63,14 @@ const addPost = (props) => {
         tags: Object.keys(props.tags),
         solved: false,
       },
-      threads:{}
+      attachments: [],
     });
-    console.log("attachments, ", props.attachments)
-    console.log(storage);
-    if (props.attachments) {
-      var arrayLength = props.attachments.length;
-      for (var i = 0; i < arrayLength; i++) {
-        const image = props.attachments[i];
-        console.log(image);
 
+    var arrayLength = props.attachments.length;
+    var attachmentUrls = [];
+    for (var i = 0; i < arrayLength; i++) {
+      const image = props.attachments[i];
+      if (hasExtension(image.name, ['.jpg', '.gif', '.png'])) {
         const uploadTask = storage.ref(`images/${image.name}`).put(image);
         uploadTask.on('state_changed',
         (snapshot) => {
@@ -75,18 +78,40 @@ const addPost = (props) => {
         }, (error) => {
           // error function ...
           console.log(error);
-
         },
         () => {
           // complete function ...
           storage.ref('images').child(image.name).getDownloadURL().then(url => {
             console.log(url);
+
+            firebase.firestore().collection("questions").doc(props.q_id)
+                .update({"attachments": firebase.firestore.FieldValue.arrayUnion(url)
+              });
           })
         });
       }
     }
+    // submit(props, attachmentUrls)
+  }
 }
+
+function submit(props, attachmentUrls) {
+    console.log("hello");
+    console.log("attachment irls!!!!!!!!!!!!!!!!!!!!!", attachmentUrls)
+    // add post to firestore
+    firebase.firestore().collection("questions").add({
+      data:{
+        author: "John Chuter",
+        title: props.title,
+        text: props.text,
+        tags: Object.keys(props.tags),
+        solved: false,
+        attachmentUrls: attachmentUrls
+      },
+      attachments: [],
+    });
 }
+
 
 
 const useStyles = makeStyles((theme) => ({
@@ -230,7 +255,7 @@ const QANewPost = (props) => {
 
             <Grid item xs={4}/>
             <Grid item xs={8}>
-            <SubmitButton title={title} text={text} tags={tags} setNewPost={props.setNewPost} setErr={setErr} attachments = {attachments}/>
+            <SubmitButton title={title} text={text} tags={tags} setNewPost={props.setNewPost} setErr={setErr} attachments = {attachments} q_id={props.q_id}/>
             </Grid>
 
           </Grid>
