@@ -86,8 +86,10 @@ class QA_AnswerCards extends Component {
           .doc(this.props.q_id)
           .collection("comments")
           .doc(this.state.ansToId[i])
-          .update({"comments": firebase.firestore.FieldValue.arrayUnion(answer_array)
-        });
+          .update({"comments": firebase.firestore.FieldValue.arrayUnion(answer_array)       
+        }).then((docRef) => {
+            window.location.reload(false);
+          });
       }
     }
 
@@ -221,8 +223,7 @@ AnswerCard(answersList) {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    console.log("previous properties id:", prevProps.q_id)
-    if (this.props.q_id !== prevState.q_id) {
+    if (this.props.q_id !== prevState.q_id || this.props.q !== prevProps.q) {
       this.setState({q_id: this.props.q_id})
       console.log("getting answers")
       this.getAnswers(this.props.q_id)
