@@ -221,8 +221,7 @@ AnswerCard(answersList) {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    console.log("previous properties id:", prevProps.q_id)
-    if (this.props.q_id !== prevState.q_id) {
+    if (this.props.q_id !== prevState.q_id || this.props.q !== prevProps.q) {
       this.setState({q_id: this.props.q_id})
       console.log("getting answers")
       this.getAnswers(this.props.q_id)

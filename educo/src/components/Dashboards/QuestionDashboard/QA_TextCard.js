@@ -128,7 +128,7 @@ const QuestionCard = (props) => {
                       <IconButton
                         aria-label="submit comment"
                         onClick={() =>
-                          props.submitComment(props.q_id, comment, setComment, props.setQuestion)
+                          props.submitComment(props.q_id, comment, setComment, props.setQuestion, props.question)
                         }
                         //onMouseDown={handleMouseDownPassword}
                         //TODO: actually capture text
