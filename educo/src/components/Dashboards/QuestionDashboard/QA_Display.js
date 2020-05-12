@@ -23,38 +23,27 @@ from '@material-ui/core';
 
 
 // TODO: ANSWER REFRESH PROBLEM: CLEANUP here (combine q_id and setQuestion -> props)
-const submitComment = (q_id, new_comment, setComment, setQuestion) => {
+const submitComment = (q_id, new_comment, setComment, setQuestion, question) => {
 
   if (new_comment != "") {
     console.log("I am here adding a new new comment", new_comment);
 
-    firebase
-      .firestore()
-      .collection("questions")
-      .doc(q_id)
-      .update({
-        threads: firebase.firestore.FieldValue.arrayUnion({
-          accepted: false,
-          text: [{ author: "jennifer", comment: new_comment }],
-        }),
-      });
+    firebase.firestore()
+    .collection("questions")
+    .doc(q_id)
+    .collection("comments")
+    .add({
+      comments:[
+      {author: "John C.",
+      text: new_comment
+      }
+      ],
+      accepted: false,
+    }).then((docRef) => {
+            window.location.reload(false);
+          });
 
-      console.log("I am now retreiving the data again")
-      firebase
-        .firestore()
-        .collection("questions")
-        .doc(q_id)
-        .get().then(function(doc) {
-            if (doc.exists) {
-                setQuestion(doc.data())
-                console.log("Document data:", doc.data());
-            } else {
-                // doc.data() will be undefined in this case
-                console.log("No such document!");
-            }
-        }).catch(function(error) {
-            console.log("Error getting document:", error);
-        });
+            
 
     setComment("");
   }
@@ -62,12 +51,12 @@ const submitComment = (q_id, new_comment, setComment, setQuestion) => {
 };
 
 const QADisplay = (props) => {
-  const default_question = {data:{title:"", author:"", text:"", tags:[], attachments:[], solved: false}, threads: []}
+  const default_question = {data:{title:"", author:"", text:"", tags:[], attachments:[], solved: false}, comments: []}
   const [answerInput, setAnswerInput] = useState('')
   const [q_id, setq_id] = useState('')
   const [question, setQuestion] = useState(default_question)
   useEffect(() => {
-    if (q_id != props.q_id) {
+    if (q_id != props.q_id ){
       setq_id(props.q_id)
         firebase
           .firestore()
@@ -87,7 +76,7 @@ const QADisplay = (props) => {
   return (
       <div className="qa_container">
         <QuestionCard question={question} setQuestion={setQuestion} q_id={q_id} submitComment={submitComment}/>
-        <QA_AnswerCards q_id={q_id}/>
+        <QA_AnswerCards q_id={q_id} q={question}/>
       </div>
     );
   };
