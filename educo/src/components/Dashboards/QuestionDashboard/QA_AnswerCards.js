@@ -86,8 +86,10 @@ class QA_AnswerCards extends Component {
           .doc(this.props.q_id)
           .collection("comments")
           .doc(this.state.ansToId[i])
-          .update({"comments": firebase.firestore.FieldValue.arrayUnion(answer_array)
-        });
+          .update({"comments": firebase.firestore.FieldValue.arrayUnion(answer_array)       
+        }).then((docRef) => {
+            window.location.reload(false);
+          });
       }
     }
 
