@@ -58,11 +58,16 @@ class QA_AnswerCards extends Component {
       .collection("comments")
       .get()
       .then((querySnapshot) => {
-      const tempDoc = []
+      const tempDoc = [];
+      const ansToId = {};
+      var num = 0;
       querySnapshot.forEach((doc) => {
-         tempDoc.push({ id: doc.id, ...doc.data() })
-      })
-      this.setState({answers: tempDoc, answer_visible: Array(tempDoc.length).fill(0)})})
+         tempDoc.push({ id: doc.id, ...doc.data() });
+          ansToId[num] = doc.id;
+          num = num+1;
+      });
+      console.log(ansToId);
+      this.setState({answers: tempDoc, answer_visible: Array(tempDoc.length).fill(0), ansToId: ansToId, answerInput: Array(tempDoc.length).fill('')})})
   }
 
   handleChange(event, i) {
@@ -72,16 +77,16 @@ class QA_AnswerCards extends Component {
   }
 
   handleSubmit(event, i){
-    var answer_array = {author: "jennifer", comment: this.state.answerInput[i]}
-    var current_answers = this.state.answers
-    current_answers[i].text.push(answer_array)
+    var answer_array = {author: "jennifer", text: this.state.answerInput[i]}
     console.log(this.state.q_id)
     if (answer_array.comment != ''){
       var firebaseRef = firebase
           .firestore()
           .collection("questions")
           .doc(this.props.q_id)
-          .update({"threads": firebase.firestore.FieldValue.arrayUnion(current_answers)
+          .collection("comments")
+          .doc(this.state.ansToId[i])
+          .update({"comments": firebase.firestore.FieldValue.arrayUnion(answer_array)
         });
       }
     }
