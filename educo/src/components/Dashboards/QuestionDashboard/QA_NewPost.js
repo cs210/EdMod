@@ -5,7 +5,7 @@ import ThumbUpAltIcon from '@material-ui/icons/ThumbUpAlt';
 import NotificationImportantIcon from '@material-ui/icons/NotificationImportant';
 import QA_AnswerCards from './QA_AnswerCards.js'
 import firebase from '../../../config/firebase.js'
-import storage from '../../../config/firebase.js'
+import { storage }  from '../../../config/firebase.js'
 
 import AddIcon from '@material-ui/icons/Add';
 import Chip from '@material-ui/core/Chip';
@@ -28,9 +28,12 @@ import {
 from '@material-ui/core';
 
 const handleAttachmentChange = (props, event) => {
-  if (event.target.files[0]) {
-    const image = event.target.files[0]
-    props.setAttachments(prevArr => [...prevArr, image])
+  console.log(firebase.storage)
+  if (event.target.files) {
+    console.log(event.target.files)
+    props.setAttachments(event.target.files)
+    // const image = event.target.files[0]
+    // props.setAttachments(prevArr => [...prevArr, image])
   }
 }
 
@@ -54,11 +57,35 @@ const addPost = (props) => {
         text: props.text,
         tags: Object.keys(props.tags),
         solved: false,
-        attachments: []
       },
       threads:{}
     });
-  }
+    console.log("attachments, ", props.attachments)
+    console.log(storage);
+    if (props.attachments) {
+      var arrayLength = props.attachments.length;
+      for (var i = 0; i < arrayLength; i++) {
+        const image = props.attachments[i];
+        console.log(image);
+
+        const uploadTask = storage.ref(`images/${image.name}`).put(image);
+        uploadTask.on('state_changed',
+        (snapshot) => {
+          // progress function ...
+        }, (error) => {
+          // error function ...
+          console.log(error);
+
+        },
+        () => {
+          // complete function ...
+          storage.ref('images').child(image.name).getDownloadURL().then(url => {
+            console.log(url);
+          })
+        });
+      }
+    }
+}
 }
 
 
@@ -203,7 +230,7 @@ const QANewPost = (props) => {
 
             <Grid item xs={4}/>
             <Grid item xs={8}>
-            <SubmitButton title={title} text={text} tags={tags} setNewPost={props.setNewPost} setErr={setErr}/>
+            <SubmitButton title={title} text={text} tags={tags} setNewPost={props.setNewPost} setErr={setErr} attachments = {attachments}/>
             </Grid>
 
           </Grid>
