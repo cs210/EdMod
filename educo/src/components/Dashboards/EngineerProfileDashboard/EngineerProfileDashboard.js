@@ -12,7 +12,12 @@ import {
 }
 from '@material-ui/core';
 
-// TODO: pull thumbnail for Avatar, video title for name, and description for body
+/* <YouTube
+  video="xP76q3quHb0"
+  autoplay
+  width="100%"
+  height="100%"
+/> */
 
 class EngineerProfileDashboard extends Component {
   render() {
@@ -28,12 +33,13 @@ class EngineerProfileDashboard extends Component {
           <SpotlightSimple/>
           <Box height={10}/>
           <Box width={2/3} height={480}>
-            <YouTube
-              video="xP76q3quHb0"
+            <Vimeo
+              video="263023085"
               autoplay
               width="100%"
               height="100%"
             />
+
           </Box>
 
           <Box height={50}/>
