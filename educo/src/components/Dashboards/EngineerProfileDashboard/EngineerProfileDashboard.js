@@ -12,12 +12,16 @@ import {
 }
 from '@material-ui/core';
 
-/* <YouTube
-  video="xP76q3quHb0"
-  autoplay
-  width="100%"
-  height="100%"
-/> */
+/*
+<Box width={2/3} height={480}>
+  <YouTube
+    video="xP76q3quHb0"
+    autoplay
+    width="100%"
+    height="100%"
+  />
+</Box>
+*/
 
 class EngineerProfileDashboard extends Component {
   render() {
@@ -32,12 +36,10 @@ class EngineerProfileDashboard extends Component {
           <Box height={10}/>
           <SpotlightSimple/>
           <Box height={10}/>
-          <Box width={2/3} height={480}>
+          <Box>
             <Vimeo
               video="263023085"
               autoplay
-              width="100%"
-              height="100%"
             />
 
           </Box>
