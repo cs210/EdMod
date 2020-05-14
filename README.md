@@ -1,4 +1,4 @@
-![](https://github.com/cs210/EdMod/workflows/Deployment/badge.svg
+![](https://github.com/cs210/EdMod/workflows/Deployment/badge.svg)
 
 Documentation: [Google Drive](https://drive.google.com/drive/u/0/folders/0APFTgQBenq1pUk9PVA)
 
