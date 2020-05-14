@@ -1,8 +1,6 @@
-![](https://github.com/cs210/EdMod/workflows/Deployment/badge.svg)
-
 Documentation: [Google Drive](https://drive.google.com/drive/u/0/folders/0APFTgQBenq1pUk9PVA)
 
-# EDUCO
+# EDUCO ![](https://github.com/cs210/EdMod/workflows/Deployment/badge.svg)
 Educo is building a community to support the EFTW program.
 
 # Team Members
