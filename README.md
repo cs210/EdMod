@@ -1,17 +1,8 @@
+![](https://github.com/cs210/EdMod/workflows/Deployment/badge.svg
+
 Documentation: [Google Drive](https://drive.google.com/drive/u/0/folders/0APFTgQBenq1pUk9PVA)
 
-<!--
-<img src="https://i.imgur.com/oH1r8nv.jpg?1" alt="Educo" width="300" height="185">
-![](https://github.com/cs210/EdMod/workflows/.github/workflows/deploy.yml/badge.svg)
- -->
-
-![](https://github.com/cs210/EdMod/workflows/.github/workflows/deploy.yml/badge.svg)
-
 # EDUCO
-
-
-
-
 Educo is building a community to support the EFTW program.
 
 # Team Members
