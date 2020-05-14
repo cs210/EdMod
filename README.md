@@ -1,18 +1,15 @@
 Documentation: [Google Drive](https://drive.google.com/drive/u/0/folders/0APFTgQBenq1pUk9PVA)
 
-# EDUCO
-
 <!--
 <img src="https://i.imgur.com/oH1r8nv.jpg?1" alt="Educo" width="300" height="185">
 ![](https://github.com/cs210/EdMod/workflows/.github/workflows/deploy.yml/badge.svg)
  -->
- <a href="https://github.com/cs210/EdMod/actions?query=test%20deployment">
-  <img alt="Built & Deployed" src="https://github.com/cs210/EdMod/workflows/deploy.yml/badge.svg">
-</a>
- 
-<a href="https://github.com/actions/toolkit/actions?query=workflow%3Atoolkit-unit-tests">
-  <img alt="Toolkit unit tests status" src="https://github.com/actions/toolkit/workflows/toolkit-unit-tests/badge.svg">
-</a>
+
+![](https://github.com/cs210/EdMod/workflows/.github/workflows/deploy.yml/badge.svg)
+
+# EDUCO
+
+
 
 
 Educo is building a community to support the EFTW program.
