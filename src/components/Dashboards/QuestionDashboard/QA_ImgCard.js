@@ -23,22 +23,17 @@ export default function ImgMediaCard(tileData) {
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel1a-content"
           id="panel1a-header"
-        > 
+        >
           <AttachFileIcon color='disabled' fontSize='small'/>
           <Typography variant="body2" color="textSecondary">Attached Files</Typography>
         </ExpansionPanelSummary>
         <ExpansionPanelDetails>
           <GridList className={'gridList'} cols={2.5}>
         {tileData.map(tile => (
-          <GridListTile key={tile.img}>
-            <img src={tile.img} alt={tile.title} />
-            <GridListTileBar
-              title={tile.title}
-              classes={{
-                root: 'titleBar',
-                title: 'title',
-              }}
-            />
+
+          <GridListTile key={tile}>
+            <img src={tile} alt={tile} />
+
           </GridListTile>
         ))}
       </GridList>

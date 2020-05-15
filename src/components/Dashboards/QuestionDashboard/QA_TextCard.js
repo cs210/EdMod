@@ -34,24 +34,6 @@ import {
   Tooltip,
 } from "@material-ui/core";
 
-// const submitComment = (props, new_comment, setComment) => {
-//   console.log(props);
-//   console.log(new_comment);
-//   if (new_comment != "") {
-//     firebase
-//       .firestore()
-//       .collection("questions")
-//       .doc(props.q_id)
-//       .update({
-//         threads: firebase.firestore.FieldValue.arrayUnion({
-//           accepted: false,
-//           text: [{ author: "jennifer", comment: new_comment }],
-//         }),
-//       });
-//     setComment("");
-//   }
-//   // TODO: make comment reset
-// };
 
 const QuestionCard = (props) => {
   const [comment, setComment] = useState("");
