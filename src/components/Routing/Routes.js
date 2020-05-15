@@ -10,15 +10,13 @@ import EngineerProfileDerpy from "../Profiles/EngineerProfileDerpy.js";
 const Routes = (props) => {
   return (
     <Switch>
-      {/* // <Route exact path="/teachers" component={TeacherDashboard} /> */}
+      <Route path="/" component={EngineerProfileDashboard} />
       <Route
         path="/qa/:q_id"
         render={(props) => <QuestionDashboard {...props} />}
       />
       <Redirect path="/qa" to="/qa/KZgPCyLfIQagMBGlIcWw" />
-      {/* // <Route path="/progress" component={ProgressDashboard} /> */}
       <Route path="/engineers" component={EngineerProfileDashboard} />
-      <Route path="/engineers/derpy" component={EngineerProfileDerpy} />
     </Switch>
   );
 };
