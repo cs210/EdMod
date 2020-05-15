@@ -22,12 +22,12 @@ const NavBar = (props) => {
         <Collapse isOpen={isOpen} navbar>
           <SignedInlinks />
           {/* <SignedOutlinks /> */}
-          <button
+          {/*<button
             className={isOpen ? "logout-open" : "logout"}
             id="logout-hover"
           >
             Logout
-          </button>
+          </button>*/}
         </Collapse>
       </Navbar>
     </div>

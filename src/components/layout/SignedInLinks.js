@@ -6,11 +6,6 @@ import { Nav, NavItem } from "reactstrap";
 const SignedInLinks = () => {
   return (
     <Nav className="mr-auto" navbar>
-      {/* <NavItem>
-        <NavLink to="/teachers/" className="tag">
-          Teachers
-        </NavLink>
-      </NavItem> */}
 
       <NavItem>
         <NavLink to="/qa" className="tag">
@@ -18,17 +13,18 @@ const SignedInLinks = () => {
         </NavLink>
       </NavItem>
 
-      {/* <NavItem>
-        <NavLink to="/progress" className="tag">
-          Lesson Progress
-        </NavLink>
-      </NavItem> */}
-
       <NavItem>
         <NavLink to="/engineers" className="tag">
           Spotlight
         </NavLink>
       </NavItem>
+
+      <NavItem>
+        <NavLink to="/accountPage" className="tag">
+          Account
+        </NavLink>
+      </NavItem>
+
     </Nav>
   );
 };
