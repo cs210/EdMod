@@ -32,11 +32,11 @@ const handleAttachmentChange = (props, event) => {
   if (event.target.files) {
     console.log(event.target.files)
     props.setAttachments(event.target.files)
-    // const image = event.target.files[0]
-    // props.setAttachments(prevArr => [...prevArr, image])
+
   }
 }
 
+// Upload attachments to post
 const UploadAttachmentButton = (props) => {
   return (
     <div>
@@ -45,6 +45,7 @@ const UploadAttachmentButton = (props) => {
   );
 }
 
+// Checks if file has a correct extention name
 function hasExtension(fileName, exts) {
     return (new RegExp('(' + exts.join('|').replace(/\./g, '\\.') + ')$')).test(fileName);
 }
@@ -63,6 +64,7 @@ const addPost = (props) => {
         text: props.text,
         tags: Object.keys(props.tags),
         solved: false,
+        date: new Date()
       },
       attachments: [],
 

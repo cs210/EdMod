@@ -14,12 +14,13 @@ function GetQuestions() {
     firebase
       .firestore()
       .collection('questions')
+      .orderBy('date')
       .onSnapshot((snapshot) => {
         const newQuestions = snapshot.docs.map((doc) => ({
           id: doc.id,
           ...doc.data()
         }))
-        setQuestions(newQuestions)
+        setQuestions(newQuestions.reverse())
       })
   }, [])
   console.log("questions", questions)
