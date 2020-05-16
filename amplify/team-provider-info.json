@@ -10,6 +10,11 @@
             "StackName": "amplify-educo-educoenv-201419",
             "StackId": "arn:aws:cloudformation:us-west-2:715808982767:stack/amplify-educo-educoenv-201419/73086140-9723-11ea-917e-0ab0a05de03c",
             "AmplifyAppId": "d2zsoofe4sfjl4"
+        },
+        "categories": {
+            "auth": {
+                "educobebd1afa": {}
+            }
         }
     }
 }
