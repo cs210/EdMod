@@ -4,8 +4,8 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import Amplify from "aws-amplify";
-// import awsExports from "./aws-exports"; // awsExports: will need if/when we host on AWS or use AWS backend
-// Amplify.configure(awsExports);
+import awsExports from "./aws-exports"; // awsExports: will need if/when we auth, host on AWS, or use AWS backend
+Amplify.configure(awsExports);
 
 ReactDOM.render(<App />, document.getElementById('root'));
 

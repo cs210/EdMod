@@ -14,6 +14,12 @@
         "categories": {
             "auth": {
                 "educobebd1afa": {}
+            },
+            "hosting": {
+                "amplifyhosting": {
+                    "appId": "d2zsoofe4sfjl4",
+                    "type": "manual"
+                }
             }
         }
     }
