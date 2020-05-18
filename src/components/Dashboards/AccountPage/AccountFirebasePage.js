@@ -2,6 +2,14 @@ import React from 'react';
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
 import firebase from 'firebase';
 
+import {
+  Grid,
+  Box,
+  Typography,
+  Button
+}
+from '@material-ui/core';
+
 class AccountFirebasePage extends React.Component {
   state = {
     isSignedIn: false
@@ -31,17 +39,16 @@ class AccountFirebasePage extends React.Component {
   }
 
   getNotSignedInScreen = () => (
-    <div>
-      <h1>state: not signed in</h1>
+    <Grid>
       <StyledFirebaseAuth uiConfig={this.uiConfig} firebaseAuth={firebase.auth()}/>
-    </div>
+    </Grid>
   );
 
   getSignedInScreen = () => (
-    <div>
-      <p>Welcome {firebase.auth().currentUser.displayName}!</p>
-      <a onClick={() => firebase.auth().signOut()}>Sign-out</a>
-    </div>
+    <Grid>
+      <Typography>Welcome {firebase.auth().currentUser.displayName}!</Typography>
+      <Button onClick={() => firebase.auth().signOut()}>Sign-out</Button>
+    </Grid>
   );
 
   render() {
