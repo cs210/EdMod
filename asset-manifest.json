@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/EdMod/static/css/main.0be89442.chunk.css",
-    "main.js": "/EdMod/static/js/main.d56fd8e7.chunk.js",
-    "main.js.map": "/EdMod/static/js/main.d56fd8e7.chunk.js.map",
+    "main.js": "/EdMod/static/js/main.de297191.chunk.js",
+    "main.js.map": "/EdMod/static/js/main.de297191.chunk.js.map",
     "polyfills-css-shim.js": "/EdMod/static/js/polyfills-css-shim.c3684a56.chunk.js",
     "polyfills-css-shim.js.map": "/EdMod/static/js/polyfills-css-shim.c3684a56.chunk.js.map",
     "runtime-main.js": "/EdMod/static/js/runtime-main.8f480c06.js",
     "runtime-main.js.map": "/EdMod/static/js/runtime-main.8f480c06.js.map",
-    "static/js/3.f1032425.chunk.js": "/EdMod/static/js/3.f1032425.chunk.js",
-    "static/js/3.f1032425.chunk.js.map": "/EdMod/static/js/3.f1032425.chunk.js.map",
+    "static/js/3.c0e55fb2.chunk.js": "/EdMod/static/js/3.c0e55fb2.chunk.js",
+    "static/js/3.c0e55fb2.chunk.js.map": "/EdMod/static/js/3.c0e55fb2.chunk.js.map",
     "static/js/4.9fc8e469.chunk.js": "/EdMod/static/js/4.9fc8e469.chunk.js",
     "static/js/4.9fc8e469.chunk.js.map": "/EdMod/static/js/4.9fc8e469.chunk.js.map",
     "static/js/5.6d4110d3.chunk.js": "/EdMod/static/js/5.6d4110d3.chunk.js",
@@ -54,17 +54,17 @@
     "static/js/25.b9632cc6.chunk.js": "/EdMod/static/js/25.b9632cc6.chunk.js",
     "static/js/25.b9632cc6.chunk.js.map": "/EdMod/static/js/25.b9632cc6.chunk.js.map",
     "index.html": "/EdMod/index.html",
-    "precache-manifest.9178f1197089a0c804872b33e1a9f762.js": "/EdMod/precache-manifest.9178f1197089a0c804872b33e1a9f762.js",
+    "precache-manifest.5ad6c8982e02713ce4604c4a070359c6.js": "/EdMod/precache-manifest.5ad6c8982e02713ce4604c4a070359c6.js",
     "service-worker.js": "/EdMod/service-worker.js",
     "static/css/main.0be89442.chunk.css.map": "/EdMod/static/css/main.0be89442.chunk.css.map",
     "static/js/24.b7c1f023.chunk.js.LICENSE.txt": "/EdMod/static/js/24.b7c1f023.chunk.js.LICENSE.txt",
-    "static/js/3.f1032425.chunk.js.LICENSE.txt": "/EdMod/static/js/3.f1032425.chunk.js.LICENSE.txt",
+    "static/js/3.c0e55fb2.chunk.js.LICENSE.txt": "/EdMod/static/js/3.c0e55fb2.chunk.js.LICENSE.txt",
     "static/js/6.eda23e29.chunk.js.LICENSE.txt": "/EdMod/static/js/6.eda23e29.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.8f480c06.js",
-    "static/js/3.f1032425.chunk.js",
+    "static/js/3.c0e55fb2.chunk.js",
     "static/css/main.0be89442.chunk.css",
-    "static/js/main.d56fd8e7.chunk.js"
+    "static/js/main.de297191.chunk.js"
   ]
 }
