@@ -1,6 +1,4 @@
 import { withAuthenticator } from '@aws-amplify/ui-react'
-
-
 import React, { Component } from "react";
 import ReactGA from 'react-ga';
 
