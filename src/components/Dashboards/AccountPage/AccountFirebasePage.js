@@ -39,13 +39,14 @@ class AccountFirebasePage extends React.Component {
   }
 
   getNotSignedInScreen = () => (
-    <Grid>
+    <Grid direction="column" align="center">
+      <Typography>You are not signed in.</Typography>
       <StyledFirebaseAuth uiConfig={this.uiConfig} firebaseAuth={firebase.auth()}/>
     </Grid>
   );
 
   getSignedInScreen = () => (
-    <Grid>
+    <Grid direction="column" align="center">
       <Typography>Welcome {firebase.auth().currentUser.displayName}!</Typography>
       <Button onClick={() => firebase.auth().signOut()}>Sign-out</Button>
     </Grid>
