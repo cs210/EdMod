@@ -27,39 +27,39 @@
 import React from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 
-const Basic = () => (
-  <Formik
-    initialValues={{ email: '', password: '' }}
-    validate={values => {
-      const errors = {};
-      if (!values.email) {
-        errors.email = 'Required';
-      } else if (
-        !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
-      ) {
-        errors.email = 'Invalid email address';
-      }
-      return errors;
-    }}
-    onSubmit={(values, { setSubmitting }) => {
-      setTimeout(() => {
-        alert(JSON.stringify(values, null, 2));
-        setSubmitting(false);
-      }, 400);
-    }}
-  >
-    {({ isSubmitting }) => (
-      <Form>
-        <Field type="email" name="email" />
-        <ErrorMessage name="email" component="div" />
-        <Field type="password" name="password" />
-        <ErrorMessage name="password" component="div" />
-        <button type="submit" disabled={isSubmitting}>
-          Submit
-        </button>
-      </Form>
-    )}
-  </Formik>
+const Example = () => (
+    <div>
+        <h3>New Video Spotlight Form</h3>
+        <Formik
+            initialValues={{fullName: '', month: 'Jan', videoURL: ''}}
+            onSubmit={(values, actions) => {
+                setTimeout(() => {
+                    alert(JSON.stringify(values, null, 2));
+                    actions.setSubmitting(false);
+                }, 1000);
+            }}>{(props: FormikProps<any>) => (
+            <Form>
+                <Field as="select" name="month">
+                    <option value="Jan">Jan</option>
+                    <option value="Feb">Feb</option>
+                    <option value="Mar">Mar</option>
+                    <option value="Apr">Apr</option>
+                    <option value="May">May</option>
+                    <option value="Jun">Jun</option>
+                    <option value="Jul">Jul</option>
+                    <option value="Aug">Aug</option>
+                    <option value="Sep">Sep</option>
+                    <option value="Oct">Oct</option>
+                    <option value="Nov">Nov</option>
+                    <option value="Dec">Dec</option>
+                </Field>
+                <Field name="fullName" placeholder="John Smith" />
+                <Field name="videoURL" placeholder="https://vimeo.com/263023085" />
+                <button type="submit">Submit</button>
+            </Form>
+        )}
+        </Formik>
+    </div>
 );
 
-export default Basic;
+export default Example;
