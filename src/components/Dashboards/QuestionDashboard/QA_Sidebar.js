@@ -19,9 +19,9 @@ const MakeList = (props) => {
   console.log("FILTER TEXT: ", props.filterText)
   for (var i in props.questionList) {
      question = props.questionList[i];
-     console.log("question", question);
      const search = props.filterText.toLowerCase();
      const title = question.data.title.toLowerCase();
+     
      if (search !== "" && title.indexOf(search) === -1) {
        continue;
      }
