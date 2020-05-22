@@ -197,7 +197,7 @@ const QANewPost = (props) => {
   const [title, setTitle] = useState('Enter a one line summary.');
   const [text, setText] = useState('');
   const [attachments, setAttachments] = useState([])
-  const [tags, setTags] = useState({"spring 2020": 0, "scratch":0 })
+  const [tags, setTags] = useState({"spring 2020": 0, "scratch":0, "chatbot":0 })
   const [err, setErr] = useState('')
   const classes = useStyles();
 

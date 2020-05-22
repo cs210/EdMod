@@ -46,9 +46,7 @@ const addPost = (props) => {
 const QASidebar = (props) => {
   const [filterText, setFilterText] = useState(props.filterText)
 
-  console.log("props", props)
   return (
-
     <div className="dashboard container">
       <div className="qa-search-add">
         <SearchBar
