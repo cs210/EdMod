@@ -1,5 +1,6 @@
 import React from 'react';
 import firebase from 'firebase';
+import ManagerSpotlightForm from "./ManagerSpotlightForm.js";
 
 import {
   Grid,
@@ -18,6 +19,8 @@ export default function SignedInManagerScreen() {
       <Button onClick={() => firebase.auth().signOut()}>Sign-out</Button>
       <Box height={30} />
       <Typography>This is the manager login screen</Typography>
+      <Box height={15} />
+      <ManagerSpotlightForm />
     </Grid>
   );
 }
