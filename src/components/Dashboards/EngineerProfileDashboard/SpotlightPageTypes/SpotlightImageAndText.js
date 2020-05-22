@@ -1,3 +1,3 @@
 // 2. image + text
-// data: image + string
+// data: type, date, string name, image, string content
 // UI: image left, string right
