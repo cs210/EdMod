@@ -1,6 +1,8 @@
 import React from 'react';
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
 import firebase from 'firebase';
+import SignedInScreen from './SignedInScreen.js';
+import NotSignedInScreen from './NotSignedInScreen.js';
 
 import {
   Grid,
@@ -38,25 +40,9 @@ class AccountFirebasePage extends React.Component {
     this.unregisterAuthObserver();
   }
 
-  getNotSignedInScreen = () => (
-    <Grid direction="column" align="center">
-      <Typography>You are not signed in.</Typography>
-      <StyledFirebaseAuth uiConfig={this.uiConfig} firebaseAuth={firebase.auth()}/>
-    </Grid>
-  );
-
-  getSignedInScreen = () => (
-    <Grid direction="column" align="center">
-      <Typography>Welcome {firebase.auth().currentUser.displayName}!</Typography>
-      <Button onClick={() => firebase.auth().signOut()}>Sign-out</Button>
-    </Grid>
-  );
-
   render() {
-    if (!this.state.isSignedIn) {
-      return this.getNotSignedInScreen();
-    }
-    return this.getSignedInScreen();
+    return this.state.isSignedIn ?
+      <SignedInScreen /> : <NotSignedInScreen uiConfig={this.uiConfig}/>;
   }
 }
 
