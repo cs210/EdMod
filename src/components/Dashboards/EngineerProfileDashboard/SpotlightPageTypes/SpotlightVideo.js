@@ -1,3 +1,3 @@
 // 1. video
-// data: just a url link for a video
+// data: type, date, string name, string videoURL
 // UI: just a video
