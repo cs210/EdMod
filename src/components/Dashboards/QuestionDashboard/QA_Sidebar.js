@@ -14,12 +14,17 @@ import {
 from '@material-ui/core';
 
 const MakeList = (props) => {
-  console.log("In makeList, ", props);
   var questions = [];
   var question;
+  console.log("FILTER TEXT: ", props.filterText)
   for (var i in props.questionList) {
      question = props.questionList[i];
-     console.log(question);
+     const search = props.filterText.toLowerCase();
+     const title = question.data.title.toLowerCase();
+     
+     if (search !== "" && title.indexOf(search) === -1) {
+       continue;
+     }
 
      questions[i] = (
        <ListItem divider={true} button component={RouterLink} to={"/qa/"+question.id}
@@ -28,6 +33,7 @@ const MakeList = (props) => {
        <ListItemText primary={question.data.title} secondary={question.data.text} className="sidebar_elem_text"/>
        </ListItem>
      );
+
    }
   return questions
 };
@@ -46,9 +52,7 @@ const addPost = (props) => {
 const QASidebar = (props) => {
   const [filterText, setFilterText] = useState(props.filterText)
 
-  console.log("props", props)
   return (
-
     <div className="dashboard container">
       <div className="qa-search-add">
         <SearchBar
@@ -68,7 +72,7 @@ const QASidebar = (props) => {
      </Button>
       </div>
       <List component="nav">
-        <MakeList questionList = {props.questionList} prevProps={props}/>
+        <MakeList questionList = {props.questionList} prevProps={props} filterText={filterText}/>
       </List>
     </div>
   );

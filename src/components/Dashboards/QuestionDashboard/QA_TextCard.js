@@ -52,8 +52,9 @@ const QuestionCard = (props) => {
             <Grid item xs container direction="column" spacing={2}>
               <Grid item xs container direction="row" spacing={2}>
                 <Grid item xs>
-                  <Typography variant="h4">{title}</Typography>
+                  <Typography variant="h3">{title}</Typography>
                 </Grid>
+
                 <Grid item>
                   <IconButton aria-label="notif" size="small">
                     <NotificationImportantIcon fontSize="inherit" />
@@ -62,10 +63,13 @@ const QuestionCard = (props) => {
                     <ThumbUpAltIcon fontSize="inherit" />
                   </IconButton>
                 </Grid>
-                <br />
-                <Typography variant="body1">{q_body}</Typography>
-                {ImgMediaCard(attachments)}
-              </Grid>
+                </Grid>
+
+                <Grid item>
+                  <Typography variant="body1">{q_body}</Typography>
+                  {ImgMediaCard(attachments)}
+                </Grid>
+
               <Grid item>
                 <Grid
                   container
