@@ -18,6 +18,7 @@
     "firebase": "^7.14.0",
     "firebaseui": "^4.5.0",
     "gh-pages": "^2.2.0",
+    "moment": "^2.26.0",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
     "react-firebaseui": "^4.1.0",

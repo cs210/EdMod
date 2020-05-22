@@ -51,7 +51,7 @@ const QuestionDashboard = (props) => {
       justify="space-between"
       alignItems="stretch"
       >
-      <Grid item sm={3}  alignItems="stretch">
+      <Grid item sm={4}  alignItems="stretch">
           <QASidebar
             filterText={filterText}
             setFilterChange={setFilterText}
@@ -60,7 +60,7 @@ const QuestionDashboard = (props) => {
             setNewPost={setNewPost}
           />
       </Grid>
-      <Grid item sm={9} alignItems="stretch">
+      <Grid item sm={8} alignItems="stretch">
         <QADisplay q_id={q_id} newPost={newPost}/>
       </Grid>
     </Grid>
@@ -74,7 +74,7 @@ const QuestionDashboard = (props) => {
       justify="space-between"
       alignItems="stretch"
       >
-      <Grid item sm={3}  alignItems="stretch">
+      <Grid item sm={4}  alignItems="stretch">
           <QASidebar
             filterText={filterText}
             setFilterChange={setFilterText}
@@ -83,7 +83,7 @@ const QuestionDashboard = (props) => {
             setNewPost={setNewPost}
           />
       </Grid>
-      <Grid item sm={9} alignItems="stretch">
+      <Grid item sm={8} alignItems="stretch">
         <QANewPost setNewPost={setNewPost} q_id={q_id} />
       </Grid>
     </Grid>

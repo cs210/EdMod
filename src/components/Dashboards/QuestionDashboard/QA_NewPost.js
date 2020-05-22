@@ -64,12 +64,11 @@ const addPost = (props) => {
         text: props.text,
         tags: Object.keys(props.tags),
         solved: false,
-        date: new Date()
       },
       attachments: [],
+      date: new Date(),
 
     }).then(data => {
-        console.log("currentData----------", data);
         // start
         var arrayLength = props.attachments.length;
         // var attachmentUrls = [];

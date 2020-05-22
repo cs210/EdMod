@@ -3,6 +3,7 @@ import SearchBar from '../../SearchBar.js';
 import { Link as RouterLink } from 'react-router-dom'
 import "../../../styling/qa.css"
 import AddIcon from '@material-ui/icons/Add';
+import moment from 'moment';
 
 import {
   Button,
@@ -13,15 +14,37 @@ import {
 }
 from '@material-ui/core';
 
+const formatDate = (date) => {
+  var curr_date = new Date(date.seconds * 1000);
+  var start = moment().startOf('day').toDate(); // set to 12:00 am today
+  var end = moment().endOf('day').toDate(); // set to 23:59 pm today
+  var newDate;
+
+  // posted today; show in hour:min format
+  if (curr_date > start && curr_date < end) {
+    var hours = curr_date.getHours();
+    var minutes = "0" +   curr_date.getMinutes();
+    newDate = hours + ':' + minutes.substr(-2);
+  } else {
+
+  // posted on a previous day; show in month/day/year format
+    var month = curr_date.getUTCMonth() + 1; //months from 1-12
+    var day = curr_date.getUTCDate();
+    var year = curr_date.getUTCFullYear();
+    newDate = month + "/" + day +  "/" +  year.toString().slice(-2);
+  }
+  return newDate;
+}
+
 const MakeList = (props) => {
   var questions = [];
   var question;
-  console.log("FILTER TEXT: ", props.filterText)
+  var date;
   for (var i in props.questionList) {
      question = props.questionList[i];
      const search = props.filterText.toLowerCase();
      const title = question.data.title.toLowerCase();
-     
+     date = formatDate(question.date);
      if (search !== "" && title.indexOf(search) === -1) {
        continue;
      }
@@ -30,7 +53,13 @@ const MakeList = (props) => {
        <ListItem divider={true} button component={RouterLink} to={"/qa/"+question.id}
        key={"q_list_"+question.id} className="sidebar_elem"  onClick={() => stopAddPost(props.prevProps)}>
 
-       <ListItemText primary={question.data.title} secondary={question.data.text} className="sidebar_elem_text"/>
+
+       <ListItemText
+       primary={<Typography style={{fontWeight: '550', fontSize: '14px',  }}>{question.data.title}</Typography>}
+       secondary={<Typography style={{fontWeight: '400', fontSize: '14px', color: 'grey'}}>{question.data.text}</Typography>}
+       className="sidebar_elem_text"/>
+       <div>{date}</div>
+
        </ListItem>
      );
 
@@ -48,7 +77,6 @@ const addPost = (props) => {
   console.log(props.newPost)
 }
 
-// change onFilterTextChange to setFilterText in Searchbar
 const QASidebar = (props) => {
   const [filterText, setFilterText] = useState(props.filterText)
 
@@ -68,8 +96,8 @@ const QASidebar = (props) => {
            style={{maxWidth: '120px', maxHeight: '30px', minWidth: '120px', minHeight: '30px', margin: "0px 0px 0px 10px"}}
            onClick={() => addPost(props)}
          >
-       Add Post
-     </Button>
+         Add Post
+       </Button>
       </div>
       <List component="nav">
         <MakeList questionList = {props.questionList} prevProps={props} filterText={filterText}/>
