@@ -17,21 +17,8 @@ const getUserIsManager = () => {
       // add whatever users are managers
 }
 
-// SignedInManagerScreen
-// SignedInUserScreen
 
 export default function SignedInScreen() {
   return getUserIsManager() ?
     <SignedInManagerScreen /> : <SignedInUserScreen />
 }
-
-// TODO:
-  // if
-
-
-// TODO:
-// then, either here or on spotlight && manager signed in (probably here)
-// show spotlight management UI;
-  // add
-  // delete
-  // (later) update

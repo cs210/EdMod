@@ -21,3 +21,7 @@ export default function SignedInManagerScreen() {
     </Grid>
   );
 }
+// show spotlight management UI;
+  // add
+  // delete
+  // (later) update
