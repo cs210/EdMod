@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "0e0ba5a85b4a2b2fb901ef01bdffc56f",
+    "revision": "11b218628f3bd4b38d2ea0e8002d530b",
     "url": "/EdMod/index.html"
   },
   {
-    "revision": "ac0942abd2d428d67770",
+    "revision": "c2974cc36adaf04cb023",
     "url": "/EdMod/static/css/main.0be89442.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/EdMod/static/js/2.b6de1e68.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "ac0942abd2d428d67770",
-    "url": "/EdMod/static/js/main.1e53a4e2.chunk.js"
+    "revision": "c2974cc36adaf04cb023",
+    "url": "/EdMod/static/js/main.7fdd0b87.chunk.js"
   },
   {
     "revision": "822c3c1db172caf8de7d",
