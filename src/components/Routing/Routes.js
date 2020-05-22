@@ -3,7 +3,6 @@ import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 import NavBar from "../layout/Navbar";
 import QuestionDashboard from "../Dashboards/QuestionDashboard/QuestionDashboard.js";
 import EngineerProfileDashboard from "../Dashboards/EngineerProfileDashboard/EngineerProfileDashboard.js";
-import AccountPage from "../Dashboards/AccountPage/AccountPage.js";
 import AccountFBPage from "../Dashboards/AccountPage/AccountFirebasePage.js";
 
 const Routes = (props) => {
