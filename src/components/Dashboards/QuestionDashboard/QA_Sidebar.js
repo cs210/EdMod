@@ -23,8 +23,16 @@ const formatDate = (date) => {
   // posted today; show in hour:min format
   if (curr_date > start && curr_date < end) {
     var hours = curr_date.getHours();
-    var minutes = "0" +   curr_date.getMinutes();
-    newDate = hours + ':' + minutes.substr(-2);
+    var suffix = (hours >= 12)? ' PM' : ' AM';
+
+    //only -12 from hours if it is greater than 12 (if not back at mid night)
+    hours = (hours > 12)? hours -12 : hours;
+
+    //if 00 then it is 12 am
+    hours = (hours == '00')? 12 : hours;
+
+    var minutes = "0" + curr_date.getMinutes();
+    newDate = hours + ':' + minutes.substr(-2) + suffix;
   } else {
 
   // posted on a previous day; show in month/day/year format
@@ -53,12 +61,13 @@ const MakeList = (props) => {
        <ListItem divider={true} button component={RouterLink} to={"/qa/"+question.id}
        key={"q_list_"+question.id} className="sidebar_elem"  onClick={() => stopAddPost(props.prevProps)}>
 
-
-       <ListItemText
-       primary={<Typography style={{fontWeight: '550', fontSize: '14px',  }}>{question.data.title}</Typography>}
-       secondary={<Typography style={{fontWeight: '400', fontSize: '14px', color: 'grey'}}>{question.data.text}</Typography>}
-       className="sidebar_elem_text"/>
-       <div>{date}</div>
+       <div className = "sidebar_elem_text">
+        <div className = "sidebar_title">
+          <Typography style={{fontWeight: '550', fontSize: '14px' }}>{question.data.title}</Typography>
+          <div className = "sidebar_date">{date}</div>
+        </div>
+        <Typography style={{fontWeight: '400', fontSize: '14px', color: 'grey'}}>{question.data.text}</Typography>
+       </div>
 
        </ListItem>
      );

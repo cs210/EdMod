@@ -20,8 +20,8 @@
   color: #fff!important;
 }
 .sidebar_elem {
-  height: 120px;
-  max-height: 120px;
+  height: 100px;
+  max-height: 100px;
   width: 100%;
   max-width: 100%;
   min-width: 100%;
@@ -29,11 +29,23 @@
 }
 
 .sidebar_elem_text {
-  height: 100px;
-  max-height: 100px;
+  height: 70px;
+  max-height: 70px;
   overflow: hidden ;
+  width: 100%;
 }
 
+.sidebar_title {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+.sidebar_date {
+  font-size: 12px;
+  align-self: flex-end;
+  margin-left: auto;
+}
 .new-post {
   padding-top: 50px;
 }
