@@ -1,67 +1,94 @@
-// just forcing rebuild on GH; see if error internal to them
+/* TODO:
+  1. form submission
+    type vid, text
+  2. form pull
+    UI types
+STEPS:
+  1. vid form submit to firebase (name, date, type, url)
+  2. new vid ui type; no dates
+  3. vid ui type w/ firebase pull (most recent)
 
-// form for manager submission:
-// state for type?
-// or 2 buttons for 2 different forms, with popup for each
-// or radio select, outside form, which shows different form depending (state-based)
-// fields:
-// -type -> conditional form per the type?
+  4. text form submit to firebase (name, date, type, img, text)
+  5. new text ui type; no dates
+  6. text ui w/ firebase pull (most recent spotlight)
 
-// -name
-// -date
-// type1:
-  // -video
-// type2:
-  // -img
-  // -text
+  7. add dates ui
+  8. add dates to forms
+  9. ui logic; pull most recent spotlight for selected date
+*/
 
-// if video type:
-  // name
-  // video url
-  // month of spotlight
+/* form(s) for manager submission:
+-name
+-date
+type1:
+  -video
+type2:
+  -img
+  -text
 
-// if img+text type:
-  // name
-  // video url
-  // month of spotlight
+if video type:
+  name
+  video url
+  month of spotlight
 
-  // Render Prop
+if img+text type:
+  name
+  video url
+  month of spotlight
+*/
+
 import React from 'react';
+import firebase from 'firebase';
+import {
+  Grid,
+  Box,
+  Typography,
+  Button
+}
+from '@material-ui/core';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 
 const Example = () => (
-    <div>
-        <h3>New Video Spotlight Form</h3>
-        <Formik
-            initialValues={{fullName: '', month: 'Jan', videoURL: ''}}
-            onSubmit={(values, actions) => {
-                setTimeout(() => {
-                    alert(JSON.stringify(values, null, 2));
-                    actions.setSubmitting(false);
-                }, 1000);
-            }}>{(props: FormikProps<any>) => (
-            <Form>
-                <Field as="select" name="month">
-                    <option value="Jan">Jan</option>
-                    <option value="Feb">Feb</option>
-                    <option value="Mar">Mar</option>
-                    <option value="Apr">Apr</option>
-                    <option value="May">May</option>
-                    <option value="Jun">Jun</option>
-                    <option value="Jul">Jul</option>
-                    <option value="Aug">Aug</option>
-                    <option value="Sep">Sep</option>
-                    <option value="Oct">Oct</option>
-                    <option value="Nov">Nov</option>
-                    <option value="Dec">Dec</option>
-                </Field>
-                <Field name="fullName" placeholder="John Smith" />
-                <Field name="videoURL" placeholder="https://vimeo.com/263023085" />
-                <button type="submit">Submit</button>
-            </Form>
-        )}
-        </Formik>
-    </div>
+  <div>
+    <h3>New Video Spotlight Form</h3>
+      <Formik
+        initialValues={{fullName: '', month: 'Jan', type:'video', videoURL: ''}}
+        onSubmit={(values, actions) => {
+          // values:
+          firebase.firestore().collection("spotlights").add(values)
+          .then(function(docRef) {
+              alert("Document successfully written!", null, 2);
+          })
+          .catch(function(error) {
+              alert("Error writing document" + error, null, 2);
+          });
+
+        }}>{(props: FormikProps<any>) => (
+        <Form direction="column">
+          <Box flexDirection="column">
+            <Field name="fullName" placeholder="John Smith" />
+            <Field as="select" name="month">
+                <option value="Jan">Jan</option>
+                <option value="Feb">Feb</option>
+                <option value="Mar">Mar</option>
+                <option value="Apr">Apr</option>
+                <option value="May">May</option>
+                <option value="Jun">Jun</option>
+                <option value="Jul">Jul</option>
+                <option value="Aug">Aug</option>
+                <option value="Sep">Sep</option>
+                <option value="Oct">Oct</option>
+                <option value="Nov">Nov</option>
+                <option value="Dec">Dec</option>
+            </Field>
+
+            <Field name="videoURL" placeholder="https://vimeo.com/263023085" />
+            <button type="submit">Submit</button>
+          </Box>
+        </Form>
+      )}
+    </Formik>
+  </div>
 );
 
 export default Example;
