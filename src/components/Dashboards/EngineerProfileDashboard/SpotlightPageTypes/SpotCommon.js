@@ -16,21 +16,15 @@ import {
 from '@material-ui/core';
 
 class SpotCommon extends Component {
-  // TODO pull state up
-  constructor(props) {
-    super(props);
-    this.state = { currMonth: 'Jan'};
-  }
-
   months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-
-  onButtonClick = (month) => {
-    this.setState({ currMonth : month });
-  }
 
   makeButton = (month) => {
     return (
-      <button onClick={() => this.onButtonClick(month)}>
+      <button value={month}
+        onClick={(event) => {
+          this.props.onMonthClick(event.target.value);
+        }}
+      >
         { month }
       </button>
     );
@@ -40,13 +34,16 @@ class SpotCommon extends Component {
 
   render() {
     return (
-      <Grid
-        container
-        alignItems="center"
-        justify="center"
-        direction="row"
-      >
-        {this.buttons}
+      <Grid direction="column" alignItems="center">
+        <Grid
+          container
+          alignItems="center"
+          justify="center"
+          direction="row"
+        >
+          {this.buttons}
+        </Grid>
+        {this.props.fullName}
       </Grid>
     );
   }

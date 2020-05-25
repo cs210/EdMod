@@ -14,7 +14,6 @@ import SpotlightImageAndText from './SpotlightPageTypes/SpotlightImageAndText'
 
 // import Nikola from "../../../images/tesla_profile.jpg"; // TODO from pull
 
-// selected month
 import {
   Grid,
   Box,
@@ -26,9 +25,11 @@ class EngineerProfileDashboard extends Component {
   constructor(props) {
     super(props);
 
+    this.onMonthClick = this.onMonthClick.bind(this)
+
     this.state = {
       loading: false,
-      month: "May", // currMonth TODO
+      currMonth: "May",
       spotlightDoc: {
         fullName: "loading",
         videoURL:"https://vimeo.com/148751763",
@@ -37,22 +38,23 @@ class EngineerProfileDashboard extends Component {
     };
   }
 
-  componentDidMount() {
+  updateSpotlightToMonth = (newMonth) => {
     this.setState({ loading: true });
 
-    const docRef = firebase.firestore().collection("spotlights").doc(this.state.month);
+    const docRef = firebase.firestore().collection("spotlights").doc(newMonth);
 
     docRef.get().then((doc) => {
         if (doc.exists) {
           this.setState({
             loading: false,
             spotlightDoc: doc.data(),
+            currMonth: doc.data().month
           });
         } else {
           this.setState({
             loading: false,
             spotlightDoc: {
-              fullName: "No spotlight for this month. Here's random Vimeo video instead.",
+              fullName: "No spotlight for this month. Here's random video instead.",
               type: "video",
               videoURL: "https://vimeo.com/channels/music/162052542"
             },
@@ -61,6 +63,15 @@ class EngineerProfileDashboard extends Component {
     }).catch(function(error) {
         console.log("Error getting document:", error);
     });
+  }
+
+  componentDidMount() {
+    this.updateSpotlightToMonth(this.state.currMonth);
+  }
+
+  onMonthClick = (month) => {
+    this.setState({ currMonth: month});
+    this.updateSpotlightToMonth(month)
   }
 
   render() {
@@ -76,8 +87,12 @@ class EngineerProfileDashboard extends Component {
         direction="column"
       >
         <Box height={10}/>
-        <Typography>{this.state.spotlightDoc.fullName}</Typography>
-        <SpotlightComboVid videoURL={this.state.spotlightDoc.videoURL} />
+        <Typography>Selected month: {this.state.currMonth}</Typography>
+        <SpotlightComboVid
+          fullName={this.state.spotlightDoc.fullName}
+          videoURL={this.state.spotlightDoc.videoURL}
+          onMonthClick={this.onMonthClick}
+        />
       </Grid>) : (<Typography>{this.state.spotlightDoc.fullName} SPOTIGHT TEXT TYPE (WIP)</Typography>);
   }
 }

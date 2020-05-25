@@ -6,8 +6,8 @@ import ReactGA from 'react-ga';
 import SpotlightVideo from './SpotlightVideo';
 import SpotCommon from './SpotCommon';
 
-// 263023085 // Flynn TODO from pull
-// https://vimeo.com/148751763 // Roll
+// pull button state up to selected month
+// TODO: pass month to spotlight video
 
 import {
   Grid,
@@ -17,6 +17,11 @@ import {
 from '@material-ui/core';
 
 class SpotComboVid extends Component {
+
+  onMonthClick = (month) => {
+    this.props.onMonthClick(month);
+  }
+
   render() {
     return (
       <Grid
@@ -24,8 +29,12 @@ class SpotComboVid extends Component {
         alignItems="center"
         direction="column"
       >
-        <SpotCommon width="100%" />
-        <SpotlightVideo videoURL={this.props.videoURL} />
+        <SpotCommon
+          fullName={this.props.fullName}
+          width="100%"
+          onMonthClick={this.onMonthClick}
+        />
+      <SpotlightVideo videoURL={this.props.videoURL}/>
       </Grid>
     );
   }
