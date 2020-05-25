@@ -36,6 +36,11 @@ const CONTAINER = styled.div`
     padding-top: .5em;
   }
 
+  h3 {
+    color: #24B9B6;
+    padding-top: .5em;
+  }
+
   .form-group {
     margin-bottom: 2.5em;
   }
@@ -86,7 +91,7 @@ const validationSchema = Yup.object().shape({
 const TextImageSpotForm = () => {
   return (
     <CONTAINER>
-      <h2>Text + Image Form</h2>
+      <h3>Text + Image Form</h3>
       <Typography>Text + Image Form</Typography>
       <Formik
         initialValues={{ fullName:""}}

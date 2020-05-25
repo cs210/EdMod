@@ -13,8 +13,9 @@ STEPS:
   6. text ui w/ firebase pull (most recent spotlight)
 
   7. add dates ui
-  8. add dates to forms
+  ~X8. add dates to forms
   9. ui logic; pull most recent spotlight for selected date
+    // actually, only one spotlight for each data
 
   10. add gifs using giphycapture to README showing
     a. login non-manager account
@@ -22,6 +23,14 @@ STEPS:
     c. login manager account
     d. form submit
     e. spotlight update
+*/
+
+/* TODOs Monday
+0 spotlights set for particular month
+1 navButtons nav with date click
+  // selected date part of state
+  // clicking on a button changes state
+2 spotlights get for particular month
 */
 
 /* form(s) for manager submission:
@@ -57,12 +66,10 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 import FormVideoSpotlight from './FormVideoSpotlight';
 import FormTimgSpot from './FormTImgSpot';
 
-// TODO: move the h2 into the timg form
 const ManagerSpotlightForm = () => (
   <Box>
     <FormVideoSpotlight />
     <Box height={50} />
-    <h3>New Text+Image Spotlight Form</h3>
     <FormTimgSpot />
   </Box>
 );

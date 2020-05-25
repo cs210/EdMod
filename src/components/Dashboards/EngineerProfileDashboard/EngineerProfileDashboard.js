@@ -11,15 +11,10 @@ import SpotlightImageAndText from './SpotlightPageTypes/SpotlightImageAndText'
 
 // 263023085 // Flynn
 // https://vimeo.com/148751763 // Roll
-/* Data pull occurs here
-  // -> type condition here
-  // -> UI implementation not
-  // new UI component: UI common/top
-  // component for different top + bottom combos
-  // condition to return correct combo
-*/
+
 // import Nikola from "../../../images/tesla_profile.jpg"; // TODO from pull
 
+// selected month
 import {
   Grid,
   Box,
@@ -33,25 +28,39 @@ class EngineerProfileDashboard extends Component {
 
     this.state = {
       loading: false,
-      spotlightDoc: { fullName: "loading", videoURL:"https://vimeo.com/148751763" },
+      month: "May", // currMonth TODO
+      spotlightDoc: {
+        fullName: "loading",
+        videoURL:"https://vimeo.com/148751763",
+        month: "May"
+      },
     };
   }
 
   componentDidMount() {
     this.setState({ loading: true });
 
-    firebase.firestore().collection("spotlights").limit(1)
-      .get()
-      .then((querySnapshot) => {
-        let self = this
-        let spotlightDoc = {}
-        querySnapshot.forEach( (doc) => {
+    const docRef = firebase.firestore().collection("spotlights").doc(this.state.month);
+
+    docRef.get().then((doc) => {
+        if (doc.exists) {
           this.setState({
             loading: false,
             spotlightDoc: doc.data(),
           });
-        });
-      })
+        } else {
+          this.setState({
+            loading: false,
+            spotlightDoc: {
+              fullName: "No spotlight for this month. Here's random Vimeo video instead.",
+              type: "video",
+              videoURL: "https://vimeo.com/channels/music/162052542"
+            },
+          });
+        }
+    }).catch(function(error) {
+        console.log("Error getting document:", error);
+    });
   }
 
   render() {
@@ -69,7 +78,7 @@ class EngineerProfileDashboard extends Component {
         <Box height={10}/>
         <Typography>{this.state.spotlightDoc.fullName}</Typography>
         <SpotlightComboVid videoURL={this.state.spotlightDoc.videoURL} />
-      </Grid>) : (<Typography>SPOTIGHT TEXT TYPE (WIP)</Typography>);
+      </Grid>) : (<Typography>{this.state.spotlightDoc.fullName} SPOTIGHT TEXT TYPE (WIP)</Typography>);
   }
 }
 
