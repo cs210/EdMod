@@ -1,22 +1,22 @@
 {
   "files": {
     "main.css": "/EdMod/static/css/main.3e9f8966.chunk.css",
-    "main.js": "/EdMod/static/js/main.efa2e2dc.chunk.js",
-    "main.js.map": "/EdMod/static/js/main.efa2e2dc.chunk.js.map",
+    "main.js": "/EdMod/static/js/main.b5e44774.chunk.js",
+    "main.js.map": "/EdMod/static/js/main.b5e44774.chunk.js.map",
     "runtime-main.js": "/EdMod/static/js/runtime-main.626b5627.js",
     "runtime-main.js.map": "/EdMod/static/js/runtime-main.626b5627.js.map",
-    "static/js/2.72d10233.chunk.js": "/EdMod/static/js/2.72d10233.chunk.js",
-    "static/js/2.72d10233.chunk.js.map": "/EdMod/static/js/2.72d10233.chunk.js.map",
+    "static/js/2.aea7032c.chunk.js": "/EdMod/static/js/2.aea7032c.chunk.js",
+    "static/js/2.aea7032c.chunk.js.map": "/EdMod/static/js/2.aea7032c.chunk.js.map",
     "index.html": "/EdMod/index.html",
-    "precache-manifest.152739e5ce84aabd9867927faecc90ad.js": "/EdMod/precache-manifest.152739e5ce84aabd9867927faecc90ad.js",
+    "precache-manifest.86a3172c9f3468e88c16aaa2ccc7c5b8.js": "/EdMod/precache-manifest.86a3172c9f3468e88c16aaa2ccc7c5b8.js",
     "service-worker.js": "/EdMod/service-worker.js",
     "static/css/main.3e9f8966.chunk.css.map": "/EdMod/static/css/main.3e9f8966.chunk.css.map",
-    "static/js/2.72d10233.chunk.js.LICENSE.txt": "/EdMod/static/js/2.72d10233.chunk.js.LICENSE.txt"
+    "static/js/2.aea7032c.chunk.js.LICENSE.txt": "/EdMod/static/js/2.aea7032c.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.626b5627.js",
-    "static/js/2.72d10233.chunk.js",
+    "static/js/2.aea7032c.chunk.js",
     "static/css/main.3e9f8966.chunk.css",
-    "static/js/main.efa2e2dc.chunk.js"
+    "static/js/main.b5e44774.chunk.js"
   ]
 }
