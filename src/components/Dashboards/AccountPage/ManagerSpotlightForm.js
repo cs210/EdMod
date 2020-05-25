@@ -54,6 +54,17 @@ import {
 }
 from '@material-ui/core';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
+/*
+var citiesRef = db.collection("cities");
+
+citiesRef.doc("Jan").set({
+    fullName: 'John Smith',
+    month: 'Jan',
+    type:'video',
+    videoURL: 'https://vimeo.com/148751763'
+  });
+
+*/
 
 const Example = () => (
   <div>
