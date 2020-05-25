@@ -6,6 +6,7 @@ import React, { Component } from "react";
 import EngAvaTitleCard from '../EngAvaTitleCard';
 import EngProfText from '../EngProfText';
 
+
 import {
   Grid,
   Box,
@@ -20,7 +21,7 @@ class EngineerProfileDashboard extends Component {
         justify="center"
         direction="row"
       >
-        <EngAvaTitleCard/>
+        <EngAvaTitleCard image={this.props.image} fullName={this.props.fullName}/>
         <Box width={2/3 - 1/4 - 7/18}></Box>
         <EngProfText/>
       </Grid>

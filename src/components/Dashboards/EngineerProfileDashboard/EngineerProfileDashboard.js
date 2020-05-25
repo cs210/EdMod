@@ -7,8 +7,9 @@ import ReactGA from 'react-ga';
 import SpotlightVideo from './SpotlightPageTypes/SpotlightVideo'
 import SpotlightImageAndText from './SpotlightPageTypes/SpotlightImageAndText'
 
-// 263023085 // Flynn
+// 263023085 // Flynn TODO from pull
 // https://vimeo.com/148751763 // Roll
+import Nikola from "../../../images/tesla_profile.jpg"; // TODO from pull
 
 import {
   Grid,
@@ -31,7 +32,7 @@ class EngineerProfileDashboard extends Component {
 
           <Box height={50}/>
 
-          <SpotlightImageAndText />
+          <SpotlightImageAndText image={Nikola} fullName ="Nikola Tesla"/>
         </Grid>
       </Box>
     );
