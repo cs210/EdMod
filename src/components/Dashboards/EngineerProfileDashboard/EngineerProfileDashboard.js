@@ -27,20 +27,11 @@ class EngineerProfileDashboard extends Component {
           direction="column"
         >
           <Box height={10}/>
-          <SpotlightSimple/>
-          <Box height={10}/>
           <SpotlightVideo videoURL="https://vimeo.com/263023085" />
 
           <Box height={50}/>
-          <Grid width={2/3}
-            container
-            justify="center"
-            direction="row"
-          >
-            <EngAvaTitleCard/>
-            <Box width={2/3 - 1/4 - 7/18}></Box>
-            <EngProfText/>
-          </Grid>
+
+          <SpotlightImageAndText />
         </Grid>
       </Box>
     );
