@@ -11,7 +11,14 @@ import SpotlightImageAndText from './SpotlightPageTypes/SpotlightImageAndText'
 
 // 263023085 // Flynn TODO from pull
 // https://vimeo.com/148751763 // Roll
-import Nikola from "../../../images/tesla_profile.jpg"; // TODO from pull
+/* Data pull occurs here
+  // -> type condition here
+  // -> UI implementation not
+  // new UI component: UI common/top
+  // component for different top + bottom combos
+  // condition to return correct combo
+*/
+// import Nikola from "../../../images/tesla_profile.jpg"; // TODO from pull
 
 import {
   Grid,
@@ -26,7 +33,7 @@ class EngineerProfileDashboard extends Component {
 
     this.state = {
       loading: false,
-      spotlightDoc: { fullName: "loading" },
+      spotlightDoc: { fullName: "loading", videoURL:"https://vimeo.com/148751763" },
     };
   }
 
@@ -39,7 +46,10 @@ class EngineerProfileDashboard extends Component {
         let self = this
         let spotlightDoc = {}
         querySnapshot.forEach( (doc) => {
-          this.setState({ loading: false, spotlightDoc: doc.data() });
+          this.setState({
+            loading: false,
+            spotlightDoc: doc.data(),
+          });
         });
       })
   }
@@ -47,29 +57,19 @@ class EngineerProfileDashboard extends Component {
   render() {
     ReactGA.pageview("spotlight pageview");
 
-    /* Data pull occurs here
-      // -> condition occurs here
-      // -> UI implementation does not
-      // new UI component: UI common/top
-      // component for different top + bottom combos
-      // condition to return correct combo
-      */
-
-
-
-    return (
-      // TODO: conditional render one or other
-      <Grid
+    if (this.state.loading) {
+      return (<Typography>Loading...</Typography>)
+    }
+    return this.state.spotlightDoc.type == "video" ?
+      (<Grid
         container
         alignItems="center"
         direction="column"
       >
         <Box height={10}/>
         <Typography>{this.state.spotlightDoc.fullName}</Typography>
-        <SpotlightComboVid fullName={this.state.spotlightDoc.fullName} videoURL="https://vimeo.com/263023085" />
-
-      </Grid>
-    );
+        <SpotlightComboVid videoURL={this.state.spotlightDoc.videoURL} />
+      </Grid>) : (<Typography>SPOTIGHT TEXT TYPE (WIP)</Typography>);
   }
 }
 
