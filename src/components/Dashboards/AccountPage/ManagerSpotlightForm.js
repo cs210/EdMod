@@ -4,7 +4,7 @@
   2. form pull
     UI types
 STEPS:
-  1. vid form submit to firebase (name, date, type, url)
+  X1. vid form submit to firebase (name, date, type, url)
   2. new vid ui type; no dates
   3. vid ui type w/ firebase pull (most recent)
 
@@ -15,6 +15,13 @@ STEPS:
   7. add dates ui
   8. add dates to forms
   9. ui logic; pull most recent spotlight for selected date
+
+  10. add gifs using giphycapture to README showing
+    a. login non-manager account
+    b. signout
+    c. login manager account
+    d. form submit
+    e. spotlight update
 */
 
 /* form(s) for manager submission:
@@ -52,7 +59,7 @@ const Example = () => (
   <div>
     <h3>New Video Spotlight Form</h3>
       <Formik
-        initialValues={{fullName: '', month: 'Jan', type:'video', videoURL: ''}}
+        initialValues={{fullName: 'John Smith', month: 'Jan', type:'video', videoURL: 'https://vimeo.com/148751763'}}
         onSubmit={(values, actions) => {
           // values:
           firebase.firestore().collection("spotlights").add(values)

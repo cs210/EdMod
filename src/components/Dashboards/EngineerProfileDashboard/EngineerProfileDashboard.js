@@ -1,27 +1,20 @@
 import React, { Component } from "react";
-import YouTube from '@u-wave/react-youtube';
 import Vimeo from '@u-wave/react-vimeo';
 import EngAvaTitleCard from './EngAvaTitleCard';
 import EngProfText from './EngProfText';
 import SpotlightSimple from './SpotlightSimple';
 import ReactGA from 'react-ga';
+import SpotlightVideo from './SpotlightPageTypes/SpotlightVideo'
+import SpotlightImageAndText from './SpotlightPageTypes/SpotlightImageAndText'
+
+// 263023085 // Flynn
+// https://vimeo.com/148751763 // Roll
 
 import {
   Grid,
   Box,
 }
 from '@material-ui/core';
-
-/*
-<Box width={2/3} height={480}>
-  <YouTube
-    video="xP76q3quHb0"
-    autoplay
-    width="100%"
-    height="100%"
-  />
-</Box>
-*/
 
 class EngineerProfileDashboard extends Component {
   render() {
@@ -36,13 +29,7 @@ class EngineerProfileDashboard extends Component {
           <Box height={10}/>
           <SpotlightSimple/>
           <Box height={10}/>
-          <Box>
-            <Vimeo
-              video="263023085"
-              autoplay
-            />
-
-          </Box>
+          <SpotlightVideo videoURL="https://vimeo.com/263023085" />
 
           <Box height={50}/>
           <Grid width={2/3}
