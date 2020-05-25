@@ -92,17 +92,15 @@ const TextImageSpotForm = () => {
         initialValues={{ fullName:""}}
         validationSchema={validationSchema}
         onSubmit={(values, {setSubmitting, resetForm}) => {
-            // When button submits form and form is in the process of submitting, submit button is disabled
-            setSubmitting(true);
+          // When button submits form and form is in the process of submitting, submit button is disabled
+          setSubmitting(true);
 
-            // Simulate submitting to database, shows us values submitted, resets form
           setTimeout(() => {
             alert(JSON.stringify(values, null, 2));
             resetForm();
             setSubmitting(false);
           }, 500);
-
-          // actual firebase upload here
+          // TODO: add actual firebase upload here
         }}
       >
         {/* Callback function containing Formik state and helpers that handle common form actions */}

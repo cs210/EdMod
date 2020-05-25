@@ -19,6 +19,8 @@ class SpotlightVideo extends Component {
     return (
       <Vimeo
         video={this.props.videoURL}
+        width={640}
+        height={480}
         autoplay
       />
   );

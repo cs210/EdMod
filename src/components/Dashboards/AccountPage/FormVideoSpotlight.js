@@ -55,7 +55,6 @@ const FormVideoSpotlight = () => (
                 <option value="Nov">Nov</option>
                 <option value="Dec">Dec</option>
             </Field>
-
             <Field name="videoURL" placeholder="https://vimeo.com/263023085" />
             <button type="submit">Submit</button>
           </Box>

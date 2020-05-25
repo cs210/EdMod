@@ -13,7 +13,7 @@ import {
 }
 from '@material-ui/core';
 
-class EngineerProfileDashboard extends Component {
+class SpotlightImageAndText extends Component {
   render() {
     return (
       <Grid width={2/3}
@@ -29,4 +29,4 @@ class EngineerProfileDashboard extends Component {
   }
 }
 
-export default EngineerProfileDashboard;
+export default SpotlightImageAndText;
