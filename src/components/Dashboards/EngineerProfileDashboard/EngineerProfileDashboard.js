@@ -9,7 +9,7 @@ import SpotlightComboVid from './SpotlightPageTypes/SpotComboVid'
 import SpotlightVideo from './SpotlightPageTypes/SpotlightVideo'
 import SpotlightImageAndText from './SpotlightPageTypes/SpotlightImageAndText'
 
-// 263023085 // Flynn TODO from pull
+// 263023085 // Flynn
 // https://vimeo.com/148751763 // Roll
 /* Data pull occurs here
   // -> type condition here

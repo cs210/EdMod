@@ -18,7 +18,7 @@ export default function SignedInManagerScreen() {
       <Box height={15} />
       <Button onClick={() => firebase.auth().signOut()}>Sign-out</Button>
       <Box height={30} />
-      <Typography>This is the manager login screen</Typography>
+      <Typography>This is the manager account screen</Typography>
       <Box height={15} />
       <ManagerSpotlightForm />
     </Grid>
