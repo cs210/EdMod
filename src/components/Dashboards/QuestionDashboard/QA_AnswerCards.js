@@ -86,7 +86,7 @@ class QA_AnswerCards extends Component {
           .doc(this.props.q_id)
           .collection("comments")
           .doc(this.state.ansToId[i])
-          .update({"comments": firebase.firestore.FieldValue.arrayUnion(answer_array)       
+          .update({"comments": firebase.firestore.FieldValue.arrayUnion(answer_array)
         }).then((docRef) => {
             window.location.reload(false);
           });
@@ -142,29 +142,19 @@ class QA_AnswerCards extends Component {
     for (var i=1; i < answersList.comments.length; i++) {
         answer = answersList.comments[i];
         answers[i] = (
-          <Grid container direction="column" spacing={0} >
+          <Grid container direction="column" spacing={0} style={{padding: 15,
+            margin: 5, marginBottom: 10, overflow: 'hidden', backgroundColor: '#f6f6f6'}} >
           <Grid item container spacing={0} justify="space-between">
-            <Grid item xs={1} >
 
-            </Grid>
-            <Grid item xs={11} >
-              <Divider style={{marginTop:10, marginBottom:10}}/>
+            <Grid item xs={12} >
               {AuthorPanel(answer.author)}
             </Grid>
 
-            <Grid item xs={1}>
 
-            </Grid>
-            <Grid item xs={11}>
+            <Grid item xs={12}>
               <Typography variant="body2">
                   {answer.text}
               </Typography>
-            <IconButton aria-label={"comment_"+i} id={"comment_"+i} onClick={()=> {this.handleShowSubAnswerText(a_id)}}>
-              <ChatBubbleIcon fontSize="small" style={{width:15, height:15}}/>
-            </IconButton>
-            <IconButton aria-label="upvote" size="small">
-              <ThumbUpAltIcon fontSize="inherit" />
-            </IconButton>
             </Grid>
           </Grid>
           </Grid>
@@ -184,35 +174,37 @@ AnswerCard(answersList) {
           <Paper style={{padding: 15,
     margin: 10, overflow: "scroll"}}>
           <Grid container direction="column" spacing={1}>
-          <Grid item container spacing={1} justify="space-between">
-            <Grid item xs={2}>
-              {AuthorPanel(answer.comments[0].author)}
-            </Grid>
-            <Grid item xs={9}>
-            </Grid>
+            <Grid item container spacing={1} justify="space-between">
+              <Grid item xs={2} >
+                {AuthorPanel(answer.comments[0].author)}
+              </Grid>
+              <Grid item xs={9}>
+              </Grid>
 
 
 
-            <Grid item xs={1} align="left" >
-            {answer.accepted === true ? <Tooltip title="Accepted answer" placement="right" arrow>
-        <BeenhereIcon style={{color:'green'}}/>
-     </Tooltip> : <div/> }
-
-
+              <Grid item xs={1} align="left" >
+                    {answer.accepted === true ? <Tooltip title="Accepted answer" placement="right" arrow>
+                <BeenhereIcon style={{color:'green'}}/>
+             </Tooltip> : <div/> }
            </Grid>
+
             <Grid item xs={12}>
               <Typography variant="body2">
                   {answer.comments[0].text}
                 </Typography>
             </Grid>
+
             <Grid item xs={12}>
-            <Button color="primary"  startIcon={<ChatBubbleIcon/>}  size="small" onClick={()=> {this.handleShowSubAnswerText(i)}}>Reply</Button>
+              <Button color="primary"  startIcon={<ChatBubbleIcon/>}  size="small" onClick={()=> {this.handleShowSubAnswerText(i)}}>Reply</Button>
             </Grid>
           </Grid>
           </Grid>
+
           {this.SubAnswers(answer, i)}
           {this.state.answer_visible[i]===1 ? this.TextInputVisible(i) : <div/> }
           </Paper>
+
         );
     }
     return answers;

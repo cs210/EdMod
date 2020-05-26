@@ -55,6 +55,17 @@ const formatDate = (question) => {
   return newDate;
 }
 
+const increment = firebase.firestore.FieldValue.increment(1);
+
+const submitLike = (q_id) => {
+  console.log("qid rn when liking,", q_id)
+  var firebaseRef = firebase
+      .firestore()
+      .collection("questions")
+      .doc(q_id)
+      .update({"likes": increment });
+}
+
 
 const QuestionCard = (props) => {
   const [comment, setComment] = useState("");
@@ -180,18 +191,16 @@ const QuestionCard = (props) => {
       </Paper>
       <Paper style={questionBottomBar}>
         <div class = "bottomBarElems">
-        <Typography variant="subtitle2" style={{ color: '#3f51b5', fontSize: 14, marginRight: 10}} display="inline">
-          <Grid item>
-            <IconButton aria-label="upvote" size="small">
-              <ThumbUpAltIcon fontSize="inherit" />
-            </IconButton>
-          </Grid>
-        </Typography>
-        <Divider orientation="vertical" />
-        {likes}
-
-
-           <Typography display="inline" style={{ marginLeft: 'auto', color: 'grey', fontSize: 14 }}>{formattedDate}</Typography>
+          <Typography variant="subtitle2" style={{ color: '#3f51b5', fontSize: 14}} display="inline">
+            <Grid item>
+              <IconButton aria-label="upvote" size="small" onClick={() => submitLike(props.q_id)}>
+                <ThumbUpAltIcon fontSize="inherit" />
+              </IconButton>
+            </Grid>
+          </Typography>
+          <Divider orientation="vertical" style={{ marginLeft: 10, marginRight: 10}} />
+          <Typography display="inline" style={{color: '#3f51b5', fontSize: 13, marginTop: 1, fontWeight: 300 }}>{likes}</Typography>
+          <Typography display="inline" style={{ marginLeft: 'auto', color: 'grey', fontSize: 14 }}>{formattedDate}</Typography>
         </div>
       </Paper>
 

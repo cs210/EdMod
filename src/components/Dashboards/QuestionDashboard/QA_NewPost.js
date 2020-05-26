@@ -66,6 +66,7 @@ const addPost = (props) => {
         solved: false,
       },
       attachments: [],
+      likes: 0,
       date: new Date(),
 
     }).then(data => {
@@ -101,24 +102,6 @@ const addPost = (props) => {
     );
   }
 }
-
-function submit(props, attachmentUrls) {
-    console.log("hello");
-    console.log("attachment irls!!!!!!!!!!!!!!!!!!!!!", attachmentUrls)
-    // add post to firestore
-    firebase.firestore().collection("questions").add({
-      data:{
-        author: "John Chuter",
-        title: props.title,
-        text: props.text,
-        tags: Object.keys(props.tags),
-        solved: false,
-        attachmentUrls: attachmentUrls
-      },
-      attachments: [],
-    });
-}
-
 
 
 const useStyles = makeStyles((theme) => ({
