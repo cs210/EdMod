@@ -108,7 +108,7 @@ const QASidebar = (props) => {
          Add Post
        </Button>
       </div>
-      <List component="nav">
+      <List component="nav" style={{ position: 'relative', overflow: 'auto', height: '100vh'}}>
         <MakeList questionList = {props.questionList} prevProps={props} filterText={filterText}/>
       </List>
     </div>
