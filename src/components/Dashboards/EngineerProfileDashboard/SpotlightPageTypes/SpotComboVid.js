@@ -6,9 +6,6 @@ import ReactGA from 'react-ga';
 import SpotlightVideo from './SpotlightVideo';
 import SpotCommon from './SpotCommon';
 
-// pull button state up to selected month
-// TODO: pass month to spotlight video
-
 import {
   Grid,
   Box,
@@ -31,6 +28,7 @@ class SpotComboVid extends Component {
       >
         <SpotCommon
           fullName={this.props.fullName}
+          currMonth={this.props.currMonth}
           width="100%"
           onMonthClick={this.onMonthClick}
         />

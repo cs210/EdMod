@@ -54,7 +54,7 @@ class EngineerProfileDashboard extends Component {
           this.setState({
             loading: false,
             spotlightDoc: {
-              fullName: "No spotlight for this month. Here's random video instead.",
+              fullName: "No spotlight for this month. Here's a random video instead.",
               type: "video",
               videoURL: "https://vimeo.com/channels/music/162052542"
             },
@@ -77,8 +77,13 @@ class EngineerProfileDashboard extends Component {
   render() {
     ReactGA.pageview("spotlight pageview");
 
+    // TODO: push loading outside of nav
     if (this.state.loading) {
-      return (<Typography>Loading...</Typography>)
+      return (
+        <Grid align="center" justify="center">
+          <Typography>Loading...</Typography>
+        </Grid>
+      );
     }
     return this.state.spotlightDoc.type == "video" ?
       (<Grid
@@ -87,9 +92,9 @@ class EngineerProfileDashboard extends Component {
         direction="column"
       >
         <Box height={10}/>
-        <Typography>Selected month: {this.state.currMonth}</Typography>
         <SpotlightComboVid
           fullName={this.state.spotlightDoc.fullName}
+          currMonth={this.state.currMonth}
           videoURL={this.state.spotlightDoc.videoURL}
           onMonthClick={this.onMonthClick}
         />

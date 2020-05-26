@@ -19,7 +19,7 @@ class EngineerProfileCard extends Component {
             <CardMedia src={this.props.image} component="img"/>
 
             <CardContent>
-            <Typography variant="h6">
+            <Typography variant="h1">
               {this.props.fullName}
             </Typography>
             </CardContent>
