@@ -60,7 +60,7 @@ const QuestionDashboard = (props) => {
           />
       </Grid>
 
-      <Grid item sm={8} alignItems="stretch" style = {{backgroundColor: '#f5f6fa', height: '100%', minHeight: '100vh'}} >
+      <Grid item sm={8} alignItems="stretch" style = {{display: 'flex', flexDirection: 'row'}} >
         <QADisplay q_id={q_id} newPost={newPost}/>
       </Grid>
     </Grid>

@@ -71,7 +71,7 @@ const QADisplay = (props) => {
   });
 
   return (
-    <div className = "qa_container">
+    <div className = "qa_container" style = {{backgroundColor: '#f5f6fa', height: '100%', minHeight: '100%'}} >
     <QuestionCard question={question} setQuestion={setQuestion} q_id={q_id} submitComment={submitComment}/>
       <QA_AnswerCards q_id={q_id} q={question}/>
     </div>
