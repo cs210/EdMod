@@ -61,9 +61,13 @@
 }
 
 .question_card {
-  overflow: auto;
+  overflow: hidden;
 }
 
+.bottomBarElems {
+  display: flex;
+  flex-direction: row;
+}
 /* .dashboard {
   width: 250px;
   max-width: 250px;

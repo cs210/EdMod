@@ -23,7 +23,7 @@ function GetQuestions() {
         setQuestions(newQuestions.reverse())
       })
   }, [])
-
+  console.log("questions", questions)
   return questions
 }
 

@@ -18,7 +18,7 @@ import CropOriginalIcon from "@material-ui/icons/CropOriginal";
 import AuthorPanel from "./AuthorPanel.js";
 import firebase from "../../../config/firebase.js";
 import "../../../styling/qa.css"
-
+import moment from 'moment'
 
 import {
   List,
@@ -36,6 +36,25 @@ import {
   Tooltip,
 } from "@material-ui/core";
 
+const formatDate = (question) => {
+  var newDate = "";
+  if (question.date !== undefined) {
+    var date = question.date;
+    var curr_date = new Date(date.seconds * 1000);
+    var start = moment().startOf('day').toDate(); // set to 12:00 am today
+    var end = moment().endOf('day').toDate(); // set to 23:59 pm today
+
+    if (curr_date > start && curr_date < end) {
+      newDate = "Updated 1 day ago"
+    } else {
+      var day = curr_date.getUTCDate();
+      var year = curr_date.getUTCFullYear();
+      newDate = "Updated " + day +  " days ago";
+    }
+  }
+  return newDate;
+}
+
 
 const QuestionCard = (props) => {
   const [comment, setComment] = useState("");
@@ -44,11 +63,43 @@ const QuestionCard = (props) => {
   var tags = props.question.data.tags;
   var attachments = props.question.attachments;
   var author = props.question.data.author;
-  var answers = props.question.threads;
+  var answers = props.question.comments;
+  var likes = props.question.likes;
+  var formattedDate = formatDate(props.question);
+
+  const questionBody = {
+    padding: 25,
+    borderTopLeftRadius: 10,
+    borderTopRightRadius: 10,
+    borderBottomLeftRadius: 0,
+    borderBottomRightRadius: 0,
+    boxSizing: 'border-box',
+    marginTop: 10,
+    marginLeft: 10,
+    marginRight: 10
+  };
+
+  const questionBottomBar = {
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    padding: 25,
+    height: 30,
+    borderTopLeftRadius: 0,
+    borderTopRightRadius: 0,
+    borderBottomLeftRadius: 10,
+    borderBottomRightRadius: 10,
+    boxSizing: 'border-box',
+    marginLeft: 10,
+    marginRight: 10,
+    marginBottom: 10,
+    border: 'None',
+    backgroundColor: '#f6f6f6',
+  };
 
   return (
     <div className = "question_card">
-      <Paper style={{ padding: 25, borderRadius: 10, boxSizing: 'border-box', margin: 10}}>
+      <Paper style={questionBody}>
         <Grid container spacing={10}>
           <Grid item xs={12} sm container>
             <Grid item xs container direction="column" spacing={2}>
@@ -57,14 +108,7 @@ const QuestionCard = (props) => {
                   <Typography variant="h3">{title}</Typography>
                 </Grid>
 
-                <Grid item>
-                  <IconButton aria-label="notif" size="small">
-                    <NotificationImportantIcon fontSize="inherit" />
-                  </IconButton>
-                  <IconButton aria-label="upvote" size="small">
-                    <ThumbUpAltIcon fontSize="inherit" />
-                  </IconButton>
-                </Grid>
+
                 </Grid>
 
                 <Grid item>
@@ -81,7 +125,7 @@ const QuestionCard = (props) => {
                 >
                   <Grid key="question_tags" item>
                     {tags.map((tag) => {
-                      return <Chip size="small" label={tag} />;
+                      return <Chip size="small" label={tag} color='primary' style={{fontWeight: 525, color: '#3f51b5', backgroundColor: '#b3d3fc', marginRight: 10, borderRadius: 7}} />;
                     })}
                   </Grid>
                   <Grid key="question_user" item>
@@ -92,8 +136,8 @@ const QuestionCard = (props) => {
             </Grid>
           </Grid>
         </Grid>
-        <Divider style={{ margin: 15 }} />
-        <Paper style={{ padding: 10, margin: 10 }}>
+        <Divider style={{ margin: 20 }} />
+        <Paper style={{ padding: 10 }}>
           <Grid container direction="row" spacing={0} alignItems="center">
             <Grid item xs>
               <FormControl
@@ -101,16 +145,15 @@ const QuestionCard = (props) => {
                 variant="outlined"
                 onChange={(event) => setComment(event.target.value)}
               >
-                <InputLabel>Comment</InputLabel>
-                <div></div>
+
                 <OutlinedInput
                   fullWidth
                   multiLine={true}
-                  rows={5}
-                  rowsMax={15} //TODO: figure out mulitLine textbox
+                  placeholder="Comment"
+                  // rows={5}
+                  // rowsMax={15} //TODO: figure out mulitLine textbox
                   id="comment"
                   value={comment}
-                  //onChange={handleChange('password')}
                   endAdornment={
                     <InputAdornment position="end">
                       <IconButton
@@ -118,9 +161,6 @@ const QuestionCard = (props) => {
                         onClick={() =>
                           props.submitComment(props.q_id, comment, setComment, props.setQuestion, props.question)
                         }
-                        //onMouseDown={handleMouseDownPassword}
-                        //TODO: actually capture text
-                        //TODO: More complex text editor
                         color="primary"
                       >
                         <ReplyOutlinedIcon />
@@ -137,15 +177,24 @@ const QuestionCard = (props) => {
             </Grid>
           </Grid>
         </Paper>
-        {Array.isArray(answers) && answers.length ? (
-          <div />
-        ) : (
-          <Typography variant="subtitle2" style={{ color: "blue" }}>
-            {" "}
-            Be the first to answer!{" "}
-          </Typography>
-        )}
       </Paper>
+      <Paper style={questionBottomBar}>
+        <div class = "bottomBarElems">
+        <Typography variant="subtitle2" style={{ color: '#3f51b5', fontSize: 14, marginRight: 10}} display="inline">
+          <Grid item>
+            <IconButton aria-label="upvote" size="small">
+              <ThumbUpAltIcon fontSize="inherit" />
+            </IconButton>
+          </Grid>
+        </Typography>
+        <Divider orientation="vertical" />
+        {likes}
+
+
+           <Typography display="inline" style={{ marginLeft: 'auto', color: 'grey', fontSize: 14 }}>{formattedDate}</Typography>
+        </div>
+      </Paper>
+
     </div>
   );
 };
