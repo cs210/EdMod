@@ -1,7 +1,7 @@
 .qa_container {
   /* background-color: #f5f4ff;
   /* background-color: #e9eef3; */
-  /* height: 100vh; */ 
+  /* height: 100vh; */
 }
 
 .qa-search-add  {
@@ -69,9 +69,10 @@
   flex-direction: row;
 }
 /* .dashboard {
-  width: 250px;
-  max-width: 250px;
-  min-width: 250px;
+  position: relative;
+  width: 34vw;
+  max-width: 34vw;
+  min-width: 34vw;
 } */
 
 /* .dashboard {
