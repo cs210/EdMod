@@ -17,6 +17,8 @@ import ChatBubbleIcon from "@material-ui/icons/ChatBubble";
 import CropOriginalIcon from "@material-ui/icons/CropOriginal";
 import AuthorPanel from "./AuthorPanel.js";
 import firebase from "../../../config/firebase.js";
+import "../../../styling/qa.css"
+
 
 import {
   List,
@@ -45,8 +47,8 @@ const QuestionCard = (props) => {
   var answers = props.question.threads;
 
   return (
-    <div>
-      <Paper style={{ padding: 25, margin: 10 }}>
+    <div className = "question_card">
+      <Paper style={{ padding: 25, borderRadius: 10, boxSizing: 'border-box', margin: 10}}>
         <Grid container spacing={10}>
           <Grid item xs={12} sm container>
             <Grid item xs container direction="column" spacing={2}>

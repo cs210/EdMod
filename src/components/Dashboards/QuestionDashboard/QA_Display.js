@@ -43,7 +43,7 @@ const submitComment = (q_id, new_comment, setComment, setQuestion, question) => 
             window.location.reload(false);
           });
 
-            
+
 
     setComment("");
   }
@@ -64,20 +64,21 @@ const QADisplay = (props) => {
           .doc(props.q_id)
           .get()
           .then((docRef) => {
-            console.log("here", docRef.data())
             setQuestion(docRef.data())
           })
           .catch((error) => { })
       }
   });
 
-  // const question = firebase.firestore.collection("question").doc(q_id).get()
-
   return (
-      <div className="qa_container">
-        <QuestionCard question={question} setQuestion={setQuestion} q_id={q_id} submitComment={submitComment}/>
-        <QA_AnswerCards q_id={q_id} q={question}/>
-      </div>
+    <div className = "qa_container">
+    <QuestionCard question={question} setQuestion={setQuestion} q_id={q_id} submitComment={submitComment}/>
+      <QA_AnswerCards q_id={q_id} q={question}/>
+    </div>
+      // <div className="qa_container">
+      //   <QuestionCard question={question} setQuestion={setQuestion} q_id={q_id} submitComment={submitComment}/>
+      //   <QA_AnswerCards q_id={q_id} q={question}/>
+      // </div>
     );
   };
 

@@ -23,7 +23,6 @@ function GetQuestions() {
         setQuestions(newQuestions.reverse())
       })
   }, [])
-  console.log("questions", questions)
 
   return questions
 }
@@ -51,7 +50,7 @@ const QuestionDashboard = (props) => {
       justify="space-between"
       alignItems="stretch"
       >
-      <Grid item sm={4}  alignItems="stretch">
+      <Grid item sm={4} alignItems="stretch">
           <QASidebar
             filterText={filterText}
             setFilterChange={setFilterText}
@@ -60,7 +59,8 @@ const QuestionDashboard = (props) => {
             setNewPost={setNewPost}
           />
       </Grid>
-      <Grid item sm={8} alignItems="stretch">
+
+      <Grid item sm={8} alignItems="stretch" >
         <QADisplay q_id={q_id} newPost={newPost}/>
       </Grid>
     </Grid>
