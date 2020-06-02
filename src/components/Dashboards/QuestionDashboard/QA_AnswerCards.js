@@ -67,7 +67,7 @@ class QA_AnswerCards extends Component {
           num = num+1;
       });
       console.log(ansToId);
-      this.setState({answers: tempDoc, answer_visible: Array(tempDoc.length).fill(0), ansToId: ansToId, answerInput: Array(tempDoc.length).fill(''), answerInput: Array(tempDoc.length).fill((firebase.auth().currentUser) ? firebase.auth().currentUser.displayName.split(" ")[0] + " " + firebase.auth().currentUser.displayName.split(" ").slice(-1)[0][0] + "." : "anonymous")})})
+      this.setState({answers: tempDoc, answer_visible: Array(tempDoc.length).fill(0), ansToId: ansToId, answerInput: Array(tempDoc.length).fill(''), answerAuthor: Array(tempDoc.length).fill((firebase.auth().currentUser) ? firebase.auth().currentUser.displayName.split(" ")[0] + " " + firebase.auth().currentUser.displayName.split(" ").slice(-1)[0][0] + "." : "anonymous")})})
   }
 
 handleChangeAuthor(event, i) {
@@ -83,7 +83,7 @@ handleChangeAuthor(event, i) {
   }
 
   handleSubmit(event, i){
-    var answer_array = {author: "jennifer", text: this.state.answerInput[i]}
+    var answer_array = {author: this.state.answerInput[i], text: this.state.answerInput[i]}
     console.log(this.state.q_id)
     if (answer_array.comment != ''){
       var firebaseRef = firebase

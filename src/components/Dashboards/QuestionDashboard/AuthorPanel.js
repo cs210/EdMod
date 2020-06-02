@@ -45,7 +45,7 @@ export default function AuthorPanel(author){
   var badge;
   if(author === 'austin'){
     badge = (
-    <Tooltip title="EFTW Top Contributor" placement="right" arrow>
+    <Tooltip title="EFTW Moderator" placement="right" arrow>
         <img src={EFTWBadgeSample} width='15'/>
     </Tooltip>
     )
