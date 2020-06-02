@@ -67,7 +67,13 @@ class QA_AnswerCards extends Component {
           num = num+1;
       });
       console.log(ansToId);
-      this.setState({answers: tempDoc, answer_visible: Array(tempDoc.length).fill(0), ansToId: ansToId, answerInput: Array(tempDoc.length).fill('')})})
+      this.setState({answers: tempDoc, answer_visible: Array(tempDoc.length).fill(0), ansToId: ansToId, answerInput: Array(tempDoc.length).fill(''), answerInput: Array(tempDoc.length).fill((firebase.auth().currentUser) ? firebase.auth().currentUser.displayName.split(" ")[0] + " " + firebase.auth().currentUser.displayName.split(" ").slice(-1)[0][0] + "." : "anonymous")})})
+  }
+
+handleChangeAuthor(event, i) {
+    var answerAuthor = this.state.answerAuthor
+    answerAuthor[i] = event.target.value
+    this.setState({answerAuthor:answerAuthor})
   }
 
   handleChange(event, i) {
@@ -103,6 +109,13 @@ class QA_AnswerCards extends Component {
     return(
        <Grid container direction="row" spacing={0} alignItems="center">
         <Grid item xs>
+        <TextField
+          label="Display Name"
+          id="outlined-size-small"
+          defaultValue={(firebase.auth().currentUser) ? firebase.auth().currentUser.displayName.split(" ")[0] + " " + firebase.auth().currentUser.displayName.split(" ").slice(-1)[0][0] + "." : "anonymous"}
+          size="small"
+          onChange={(e) => this.handleChangeAuthor(e, i)}
+        />
         <FormControl fullWidth variant='outlined'>
           <InputLabel>Comment</InputLabel>
           <OutlinedInput

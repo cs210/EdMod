@@ -194,10 +194,11 @@ const QANewPost = (props) => {
           <TextField
               id="outlined-secondary"
               className="new-post-text"
-              label="Nickname"
+              label="Display Name"
               variant="outlined"
               color="secondary"
               style = {{width: 300}}
+              default = {(firebase.auth().currentUser) ? firebase.auth().currentUser.displayName.split(" ")[0] + " " + firebase.auth().currentUser.displayName.split(" ").slice(-1)[0][0] + "." : "anonymous"}
               onChange = {(event) => setAuthor(event.target.value)}
               autoComplete="off"
             />

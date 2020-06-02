@@ -154,13 +154,17 @@ const QuestionCard = (props) => {
         <Paper style={{ padding: 10 }}>
           <Grid container direction="row" spacing={0} alignItems="center">
             <Grid item xs>
-              <TextField
+            { (comment==="") ? (<div/>) :
+              (<TextField
+            
+            
           label="Display Name"
           id="outlined-size-small"
           defaultValue={(firebase.auth().currentUser) ? firebase.auth().currentUser.displayName.split(" ")[0] + " " + firebase.auth().currentUser.displayName.split(" ").slice(-1)[0][0] + "." : "anonymous"}
           size="small"
           onChange={(event) => setCommentAuther(event.target.value)}
-        />
+        />) 
+      }
               <FormControl
                 fullWidth
                 variant="outlined"
