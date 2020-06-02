@@ -59,7 +59,7 @@ const addPost = (props) => {
 
     firebase.firestore().collection("questions").add({
       data:{
-        author: "John Chuter",
+        author: props.author,
         title: props.title,
         text: props.text,
         tags: Object.keys(props.tags),
@@ -176,6 +176,7 @@ const handleClickTag = (props, tag, event) => {
 }
 
 const QANewPost = (props) => {
+  const [author, setAuthor] = useState('')
   const [title, setTitle] = useState('Enter a one line summary.');
   const [text, setText] = useState('');
   const [attachments, setAttachments] = useState([])
@@ -188,7 +189,22 @@ const QANewPost = (props) => {
     <div className = "new-post">
       <form autoComplete="off">
         <Grid container spacing={3}>
-          <Grid item xs={1}/>
+          <Grid container item xs={3} justify="center"><span>Nickname:</span></Grid>
+          <Grid item xs={8}>
+          <TextField
+              id="outlined-secondary"
+              className="new-post-text"
+              label="Nickname"
+              variant="outlined"
+              color="secondary"
+              style = {{width: 300}}
+              onChange = {(event) => setAuthor(event.target.value)}
+              autoComplete="off"
+            />
+            <div className="err">{err}</div>
+          </Grid>
+
+        <Grid container spacing={3}>
           <Grid container item xs={3} justify="center"><span>Summary:</span></Grid>
           <Grid item xs={8}>
           <TextField
@@ -205,7 +221,6 @@ const QANewPost = (props) => {
           </Grid>
 
 
-          <Grid item xs={1}/>
           <Grid container item xs={3} justify="center"><span>Details:</span></Grid>
           <Grid item xs={8}>
           <TextField
@@ -222,7 +237,6 @@ const QANewPost = (props) => {
             />
           </Grid>
 
-          <Grid item xs={1}/>
           <Grid container item xs={3} justify="center"><span>Attachments:</span></Grid>
           <Grid item xs={8}>
           <UploadAttachmentButton attachments = {attachments} setAttachments = {setAttachments} />
@@ -245,9 +259,10 @@ const QANewPost = (props) => {
 
             <Grid item xs={4}/>
             <Grid item xs={8}>
-            <SubmitButton title={title} text={text} tags={tags} setNewPost={props.setNewPost} setErr={setErr} attachments = {attachments} q_id={props.q_id}/>
+            <SubmitButton author={author} title={title} text={text} tags={tags} setNewPost={props.setNewPost} setErr={setErr} attachments = {attachments} q_id={props.q_id}/>
             </Grid>
 
+          </Grid>
           </Grid>
       </form>
     </div>
