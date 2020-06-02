@@ -67,7 +67,10 @@ const submitLike = (q_id) => {
 }
 
 
+
+
 const QuestionCard = (props) => {
+  const [commentAuthor, setCommentAuther] = useState("")
   const [comment, setComment] = useState("");
   var title = props.question.data.title;
   var q_body = props.question.data.text;
@@ -151,11 +154,22 @@ const QuestionCard = (props) => {
         <Paper style={{ padding: 10 }}>
           <Grid container direction="row" spacing={0} alignItems="center">
             <Grid item xs>
+              <TextField
+          label="Display Name"
+          id="outlined-size-small"
+          defaultValue={(firebase.auth().currentUser) ? firebase.auth().currentUser.displayName.split(" ")[0] + " " + firebase.auth().currentUser.displayName.split(" ").slice(-1)[0][0] + "." : "anonymous"}
+          size="small"
+          onChange={(event) => setCommentAuther(event.target.value)}
+        />
               <FormControl
                 fullWidth
                 variant="outlined"
                 onChange={(event) => setComment(event.target.value)}
               >
+
+
+
+
 
                 <OutlinedInput
                   fullWidth
