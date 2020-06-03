@@ -4,7 +4,7 @@ Documentation: [Google Drive](https://drive.google.com/drive/u/0/folders/0APFTgQ
 
 <img src="https://i.imgur.com/oH1r8nv.jpg?1" alt="Educo" width="300" height="185">
 
-=======
+
 # EDUCO ![](https://github.com/cs210/EdMod/workflows/Deployment/badge.svg)
 Educo is building a community to support the EFTW program.
 
