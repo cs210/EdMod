@@ -63,7 +63,7 @@ const MakeList = (props) => {
 
        <div className = "sidebar_elem_text">
         <div className = "sidebar_title">
-          <Typography style={{fontWeight: '550', fontSize: '14px' }}>{question.data.title}</Typography>
+          <Typography style={{fontWeight: '550', fontSize: '14px', maxWidth: '60%' }}>{question.data.title}</Typography>
           <div className = "sidebar_date">{date}</div>
         </div>
         <Typography style={{fontWeight: '400', fontSize: '14px', color: 'grey'}}>{question.data.text}</Typography>
