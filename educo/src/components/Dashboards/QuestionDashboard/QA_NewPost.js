@@ -32,11 +32,11 @@ const handleAttachmentChange = (props, event) => {
   if (event.target.files) {
     console.log(event.target.files)
     props.setAttachments(event.target.files)
-
+    // const image = event.target.files[0]
+    // props.setAttachments(prevArr => [...prevArr, image])
   }
 }
 
-// Upload attachments to post
 const UploadAttachmentButton = (props) => {
   return (
     <div>
@@ -45,62 +45,47 @@ const UploadAttachmentButton = (props) => {
   );
 }
 
-// Checks if file has a correct extention name
-function hasExtension(fileName, exts) {
-    return (new RegExp('(' + exts.join('|').replace(/\./g, '\\.') + ')$')).test(fileName);
-}
-
 const addPost = (props) => {
   if (props.title === '' || props.text === '')  {
     props.setErr("Please enter a brief summary of your question.")
   } else {
     props.setNewPost(false)
-
-
     firebase.firestore().collection("questions").add({
       data:{
-        author: props.author,
+        author: "John Chuter",
         title: props.title,
         text: props.text,
         tags: Object.keys(props.tags),
         solved: false,
       },
-      attachments: [],
-      likes: 0,
-      date: new Date(),
+      threads:{}
+    });
+    console.log("attachments, ", props.attachments)
+    console.log(storage);
+    if (props.attachments) {
+      var arrayLength = props.attachments.length;
+      for (var i = 0; i < arrayLength; i++) {
+        const image = props.attachments[i];
+        console.log(image);
 
-    }).then(data => {
-        // start
-        var arrayLength = props.attachments.length;
-        // var attachmentUrls = [];
-        for (var i = 0; i < arrayLength; i++) {
-          const image = props.attachments[i];
-          if (hasExtension(image.name, ['.jpg', '.gif', '.png'])) {
-            const uploadTask = storage.ref(`images/${image.name}`).put(image);
-            uploadTask.on('state_changed',
-            (snapshot) => {
-              // progress function ...
-            }, (error) => {
-              // error function ...
-              console.log(error);
-            },
-            () => {
-              // complete function ...
-              storage.ref('images').child(image.name).getDownloadURL().then(url => {
-                console.log("URLL---------------", url);
-                // attachmentUrls.push(url);
-                console.log("qid-------", props.q_id)
-                firebase.firestore().collection("questions").doc(data.id)
-                    .update({"attachments": firebase.firestore.FieldValue.arrayUnion(url)
-                  });
-              })
-            });
-          }
-        }
-        // end
+        const uploadTask = storage.ref(`images/${image.name}`).put(image);
+        uploadTask.on('state_changed',
+        (snapshot) => {
+          // progress function ...
+        }, (error) => {
+          // error function ...
+          console.log(error);
+
+        },
+        () => {
+          // complete function ...
+          storage.ref('images').child(image.name).getDownloadURL().then(url => {
+            console.log(url);
+          })
+        });
       }
-    );
-  }
+    }
+}
 }
 
 
@@ -176,11 +161,10 @@ const handleClickTag = (props, tag, event) => {
 }
 
 const QANewPost = (props) => {
-  const [author, setAuthor] = useState('')
   const [title, setTitle] = useState('Enter a one line summary.');
   const [text, setText] = useState('');
   const [attachments, setAttachments] = useState([])
-  const [tags, setTags] = useState({"spring 2020": 0, "scratch":0, "chatbot":0 })
+  const [tags, setTags] = useState({"spring 2020": 0, "scratch":0 })
   const [err, setErr] = useState('')
   const classes = useStyles();
 
@@ -189,23 +173,7 @@ const QANewPost = (props) => {
     <div className = "new-post">
       <form autoComplete="off">
         <Grid container spacing={3}>
-          <Grid container item xs={3} justify="center"><span>Nickname:</span></Grid>
-          <Grid item xs={8}>
-          <TextField
-              id="outlined-secondary"
-              className="new-post-text"
-              label="Display Name"
-              variant="outlined"
-              color="secondary"
-              style = {{width: 300}}
-              default = {(firebase.auth().currentUser) ? firebase.auth().currentUser.displayName.split(" ")[0] + " " + firebase.auth().currentUser.displayName.split(" ").slice(-1)[0][0] + "." : "anonymous"}
-              onChange = {(event) => setAuthor(event.target.value)}
-              autoComplete="off"
-            />
-            <div className="err">{err}</div>
-          </Grid>
-
-        <Grid container spacing={3}>
+          <Grid item xs={1}/>
           <Grid container item xs={3} justify="center"><span>Summary:</span></Grid>
           <Grid item xs={8}>
           <TextField
@@ -222,6 +190,7 @@ const QANewPost = (props) => {
           </Grid>
 
 
+          <Grid item xs={1}/>
           <Grid container item xs={3} justify="center"><span>Details:</span></Grid>
           <Grid item xs={8}>
           <TextField
@@ -238,6 +207,7 @@ const QANewPost = (props) => {
             />
           </Grid>
 
+          <Grid item xs={1}/>
           <Grid container item xs={3} justify="center"><span>Attachments:</span></Grid>
           <Grid item xs={8}>
           <UploadAttachmentButton attachments = {attachments} setAttachments = {setAttachments} />
@@ -260,10 +230,9 @@ const QANewPost = (props) => {
 
             <Grid item xs={4}/>
             <Grid item xs={8}>
-            <SubmitButton author={author} title={title} text={text} tags={tags} setNewPost={props.setNewPost} setErr={setErr} attachments = {attachments} q_id={props.q_id}/>
+            <SubmitButton title={title} text={text} tags={tags} setNewPost={props.setNewPost} setErr={setErr} attachments = {attachments}/>
             </Grid>
 
-          </Grid>
           </Grid>
       </form>
     </div>

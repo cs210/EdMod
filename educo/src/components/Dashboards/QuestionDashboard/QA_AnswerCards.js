@@ -67,13 +67,7 @@ class QA_AnswerCards extends Component {
           num = num+1;
       });
       console.log(ansToId);
-      this.setState({answers: tempDoc, answer_visible: Array(tempDoc.length).fill(0), ansToId: ansToId, answerInput: Array(tempDoc.length).fill(''), answerAuthor: Array(tempDoc.length).fill((firebase.auth().currentUser) ? firebase.auth().currentUser.displayName.split(" ")[0] + " " + firebase.auth().currentUser.displayName.split(" ").slice(-1)[0][0] + "." : "anonymous")})})
-  }
-
-handleChangeAuthor(event, i) {
-    var answerAuthor = this.state.answerAuthor
-    answerAuthor[i] = event.target.value
-    this.setState({answerAuthor:answerAuthor})
+      this.setState({answers: tempDoc, answer_visible: Array(tempDoc.length).fill(0), ansToId: ansToId, answerInput: Array(tempDoc.length).fill('')})})
   }
 
   handleChange(event, i) {
@@ -83,7 +77,7 @@ handleChangeAuthor(event, i) {
   }
 
   handleSubmit(event, i){
-    var answer_array = {author: this.state.answerInput[i], text: this.state.answerInput[i]}
+    var answer_array = {author: "jennifer", text: this.state.answerInput[i]}
     console.log(this.state.q_id)
     if (answer_array.comment != ''){
       var firebaseRef = firebase
@@ -92,7 +86,7 @@ handleChangeAuthor(event, i) {
           .doc(this.props.q_id)
           .collection("comments")
           .doc(this.state.ansToId[i])
-          .update({"comments": firebase.firestore.FieldValue.arrayUnion(answer_array)
+          .update({"comments": firebase.firestore.FieldValue.arrayUnion(answer_array)       
         }).then((docRef) => {
             window.location.reload(false);
           });
@@ -109,13 +103,6 @@ handleChangeAuthor(event, i) {
     return(
        <Grid container direction="row" spacing={0} alignItems="center">
         <Grid item xs>
-        <TextField
-          label="Display Name"
-          id="outlined-size-small"
-          defaultValue={(firebase.auth().currentUser) ? firebase.auth().currentUser.displayName.split(" ")[0] + " " + firebase.auth().currentUser.displayName.split(" ").slice(-1)[0][0] + "." : "anonymous"}
-          size="small"
-          onChange={(e) => this.handleChangeAuthor(e, i)}
-        />
         <FormControl fullWidth variant='outlined'>
           <InputLabel>Comment</InputLabel>
           <OutlinedInput
@@ -155,19 +142,29 @@ handleChangeAuthor(event, i) {
     for (var i=1; i < answersList.comments.length; i++) {
         answer = answersList.comments[i];
         answers[i] = (
-          <Grid container direction="column" spacing={0} style={{padding: 15,
-            margin: 5, marginBottom: 10, overflow: 'hidden', backgroundColor: '#f6f6f6'}} >
+          <Grid container direction="column" spacing={0} >
           <Grid item container spacing={0} justify="space-between">
+            <Grid item xs={1} >
 
-            <Grid item xs={12} >
+            </Grid>
+            <Grid item xs={11} >
+              <Divider style={{marginTop:10, marginBottom:10}}/>
               {AuthorPanel(answer.author)}
             </Grid>
 
+            <Grid item xs={1}>
 
-            <Grid item xs={12}>
+            </Grid>
+            <Grid item xs={11}>
               <Typography variant="body2">
                   {answer.text}
               </Typography>
+            <IconButton aria-label={"comment_"+i} id={"comment_"+i} onClick={()=> {this.handleShowSubAnswerText(a_id)}}>
+              <ChatBubbleIcon fontSize="small" style={{width:15, height:15}}/>
+            </IconButton>
+            <IconButton aria-label="upvote" size="small">
+              <ThumbUpAltIcon fontSize="inherit" />
+            </IconButton>
             </Grid>
           </Grid>
           </Grid>
@@ -187,37 +184,35 @@ AnswerCard(answersList) {
           <Paper style={{padding: 15,
     margin: 10, overflow: "scroll"}}>
           <Grid container direction="column" spacing={1}>
-            <Grid item container spacing={1} justify="space-between">
-              <Grid item xs={2} >
-                {AuthorPanel(answer.comments[0].author)}
-              </Grid>
-              <Grid item xs={9}>
-              </Grid>
+          <Grid item container spacing={1} justify="space-between">
+            <Grid item xs={2}>
+              {AuthorPanel(answer.comments[0].author)}
+            </Grid>
+            <Grid item xs={9}>
+            </Grid>
 
 
 
-              <Grid item xs={1} align="left" >
-                    {answer.accepted === true ? <Tooltip title="Accepted answer" placement="right" arrow>
-                <BeenhereIcon style={{color:'green'}}/>
-             </Tooltip> : <div/> }
+            <Grid item xs={1} align="left" >
+            {answer.accepted === true ? <Tooltip title="Accepted answer" placement="right" arrow>
+        <BeenhereIcon style={{color:'green'}}/>
+     </Tooltip> : <div/> }
+
+
            </Grid>
-
             <Grid item xs={12}>
               <Typography variant="body2">
                   {answer.comments[0].text}
                 </Typography>
             </Grid>
-
             <Grid item xs={12}>
-              <Button color="primary"  startIcon={<ChatBubbleIcon/>}  size="small" onClick={()=> {this.handleShowSubAnswerText(i)}}>Reply</Button>
+            <Button color="primary"  startIcon={<ChatBubbleIcon/>}  size="small" onClick={()=> {this.handleShowSubAnswerText(i)}}>Reply</Button>
             </Grid>
           </Grid>
           </Grid>
-
           {this.SubAnswers(answer, i)}
           {this.state.answer_visible[i]===1 ? this.TextInputVisible(i) : <div/> }
           </Paper>
-
         );
     }
     return answers;

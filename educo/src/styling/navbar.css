@@ -1,0 +1,71 @@
+button {
+  box-shadow: none !important;
+}
+
+.logo {
+  margin: 30px;
+  width: 90px;
+  height: 50px;
+}
+
+.navbar {
+  /* background: linear-gradient(to right, #ff5858, #f857a6); */
+  background: linear-gradient(to right, #7b6eff, #fd6d94);
+}
+
+.toggler,
+.toggler:focus {
+  outline: 0;
+  box-shadow: none !important;
+}
+.tag {
+  color: white;
+  text-transform: uppercase;
+}
+
+.tag:hover {
+  color: #f857a6;
+  text-decoration: none;
+}
+
+.nav-item {
+  margin: 20px;
+  font-weight: 700;
+  font-size: 16px;
+}
+
+button,
+button:focus {
+  outline: 0;
+  box-shadow: none !important;
+}
+
+.logout {
+  height: 40px;
+  color: white !important;
+  text-transform: uppercase;
+  text-decoration: none;
+  background: #f857a6;
+  border: 3px solid white !important;
+  display: inline-block;
+  transition: all 0.4s ease 0s;
+}
+
+#logout-hover:hover {
+  color: #ffffff !important;
+  background-color: #7b6eff;
+  border-color: #7b6eff !important;
+  transition: all 0.4s ease 0s;
+}
+
+.logout-open {
+  height: 40px;
+  color: white !important;
+  text-transform: uppercase;
+  text-decoration: none;
+  background: #f857a6;
+  border: 3px solid white !important;
+  display: inline-block;
+  transition: all 0.4s ease 0s;
+  margin: 20px;
+}
