@@ -12,7 +12,7 @@ Educo is building a community to support the EFTW program.
 Member | Email | Photo
 --- | --- | ---
 Isaiah Bush | itbush@stanford.edu | <img src="https://i.imgur.com/obCDLXb.jpg" alt="Isaiah Bush" width="157.5" height="157.5">
-John Chuter | jchuter@stanford.edu | <img src="https://imgur.com/Drzepet.jpg" alt="John Chuter" width="157.5" height="157.5"><!-- cat: https://imgur.com/0MXcoi9.jpg me:https://imgur.com/SnaySFC.jpg #me2:https://imgur.com/Drzepet.jpg -->
+John Chuter | jchuter@stanford.edu | <img src="https://imgur.com/s1Mai3m" alt="John Chuter" width="157.5" height="157.5">
 Austin Chow | archow@stanford.edu | <img src="https://imgur.com/sxBbwGg.jpg" alt="Austin Chow" width="157.5" height="157.5">
 
 # Team Skills Matrix:
