@@ -9,11 +9,6 @@ import SpotlightComboVid from './SpotlightPageTypes/SpotComboVid'
 import SpotlightVideo from './SpotlightPageTypes/SpotlightVideo'
 import SpotlightImageAndText from './SpotlightPageTypes/SpotlightImageAndText'
 
-// 263023085 // Flynn
-// https://vimeo.com/148751763 // Roll
-
-// import Nikola from "../../../images/tesla_profile.jpg"; // TODO from pull
-
 import {
   Grid,
   Box,
@@ -25,11 +20,25 @@ class EngineerProfileDashboard extends Component {
   constructor(props) {
     super(props);
 
-    this.onMonthClick = this.onMonthClick.bind(this)
-
+    const realMonthIndex = new Date().getMonth()
+    const monthMap = {
+      0 : "Jan",
+      1 : "Feb",
+      2 : "Mar",
+      3 : "Apr",
+      4 : "May",
+      5 : "Jun",
+      6 : "Jul",
+      7 : "Aug",
+      8 : "Sep",
+      9 : "Oct",
+      10 : "Nov",
+      11 : "Dec"
+    }
+    const realMonthKey = monthMap[realMonthIndex]
     this.state = {
       loading: false,
-      currMonth: "May",
+      currMonth: realMonthKey,
       spotlightDoc: {
         fullName: "loading",
         videoURL:"https://vimeo.com/148751763",
@@ -77,7 +86,6 @@ class EngineerProfileDashboard extends Component {
   render() {
     ReactGA.pageview("spotlight pageview");
 
-    // TODO: push loading outside of nav
     if (this.state.loading) {
       return (
         <Grid align="center" justify="center">
