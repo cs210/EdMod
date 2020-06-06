@@ -16,31 +16,36 @@ import blue from '@material-ui/core/colors/blue';
 import { Button } from 'reactstrap';
 
 class FormVidSpot3 extends Component {
+
+  defaultState = {
+    fullName: '',
+    month: 'Jan',
+    type:'video',
+    videoURL: ''
+  };
+
   constructor() {
     super();
-
-    this.state = {
-      fullName: 'John Smith',
-      month: 'Jan',
-      type:'video',
-      videoURL: 'https://vimeo.com/148751763'
-    };
+    this.state = this.defaultState;
   }
 
   resetForm = () => {
-    this.setState({
-      fullName: 'John Smith',
-      month: 'Jan',
-      type:'video',
-      videoURL: 'https://vimeo.com/148751763'
-    })
-    // alert("reset form!", null, 2);
+    this.setState(this.defaultState)
+  }
+
+  validateForm = () => {
+    return this.state.fullName != '' && this.state.videoURL != '';
   }
 
   onFormSubmit = () => {
+    if (!this.validateForm()) {
+      alert("Please enter both a name and a video URL")
+      return
+    }
+
     firebase.firestore().collection("spotlights").doc(this.state.month).set(this.state)
       .then(() => {
-        alert("Successfully updated spotlight!", null, 2);
+        alert("Successfully updated spotlight!", null, 2)
         this.resetForm()
       })
       .catch((error) => {
