@@ -52,8 +52,9 @@ const MakeList = (props) => {
      question = props.questionList[i];
      const search = props.filterText.toLowerCase();
      const title = question.data.title.toLowerCase();
+     const body = question.data.text.toLowerCase();
      date = formatDate(question.date);
-     if (search !== "" && title.indexOf(search) === -1) {
+     if (search !== "" && title.indexOf(search) === -1 && body.indexOf(search) === -1) {
        continue;
      }
 
