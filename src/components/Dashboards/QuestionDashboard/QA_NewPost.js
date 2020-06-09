@@ -188,6 +188,7 @@ const QANewPost = (props) => {
 
     <div className = "new-post">
       <form autoComplete="off">
+
         <Grid container spacing={3}>
           <Grid container item xs={3} justify="center"><span>Nickname:</span></Grid>
           <Grid item xs={8}>
@@ -205,7 +206,6 @@ const QANewPost = (props) => {
             <div className="err">{err}</div>
           </Grid>
 
-        <Grid container spacing={3}>
           <Grid container item xs={3} justify="center"><span>Summary:</span></Grid>
           <Grid item xs={8}>
           <TextField
@@ -263,7 +263,6 @@ const QANewPost = (props) => {
             <SubmitButton author={author} title={title} text={text} tags={tags} setNewPost={props.setNewPost} setErr={setErr} attachments = {attachments} q_id={props.q_id}/>
             </Grid>
 
-          </Grid>
           </Grid>
       </form>
     </div>

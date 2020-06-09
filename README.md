@@ -1,20 +1,19 @@
-Documentation: [Google Drive](https://drive.google.com/drive/u/0/folders/0APFTgQBenq1pUk9PVA)
+Documentation: [Wiki](https://github.com/cs210/EdMod/wiki)
+<!--- [Google Drive](https://drive.google.com/drive/u/0/folders/0APFTgQBenq1pUk9PVA) --->
 
-<<<<<<< HEAD
 # EDUCO
 
 <img src="https://i.imgur.com/oH1r8nv.jpg?1" alt="Educo" width="300" height="185">
 
-=======
+
 # EDUCO ![](https://github.com/cs210/EdMod/workflows/Deployment/badge.svg)
->>>>>>> cb35150a5826b2bda363b0503b2a6c79cdd19cb6
 Educo is building a community to support the EFTW program.
 
 # Team Members
 Member | Email | Photo
 --- | --- | ---
 Isaiah Bush | itbush@stanford.edu | <img src="https://i.imgur.com/obCDLXb.jpg" alt="Isaiah Bush" width="157.5" height="157.5">
-John Chuter | jchuter@stanford.edu | <img src="https://imgur.com/Drzepet.jpg" alt="John Chuter" width="157.5" height="157.5"><!-- cat: https://imgur.com/0MXcoi9.jpg me:https://imgur.com/SnaySFC.jpg #me2:https://imgur.com/Drzepet.jpg -->
+John Chuter | jchuter@stanford.edu | <img src="https://imgur.com/s1Mai3m.jpg" alt="John Chuter" width="157.5" height="157.5">
 Austin Chow | archow@stanford.edu | <img src="https://imgur.com/sxBbwGg.jpg" alt="Austin Chow" width="157.5" height="157.5">
 
 # Team Skills Matrix:

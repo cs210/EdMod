@@ -1,12 +1,15 @@
+// NOTE: this form contains a sometimes-bug, where sometimes the form doesn't submit
+// I'm tired of fiddling with these libraries, so see FormVidSpot3
+
 import React, { Component } from 'react';
 import firebase from 'firebase';
-import { render } from 'react-dom';
-// import Example from './Example';
+
 import { Button, Container, Form, FormGroup, Input, Label } from 'reactstrap';
 
 class FormVidSpot extends Component {
   constructor() {
     super();
+    this.resetForm = this.resetForm.bind(this);
     this.onFormSubmit = this.onFormSubmit.bind(this);
     this.state = {
       fullName: 'John Smith',
@@ -16,13 +19,25 @@ class FormVidSpot extends Component {
     };
   }
 
-  onFormSubmit() {
+  resetForm = () => {
+    this.setState({
+      fullName: 'John Smith',
+      month: 'Jan',
+      type:'video',
+      videoURL: 'https://vimeo.com/148751763'
+    })
+    alert("reset form!", null, 2);
+  }
+
+  onFormSubmit = () => {
     firebase.firestore().collection("spotlights").doc(this.state.month).set(this.state)
-      .then(function() {
+      .then(() => {
         alert("Document successfully written!", null, 2);
+        this.resetForm()
       })
-      .catch(function(error) {
+      .catch((error) => {
         alert("Error writing document" + error, null, 2)
+        this.resetForm()
       });
 
   }
@@ -66,7 +81,7 @@ class FormVidSpot extends Component {
             </Input>
           </FormGroup>
           <FormGroup>
-            <Label>Name:</Label>
+            <Label>Video URL:</Label>
             <Input
               type="text"
               name="videoURL"
