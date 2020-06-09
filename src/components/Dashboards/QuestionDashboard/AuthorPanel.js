@@ -43,9 +43,9 @@ export default function AuthorPanel(author){
   var EFTWBadgeSample = 'https://engineerfortheweek.fb.com/wp-content/uploads/2017/12/cropped-eftw-favicon.png'
   var sprintingBadge = 'https://static.thenounproject.com/png/168818-200.png'
   var badge;
-  if(author === 'austin'){
+  if(author !== ""){
     badge = (
-    <Tooltip title="EFTW Moderator" placement="right" arrow>
+    <Tooltip title="EFTW Expert" placement="right" arrow>
         <img src={EFTWBadgeSample} width='15'/>
     </Tooltip>
     )

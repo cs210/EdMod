@@ -188,7 +188,7 @@ const QuestionCard = (props) => {
                       <IconButton
                         aria-label="submit comment"
                         onClick={() =>
-                          props.submitComment(props.q_id, comment, setComment, props.setQuestion, props.question)
+                          props.submitComment(props.q_id, commentAuthor, comment, setComment, props.setQuestion, props.question)
                         }
                         color="primary"
                       >

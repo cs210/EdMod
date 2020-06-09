@@ -23,7 +23,7 @@ from '@material-ui/core';
 
 
 // TODO: ANSWER REFRESH PROBLEM: CLEANUP here (combine q_id and setQuestion -> props)
-const submitComment = (q_id, new_comment, setComment, setQuestion, question) => {
+const submitComment = (q_id, comment_author, new_comment, setComment, setQuestion, question) => {
 
   if (new_comment != "") {
     console.log("I am here adding a new new comment", new_comment);
@@ -34,7 +34,7 @@ const submitComment = (q_id, new_comment, setComment, setQuestion, question) => 
     .collection("comments")
     .add({
       comments:[
-      {author: "John C.",
+      {author: comment_author,
       text: new_comment
       }
       ],
