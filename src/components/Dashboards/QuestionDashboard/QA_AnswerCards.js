@@ -83,7 +83,7 @@ handleChangeAuthor(event, i) {
   }
 
   handleSubmit(event, i){
-    var answer_array = {author: this.state.answerInput[i], text: this.state.answerInput[i]}
+    var answer_array = {author: this.state.answerAuthor[i], text: this.state.answerInput[i]}
     console.log(this.state.q_id)
     if (answer_array.comment != ''){
       var firebaseRef = firebase
