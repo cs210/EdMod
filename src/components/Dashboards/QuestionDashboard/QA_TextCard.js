@@ -63,8 +63,12 @@ const submitLike = (q_id) => {
       .firestore()
       .collection("questions")
       .doc(q_id)
-      .update({"likes": increment });
-}
+      .update({"likes": increment })
+      .then((docRef) => {
+        window.location.reload(false);
+  })
+
+};
 
 
 
@@ -156,14 +160,14 @@ const QuestionCard = (props) => {
             <Grid item xs>
             { (comment==="") ? (<div/>) :
               (<TextField
-            
-            
+
+
           label="Display Name"
           id="outlined-size-small"
           defaultValue={(firebase.auth().currentUser) ? firebase.auth().currentUser.displayName.split(" ")[0] + " " + firebase.auth().currentUser.displayName.split(" ").slice(-1)[0][0] + "." : "anonymous"}
           size="small"
           onChange={(event) => setCommentAuther(event.target.value)}
-        />) 
+        />)
       }
               <FormControl
                 fullWidth
