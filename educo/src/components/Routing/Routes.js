@@ -19,6 +19,7 @@ const Routes = (props) => {
       {/* // <Route path="/progress" component={ProgressDashboard} /> */}
       <Route path="/engineers" component={EngineerProfileDashboard} />
       <Route path="/engineers/derpy" component={EngineerProfileDerpy} />
+      <Route path="/progressions" component={ProgressDashboard} />
     </Switch>
   );
 };
